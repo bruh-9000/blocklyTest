@@ -236,3 +236,13 @@ window.addEventListener("click", (event) => {
         popup.classList.remove("show");
     }
 });
+
+copyText.addEventListener("click", () => {
+  const text = document.getElementById('generatedCode').innerHTML
+    .replace(/<code>/g, "")
+    .replace(/<\/code>/g, "")
+    .replace(/<br>/g, "\n")
+    .trim();
+
+  navigator.clipboard.writeText(text)
+});

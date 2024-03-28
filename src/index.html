@@ -45,21 +45,10 @@
     <div id="outputPane">
       <pre id="generatedCode"><code></code></pre>
       <div id="output"></div>
-      <button onclick="copyToClipboard()" id="copyText">Copy Text</button>
+      <button id="copyText">Copy Text</button>
       <a href="https://moddio.github.io/script-editor/iframe.html?id=textscripteditormultiline--editor&viewMode=story" target="_blank">
         <button id="MLSE">MLSE</button>
       </a>    
-      <script>
-        function copyToClipboard() {
-          const text = document.getElementById('generatedCode').innerHTML
-            .replace(/<code>/g, "")
-            .replace(/<\/code>/g, "")
-            .replace(/<br>/g, "\n")
-            .trim();
-
-          navigator.clipboard.writeText(text)
-        }
-      </script>
     </div>
     <div id="blocklyDiv"></div>
     <div style="position: absolute; bottom: 10px; left: 10px;">
