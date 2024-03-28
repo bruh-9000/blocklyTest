@@ -299,7 +299,7 @@ forBlock['str2num'] = function (block, generator) {
 
 forBlock['sendchatmessagetoplayer'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
-  const message = generator.valueToCode(block, 'unittype', Order.NONE) || "''";
+  const message = generator.valueToCode(block, 'message', Order.NONE) || "''";
 
   // Generate the function call for this block.
   const code = `sendChatMessageToPlayer(${message}, ${player})\n`;
