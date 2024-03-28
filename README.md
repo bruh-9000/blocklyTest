@@ -1,6 +1,6 @@
 # moddBlockly
 
-Blockly implementation for moddScript.
+[Blockly](https://github.com/google/blockly) implementation for moddScript.
 
 # How to use
 
