@@ -246,3 +246,34 @@ copyText.addEventListener("click", () => {
 
   navigator.clipboard.writeText(text)
 });
+
+const newButton = document.querySelector('#newButton');
+const popup2 = document.querySelector('.popup2');
+const cancelButton = document.querySelector('#cancelPopup');
+const confirmButton = document.querySelector('#confirmPopup');
+
+newButton.addEventListener("click", () => {
+  const text = document.getElementById('generatedCode').innerHTML
+  console.log(text);
+
+  if (text != "<code></code>") {
+    popup2.classList.add("show");
+  } else {
+    ws.clear()
+  }
+});
+
+cancelButton.addEventListener("click", () => {
+  popup2.classList.remove("show");
+});
+
+confirmButton.addEventListener("click", () => {
+  popup2.classList.remove("show");
+  ws.clear()
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === popup2) {
+        popup2.classList.remove("show");
+    }
+});
