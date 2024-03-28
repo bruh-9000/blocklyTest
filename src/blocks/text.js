@@ -992,7 +992,7 @@ const number_comparison = {
     {
       "type": "input_value",
       "name": "val1",
-      "check": "Number"
+      "check": ["Number", "String"]
     },
     {
       "type": "field_dropdown",
@@ -1030,7 +1030,7 @@ const number_comparison = {
     {
       "type": "input_value",
       "name": "val2",
-      "check": "Number"
+      "check": ["Number", "String"]
     }
   ],
   "inputsInline": true,
