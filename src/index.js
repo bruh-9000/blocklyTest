@@ -89,6 +89,7 @@ load(ws);
 runCode();
 
 let saved;
+let newCreated;
 
 // Every time the workspace changes state, save the changes to storage.
 ws.addChangeListener((e) => {
@@ -113,18 +114,20 @@ ws.addChangeListener((e) => {
 ws.addChangeListener((e) => {
   if (e.isUiEvent || e.type == Blockly.Events.FINISHED_LOADING) return;
 
-  document.getElementById('saveStatus').innerText = "↺";
-  saved = false;
+  if (newCreated) {
+    newCreated = false;
+  } else {
+    document.getElementById('saveStatus').innerText = "↺";
+    saved = false;
+  }
 });
 
 saveButton.addEventListener("click", () => {
   const state = Blockly.serialization.workspaces.save(ws);
   const stateString = JSON.stringify(state);
 
-
   var filename = "moddBlockly.txt";
   var element = document.createElement('a');
-
 
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(stateString));
   element.setAttribute('download', filename);
@@ -132,7 +135,6 @@ saveButton.addEventListener("click", () => {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
-
 
   document.getElementById('saveStatus').innerText = "🖫";
   saved = true;
@@ -162,7 +164,6 @@ moddScriptButton.addEventListener("click", () => {
             .replace(/<br>/g, "\n")
             .trim();
 
-
   var filename = "moddScript.txt";
   var element = document.createElement('a');
 
@@ -182,7 +183,6 @@ document.addEventListener("DOMContentLoaded", function() {
       button.addEventListener("click", function() {
           // Close all dropdowns
           closeAllDropdowns();
-
 
           const dropdownContent = this.nextElementSibling;
           dropdownContent.style.display = "block";
@@ -272,14 +272,13 @@ const confirmButton = document.querySelector('#confirmPopup');
 newButton.addEventListener("click", () => {
   const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
 
-  console.log(Blockly.serialization.workspaces.save(ws))
-
-  if (length && saved == false) {
+  if (length || saved == false) {
     popup2.classList.add("show");
   } else {
-    ws.clear()
     saved = true;
     document.getElementById('saveStatus').innerText = "🖫";
+    newCreated = true;
+    ws.clear()
   }
 });
 
@@ -287,11 +286,11 @@ cancelButton.addEventListener("click", () => {
   popup2.classList.remove("show");
 });
 
-
 confirmButton.addEventListener("click", () => {
   popup2.classList.remove("show");
   saved = true;
   document.getElementById('saveStatus').innerText = "🖫";
+  newCreated = true;
   ws.clear()
 });
 
@@ -304,13 +303,11 @@ window.addEventListener("click", (event) => {
 document.getElementById('saveStatus').addEventListener('mouseover', function() {
   var tooltipText = "";
 
-
   if (saved) {
     tooltipText = "Project has no new changes";
   } else {
     tooltipText = "Project is unsaved";
   }
-
 
   var tooltip = document.getElementById('statusTooltip');
   tooltip.innerText = tooltipText;

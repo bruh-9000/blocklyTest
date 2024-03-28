@@ -274,8 +274,6 @@ forBlock['createunitatposition'] = function (block, generator) {
 forBlock['getplayername'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
 
-  console.log(player);
-
   // Generate the function call for this block.
   const code = `getPlayerName(${player})`;
   return [code, generator.ORDER_NONE];
