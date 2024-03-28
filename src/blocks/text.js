@@ -811,7 +811,7 @@ const centerOfRegion = {
       "check": "Region"
     }
   ],
-  "colour": 290,
+  "colour": 230,
   "output": "Pos",
   "tooltip": "",
   "helpUrl": ""

@@ -265,6 +265,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'getentityposition',
         },
+        {
+          'kind': 'block',
+          'type': 'centerofregion',
+        },
       ]
     },
     {
@@ -381,10 +385,6 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'getentiremapregion',
-        },
-        {
-          'kind': 'block',
-          'type': 'centerofregion',
         },
         {
           'kind': 'block',
