@@ -272,7 +272,7 @@ const confirmButton = document.querySelector('#confirmPopup');
 newButton.addEventListener("click", () => {
   const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
 
-  if (length || saved == false) {
+  if (!length || saved == false) {
     popup2.classList.add("show");
   } else {
     saved = true;
