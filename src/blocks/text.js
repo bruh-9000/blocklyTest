@@ -585,7 +585,7 @@ const continue1 = {
 
 const decreaseVariableByNumber = {
   "type": "decreasevariablebynumber",
-  "message0": "decrease variable by number %1 %2 %3",
+  "message0": "decrease variable %1 %2 by %3",
   "args0": [
     {
       "type": "input_value",
@@ -610,7 +610,7 @@ const decreaseVariableByNumber = {
 
 const increaseVariableByNumber = {
   "type": "increasevariablebynumber",
-  "message0": "increase variable by number %1 %2 %3",
+  "message0": "increase variable %1 %2 by %3",
   "args0": [
     {
       "type": "input_value",
