@@ -44,23 +44,6 @@ pre, code {
     background-color: #edf0f2;
 }
 
-#copyText, #MLSE {
-    position: absolute;
-    width: 190px;
-    top: calc(45% + 75px);
-    color: #ecf0f1;
-    background-color: #4f4d4d;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: opacity 0.3s ease; /* Add a transition for opacity */
-}
-
-#MLSE {
-    left: 227px;
-}
-
 #topBar {
     background-color: #333;
     height: 50px;
