@@ -90,6 +90,7 @@ runCode();
 
 let saved;
 let newCreated;
+let originalStatus = Blockly.serialization.workspaces.save(ws);
 
 // Every time the workspace changes state, save the changes to storage.
 ws.addChangeListener((e) => {
@@ -119,6 +120,11 @@ ws.addChangeListener((e) => {
   } else {
     document.getElementById('saveStatus').innerText = "↺";
     saved = false;
+  }
+
+  if (originalStatus.blocks == Blockly.serialization.workspaces.save(ws).blocks) {
+    document.getElementById('saveStatus').innerText = "🖫";
+    saved = true;
   }
 });
 
