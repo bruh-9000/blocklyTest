@@ -424,16 +424,16 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById('outputCheckbox').addEventListener('change', function(event) {
   if (event.target.checked) {
     outputPane.style.display = "flex";
-    pageContainer.style.width = "100%";
+    Blockly.svgResize(ws);
   } else {
     outputPane.style.display = "none";
-    pageContainer.style.width = "100%";
+    Blockly.svgResize(ws);
   }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
   outputPane.style.display = "none";
-  pageContainer.style.width = "100%";
+  Blockly.svgResize(ws);
 });
 
 copyButton.addEventListener("click", () => {
