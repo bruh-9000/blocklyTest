@@ -12,6 +12,7 @@ import {save, load} from './serialization';
 import {toolbox} from './toolbox';
 import './index.css';
 import '@blockly/toolbox-search';
+import DarkTheme from '@blockly/theme-dark';
 
 // Register the blocks and generator with Blockly
 Blockly.common.defineBlocks(blocks);
@@ -390,5 +391,22 @@ gameTimer.addEventListener("click", () => {
   } else {
     saved = false;
     document.getElementById('saveStatus').innerText = "↺";
+  }
+});
+
+document.getElementById('darkModeCheckbox').addEventListener('change', function(event) {
+  if (event.target.checked) {
+    ws.setTheme(DarkTheme);
+  } else {
+    
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    ws.setTheme(DarkTheme);
+  } else {
+    
   }
 });

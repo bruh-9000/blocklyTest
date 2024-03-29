@@ -24,6 +24,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@blockly/theme-dark": "^6.0.5",
     "@blockly/toolbox-search": "^1.2.6",
     "blockly": "^10.0.0"
   }
