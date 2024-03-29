@@ -535,3 +535,34 @@ forBlock['lastchatmessagesent'] = function (block, generator) {
   const code = `lastchatmessagesent(${player})`;
   return [code, generator.ORDER_NONE];
 };
+
+forBlock['forallunits'] = function (block, generator) {
+  const group = generator.valueToCode(block, 'group', Order.NONE) || "";
+  const code1 = generator.statementToCode(block, 'code') || "";
+  
+  // Generate the function call for this block.
+  const code = `forAllUnits (${group}) {\n${code1}\n}`;
+  return code;
+};
+
+forBlock['allunits'] = function (block, generator) {
+  // Generate the function call for this block.
+  const code = `allUnits()`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['allunitsinregion'] = function (block, generator) {
+  const region = generator.valueToCode(block, 'region', Order.NONE) || "";
+
+  // Generate the function call for this block.
+  const code = `allUnitsInRegion(${region})`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['allunitsownedbyplayer'] = function (block, generator) {
+  const player = generator.valueToCode(block, 'player', Order.NONE) || "";
+
+  // Generate the function call for this block.
+  const code = `allUnitsOwnedByPlayer(${player})`;
+  return [code, generator.ORDER_NONE];
+};

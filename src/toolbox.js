@@ -292,6 +292,22 @@ export const toolbox = {
           'kind': 'block',
           'type': 'continue',
         },   
+        {
+          'kind': 'block',
+          'type': 'forallunits',
+        },
+        {
+          'kind': 'block',
+          'type': 'allunits',
+        },
+        {
+          'kind': 'block',
+          'type': 'allunitsinregion',
+        },
+        {
+          'kind': 'block',
+          'type': 'allunitsownedbyplayer',
+        },
       ]
     },
     {

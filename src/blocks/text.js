@@ -1079,6 +1079,69 @@ const lastChatMessageSent = {
   "helpUrl": ""
 };
 
+const forAllUnits = {
+  "type": "forallunits",
+  "message0": "for all units in unit group %1 do %2",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "group",
+      "check": "Unit Group"
+    },
+    {
+      "type": "input_statement",
+      "name": "code"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 230,
+  "previousStatement": null,
+  "nextStatement": null,
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const allUnits = {
+  "type": "allunits",
+  "message0": "all units in game",
+  "output": "Unit Group",
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const allUnitsInRegion = {
+  "type": "allunitsinregion",
+  "message0": "all units in region %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "region",
+      "check": "Region"
+    }
+  ],
+  "output": "Unit Group",
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const allUnitsOwnedByPlayer = {
+  "type": "allunitsownedbyplayer",
+  "message0": "all units owned by player %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "player",
+      "check": "Player"
+    }
+  ],
+  "output": "Unit Group",
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 // Colors per category
 // 65 for unit
 // 120 for trigger
@@ -1097,4 +1160,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   unitStartsUsingAnItem, unitAttributeBecomesZero, unitUsesItem, unitTouchesWall, playerSendsChatMessage, destroyEntity, lastCreatedUnit, playerCameraTrackUnit, createUnitAtPosition,
   playerJoinsGame, playerLeavesGame, getPlayerName, str2num, num2str, sendChatMessageToPlayer, break1, continue1, decreaseVariableByNumber, increaseVariableByNumber, setVariable, triggeringItem,
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
-  setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent]);
+  setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer]);
