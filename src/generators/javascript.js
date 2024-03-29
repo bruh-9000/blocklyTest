@@ -372,6 +372,23 @@ forBlock['repeat'] = function (block, generator) {
   return code;
 };
 
+forBlock['repeatwithdelay'] = function (block, generator) {
+  const times = generator.valueToCode(block, 'times', Order.NONE) || "";
+  const delay = generator.valueToCode(block, 'delay', Order.NONE) || "";
+  const code1 = generator.statementToCode(block, 'code') || "";
+  
+  // Generate the function call for this block.
+  let code;
+
+  if (code1) {
+    code = `repeatWithDelay (${times}, ${delay})\n${code1}{\n`;
+  } else {
+    code = `repeatWithDelay (${times}, ${delay})\n\n{\n`;
+  }
+
+  return code;
+};
+
 forBlock['while'] = function (block, generator) {
   const bool = generator.valueToCode(block, 'bool', Order.NONE) || "";
   const code1 = generator.statementToCode(block, 'code') || "";

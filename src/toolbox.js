@@ -282,6 +282,10 @@ export const toolbox = {
         },
         {
           'kind': 'block',
+          'type': 'repeatwithdelay',
+        },
+        {
+          'kind': 'block',
           'type': 'while',
         },
         {

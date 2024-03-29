@@ -693,6 +693,38 @@ const repeat = {
   "helpUrl": ""
 };
 
+const repeatWithDelay = {
+  "type": "repeatwithdelay",
+  "message0": "repeat %1 times with delay %2 %3 in ms %4 %5",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "times",
+      "check": "Number"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "delay",
+      "check": "Number"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "code"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 const while1 = {
   "type": "while",
   "message0": "while %1 %2",
@@ -1210,4 +1242,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   playerJoinsGame, playerLeavesGame, getPlayerName, str2num, num2str, sendChatMessageToPlayer, break1, continue1, decreaseVariableByNumber, increaseVariableByNumber, setVariable, triggeringItem,
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
-  forAllPlayers, humanPlayers, botPlayers, selectedPlayer]);
+  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay]);
