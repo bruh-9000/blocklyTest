@@ -259,3 +259,22 @@ pre, code {
     border-radius: 5px;
     z-index: 9999; /* Ensure it's above other elements */
 }
+
+#copyButton {
+    position: absolute;
+    top: 470px; /* Adjust vertical position as needed */
+    left: 362px; /* Adjust horizontal position as needed */
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    padding: 5px; /* Padding for button */
+    color: #333; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    z-index: 1; /* Ensure it's above other content */
+}
+
+#copyButton::before {
+    content: "\1F4CB"; /* Unicode character for clipboard */
+    font-size: 35px; /* Adjust size */
+    margin-right: 5px; /* Margin between icon and text */
+}

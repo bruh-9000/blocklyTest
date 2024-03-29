@@ -398,9 +398,11 @@ document.getElementById('darkModeCheckbox').addEventListener('change', function(
   if (event.target.checked) {
     ws.setTheme(DarkTheme);
     generatedCode.style.backgroundColor = "#42474f";
+    generatedCode.style.color = "white";
     pageContainer.style.backgroundColor = "#1d1d1f";
   } else {
     generatedCode.style.backgroundColor = "#c3c8db";
+    generatedCode.style.color = "black";
     pageContainer.style.backgroundColor = "#edf0f2";
   }
 });
@@ -408,10 +410,13 @@ document.getElementById('darkModeCheckbox').addEventListener('change', function(
 document.addEventListener("DOMContentLoaded", function() {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ws.setTheme(DarkTheme);
+    darkModeCheckbox.checked = true;
     generatedCode.style.backgroundColor = "#42474f";
+    generatedCode.style.color = "white";
     pageContainer.style.backgroundColor = "#1d1d1f";
   } else {
     generatedCode.style.backgroundColor = "#c3c8db";
+    generatedCode.style.color = "black";
     pageContainer.style.backgroundColor = "#edf0f2";
   }
 });
@@ -429,4 +434,15 @@ document.getElementById('outputCheckbox').addEventListener('change', function(ev
 document.addEventListener("DOMContentLoaded", function() {
   outputPane.style.display = "none";
   pageContainer.style.width = "100%";
+});
+
+copyButton.addEventListener("click", () => {
+  const text = document.getElementById('generatedCode').innerHTML
+    .replace(/<code>/g, "")
+    .replace(/<\/code>/g, "")
+    .replace(/<br>/g, "\n")
+    .trim();
+
+
+  navigator.clipboard.writeText(text)
 });
