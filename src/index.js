@@ -436,6 +436,7 @@ document.getElementById('outputCheckbox').addEventListener('change', function(ev
 document.addEventListener("DOMContentLoaded", function() {
   outputPane.style.display = "none";
   Blockly.svgResize(ws);
+  ws.getFlyout().setAutoClose(false);
 });
 
 copyButton.addEventListener("click", () => {
