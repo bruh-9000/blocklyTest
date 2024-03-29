@@ -120,8 +120,10 @@ ws.addChangeListener((e) => {
   if (newCreated) {
     newCreated = false;
   } else {
-    document.getElementById('saveStatus').innerText = "↺";
-    saved = false;
+    if (e.type == "move") {
+      document.getElementById('saveStatus').innerText = "↺";
+      saved = false;
+    }
   }
 
   if (originalStatus.blocks == Blockly.serialization.workspaces.save(ws).blocks) {
