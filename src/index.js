@@ -46,6 +46,14 @@ let ws = Blockly.inject(
     disable: false,
     collapse: false,
     comments: false,
+    zoom:
+         {controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          pinch: true},
     theme: {
       "categoryStyles" : {
          "units_category": {
