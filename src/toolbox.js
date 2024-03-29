@@ -308,6 +308,18 @@ export const toolbox = {
           'kind': 'block',
           'type': 'allunitsownedbyplayer',
         },
+        {
+          'kind': 'block',
+          'type': 'forallplayers',
+        },
+        {
+          'kind': 'block',
+          'type': 'humanplayers',
+        },
+        {
+          'kind': 'block',
+          'type': 'botplayers',
+        },
       ]
     },
     {
@@ -432,6 +444,10 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'triggeringplayer',
+        },
+        {
+          'kind': 'block',
+          'type': 'selectedplayer',
         },
       ]
     },

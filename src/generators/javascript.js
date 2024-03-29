@@ -541,7 +541,7 @@ forBlock['forallunits'] = function (block, generator) {
   const code1 = generator.statementToCode(block, 'code') || "";
   
   // Generate the function call for this block.
-  const code = `forAllUnits (${group}) {\n${code1}\n}`;
+  const code = `forAllUnits (${group}) {\n${code1}}\n`;
   return code;
 };
 
@@ -564,5 +564,32 @@ forBlock['allunitsownedbyplayer'] = function (block, generator) {
 
   // Generate the function call for this block.
   const code = `allUnitsOwnedByPlayer(${player})`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['forallplayers'] = function (block, generator) {
+  const group = generator.valueToCode(block, 'group', Order.NONE) || "";
+  const code1 = generator.statementToCode(block, 'code') || "";
+  
+  // Generate the function call for this block.
+  const code = `forAllPlayers (${group}) {\n${code1}}\n`;
+  return code;
+};
+
+forBlock['humanplayers'] = function (block, generator) {
+  // Generate the function call for this block.
+  const code = `humanPlayers()`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['botplayers'] = function (block, generator) {
+  // Generate the function call for this block.
+  const code = `botPlayers()`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['selectedplayer'] = function (block, generator) {
+  // Generate the function call for this block.
+  const code = `selectedPlayer()`;
   return [code, generator.ORDER_NONE];
 };
