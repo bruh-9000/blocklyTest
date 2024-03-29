@@ -91,6 +91,7 @@ runCode();
 let saved = true;
 let newCreated;
 let originalStatus = Blockly.serialization.workspaces.save(ws);
+let replacingWith;
 
 // Every time the workspace changes state, save the changes to storage.
 ws.addChangeListener((e) => {
@@ -210,26 +211,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-playerJoinsGame.addEventListener("click", () => {
-  let fileContent = JSON.parse(`{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"triggers\",\"id\":\"sLORV*}FPc=_GBvkxM5H\",\"x\":0,\"y\":0,\"next\":{\"block\":{\"type\":\"playerjoinsgame\",\"id\":\"IO:82aWq^oxNcP|z,$dO\"}}},{\"type\":\"script\",\"id\":\"42xFuxvg#uGKrcUxH0IM\",\"x\":0,\"y\":152,\"next\":{\"block\":{\"type\":\"sendchatmessage\",\"id\":\"zy~MRC2MtAF,q20UgS9\`\",\"inputs\":{\"message\":{\"shadow\":{\"type\":\"text\",\"id\":\"m)Bvl917,+vgB+M)(@N+\",\"fields\":{\"TEXT\":\"Hello world!\"}},\"block\":{\"type\":\"join\",\"id\":\"XFOIha[*)/F=o=m:MpXT\",\"inputs\":{\"text1\":{\"block\":{\"type\":\"getplayername\",\"id\":\"Yq-{2sAkXkxbM+9Xh/Xh\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"4f.V4f*UT/WGh}UB9Un)\"}}}}},\"text2\":{\"block\":{\"type\":\"string\",\"id\":\"|?t/fo\`Y)TMYfk~*:;@u\",\"fields\":{\"text\":\" has joined the game!\"}}}}}}},\"next\":{\"block\":{\"type\":\"createunitatposition\",\"id\":\"]U-*%vl,@Cdy@9z,ZG?_\",\"inputs\":{\"unittype\":{\"block\":{\"type\":\"string\",\"id\":\"/e[Ne5ZB10uU9D^bqX=D\",\"fields\":{\"text\":\"Homie\"}}},\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"tU#UJBE+x@T_5W3aB]4G\"}},\"pos\":{\"block\":{\"type\":\"pos\",\"id\":\",1-R9PH[Tq8d0Eb=X8Bj\",\"inputs\":{\"x\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"W4piXAZk_!_k/6!joD)+\",\"fields\":{\"NUM\":64}}},\"y\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"O=t2^6)Zs-G+#Ji{6~hE\",\"fields\":{\"NUM\":64}}}}}},\"angle\":{\"block\":{\"type\":\"math_number\",\"id\":\"Z)qg%J@^O5M2VJ$ICcP9\",\"fields\":{\"NUM\":123}}}},\"next\":{\"block\":{\"type\":\"playercameratrackunit\",\"id\":\"Y0;pnV7cfstg#^n.2jqC\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"aW+(KcI9E3y8j:555vJl\"}},\"unit\":{\"block\":{\"type\":\"lastcreatedunit\",\"id\":\"ls~XiX4^Sm+DLr:szB}$\"}}}}}}}}}}]}}  `);
-  Blockly.serialization.workspaces.load(fileContent, ws);
-});
-
-playerLeavesGame.addEventListener("click", () => {
-  let fileContent = JSON.parse(`{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"triggers\",\"id\":\"sLORV*}FPc=_GBvkxM5H\",\"x\":0,\"y\":0,\"next\":{\"block\":{\"type\":\"playerleavesgame\",\"id\":\"O=8-[GL:n:[8j8eE1IqO\"}}},{\"type\":\"script\",\"id\":\"42xFuxvg#uGKrcUxH0IM\",\"x\":0,\"y\":152,\"next\":{\"block\":{\"type\":\"sendchatmessage\",\"id\":\"zy~MRC2MtAF,q20UgS9\`\",\"inputs\":{\"message\":{\"shadow\":{\"type\":\"text\",\"id\":\"m)Bvl917,+vgB+M)(@N+\",\"fields\":{\"TEXT\":\"Hello world!\"}},\"block\":{\"type\":\"join\",\"id\":\"XFOIha[*)/F=o=m:MpXT\",\"inputs\":{\"text1\":{\"block\":{\"type\":\"getplayername\",\"id\":\"Yq-{2sAkXkxbM+9Xh/Xh\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"4f.V4f*UT/WGh}UB9Un)\"}}}}},\"text2\":{\"block\":{\"type\":\"string\",\"id\":\"N,#M$RlSnsB2?C54ltsS\",\"fields\":{\"text\":\" has left the game!\"}}}}}}},\"next\":{\"block\":{\"type\":\"destroyentity\",\"id\":\"#nXn8nDT|7e.Tr8TnK|c\",\"inputs\":{\"entity\":{\"block\":{\"type\":\"getplayerselectedunit\",\"id\":\"luoDlH!VDZ9|)^\`t|{f4\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"zasKE$B,Ie/_PWL{}}1#\"}}}}}}}}}}}]}}  `);
-  Blockly.serialization.workspaces.load(fileContent, ws);
-});
-
-slashCommand.addEventListener("click", () => {
-  let fileContent = JSON.parse(`{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"triggers\",\"id\":\"sLORV*}FPc=_GBvkxM5H\",\"x\":0,\"y\":0,\"next\":{\"block\":{\"type\":\"playerSendsChatMessage\",\"id\":\"uZNZ#T4^aW34mU}-iGSH\"}}},{\"type\":\"script\",\"id\":\"42xFuxvg#uGKrcUxH0IM\",\"x\":0,\"y\":152,\"next\":{\"block\":{\"type\":\"ifelse\",\"id\":\"h89PVVMcOV7;3~mbt\`$B\",\"inputs\":{\"check\":{\"block\":{\"type\":\"comparison\",\"id\":\"z%#q1PkVt[ooF{$iw@X{\",\"fields\":{\"value\":\"==\"},\"inputs\":{\"val1\":{\"block\":{\"type\":\"lastchatmessagesent\",\"id\":\"pc257H{HOnY2_yy$*S6;\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"\`p:?8JT51O|_.-E86tjt\"}}}}},\"val2\":{\"block\":{\"type\":\"string\",\"id\":\"^}.!c#)g%n:a$Q]G:k%E\",\"fields\":{\"text\":\"/spawn\"}}}}}},\"do1\":{\"block\":{\"type\":\"moveentity\",\"id\":\"w{]ey%tWg|9_~;7ff56r\",\"inputs\":{\"entity\":{\"block\":{\"type\":\"getplayerselectedunit\",\"id\":\"luoDlH!VDZ9|)^\`t|{f4\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"zasKE$B,Ie/_PWL{}}1#\"}}}}},\"pos\":{\"block\":{\"type\":\"pos\",\"id\":\"%-~X(mc#QF+z+[liadI6\",\"inputs\":{\"x\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"tVZ[J?wO\`]#k{/LPL;w^\",\"fields\":{\"NUM\":64}}},\"y\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"8;0$asP~l*2E*!X^GDqq\",\"fields\":{\"NUM\":64}}}}}}}}}}}}}]}}  `);
-  Blockly.serialization.workspaces.load(fileContent, ws);
-});
-
-gameTimer.addEventListener("click", () => {
-  let fileContent = JSON.parse('{"blocks":{"languageVersion":0,"blocks":[{"type":"script","id":"wvj9vUS95,Rla$iSoJm-","x":55,"y":43,"next":{"block":{"type":"decreasevariablebynumber","id":"1jRfIB](%yiDKQu]1b(R","inputs":{"var":{"shadow":{"type":"string","id":"zHsI/8u5Kaq[LYPeZo`p","fields":{"text":"Timer"}}},"num":{"shadow":{"type":"math_number","id":"vf%bVUkw@k0m9XW:Z,Q.","fields":{"NUM":1}}}},"next":{"block":{"type":"ifelse","id":"RtD}iVINxo/Q+t{}ozGr","inputs":{"check":{"block":{"type":"number_comparison","id":"g$P+/8h:`AHFUwx#3pF7","fields":{"value":"=="},"inputs":{"val1":{"block":{"type":"string","id":"AS9J;O9+vUm9n,e7bHj*","fields":{"text":"Timer"}}},"val2":{"block":{"type":"math_number","id":"]L1J+A{)-7v*#~UOC@x^","fields":{"NUM":0}}}}}},"do1":{"block":{"type":"ifelse","id":"Q)dV%a=6s_L.fLJ(~Gj^","inputs":{"check":{"block":{"type":"comparison","id":"l3/46CRp1zd=kTWGMf$/","fields":{"value":"=="},"inputs":{"val1":{"block":{"type":"string","id":"kIqU.Vfl*7t[-e+NiBd)","fields":{"text":"State"}}},"val2":{"block":{"type":"string","id":"}PDarK_$^oZVUfWn#$.o","fields":{"text":"Playing"}}}}}},"do1":{"block":{"type":"setvariable","id":"jjG]:W^!=8?ziT^PDM[@","inputs":{"var":{"shadow":{"type":"string","id":"2O(eaU?jP*?Z//V?:)ni","fields":{"text":"State"}}},"value":{"block":{"type":"string","id":"_6WkWyIL]DF~~VEWgPNS","fields":{"text":"Starting"}}}},"next":{"block":{"type":"setvariable","id":";a@MdtA]+({Eq2|@sIm+","inputs":{"var":{"shadow":{"type":"string","id":"TkJh1*S}V;l);JSFZhy-","fields":{"text":"Timer"}}},"value":{"block":{"type":"math_number","id":"MoCeIe/#(xx:9+ds~/A*","fields":{"NUM":15}}}},"next":{"block":{"type":"sendchatmessage","id":"6zUvTbi$`)e41QQ!d}l}","inputs":{"message":{"shadow":{"type":"string","id":"jX1Gu{-wxYghF--LC)ev","fields":{"text":"Game is starting soon!"}}}}}}}}}},"else1":{"block":{"type":"setvariable","id":"uWNvQ)XYhT*u/;Y|F_ha","inputs":{"var":{"shadow":{"type":"string","id":"5Zuh_ce})_6=[*U2xG0U","fields":{"text":"State"}}},"value":{"block":{"type":"string","id":"zru==Z.,ZzG,Xh0Bo1jv","fields":{"text":"Playing"}}}},"next":{"block":{"type":"setvariable","id":"@|7%kb_C4Rvge9JGphVd","inputs":{"var":{"shadow":{"type":"string","id":"mz79F/b#npj)L`;Cug+B","fields":{"text":"Timer"}}},"value":{"block":{"type":"math_number","id":"{(^(4Wi,8CG9XEEk!=`X","fields":{"NUM":60}}}},"next":{"block":{"type":"sendchatmessage","id":"1XeERfU7+d5m]M5PBSff","inputs":{"message":{"shadow":{"type":"string","id":"k@W8|L;CB,2jw9UrOeEL","fields":{"text":"Game has started!"}}}}}}}}}}}}}}}}}}},{"type":"triggers","id":"X[0eLTMR4.CNO;U!4[ea","x":55,"y":-126,"next":{"block":{"type":"secondtick","id":",-MFx.Ut6FamRKc-XM2w"}}}]}}');
-  Blockly.serialization.workspaces.load(fileContent, ws);
-});
-
 undoButton.addEventListener("click", () => {
   ws.undo(false);
 });
@@ -283,6 +264,8 @@ const confirmButton = document.querySelector('#confirmPopup');
 newButton.addEventListener("click", () => {
   const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
 
+  replacingWith = "new";
+
   if (!length || saved == false) {
     popup2.classList.add("show");
   } else {
@@ -299,10 +282,27 @@ cancelButton.addEventListener("click", () => {
 
 confirmButton.addEventListener("click", () => {
   popup2.classList.remove("show");
-  saved = true;
-  document.getElementById('saveStatus').innerText = "🖫";
-  newCreated = true;
-  ws.clear()
+
+  let fileContent;
+
+  if (replacingWith == "new") {
+    saved = true;
+    document.getElementById('saveStatus').innerText = "🖫";
+    newCreated = true;
+    ws.clear()
+  } else if (replacingWith == "playerJoinsGame") {
+    fileContent = JSON.parse(`{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"triggers\",\"id\":\"sLORV*}FPc=_GBvkxM5H\",\"x\":0,\"y\":0,\"next\":{\"block\":{\"type\":\"playerjoinsgame\",\"id\":\"IO:82aWq^oxNcP|z,$dO\"}}},{\"type\":\"script\",\"id\":\"42xFuxvg#uGKrcUxH0IM\",\"x\":0,\"y\":152,\"next\":{\"block\":{\"type\":\"sendchatmessage\",\"id\":\"zy~MRC2MtAF,q20UgS9\`\",\"inputs\":{\"message\":{\"shadow\":{\"type\":\"text\",\"id\":\"m)Bvl917,+vgB+M)(@N+\",\"fields\":{\"TEXT\":\"Hello world!\"}},\"block\":{\"type\":\"join\",\"id\":\"XFOIha[*)/F=o=m:MpXT\",\"inputs\":{\"text1\":{\"block\":{\"type\":\"getplayername\",\"id\":\"Yq-{2sAkXkxbM+9Xh/Xh\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"4f.V4f*UT/WGh}UB9Un)\"}}}}},\"text2\":{\"block\":{\"type\":\"string\",\"id\":\"|?t/fo\`Y)TMYfk~*:;@u\",\"fields\":{\"text\":\" has joined the game!\"}}}}}}},\"next\":{\"block\":{\"type\":\"createunitatposition\",\"id\":\"]U-*%vl,@Cdy@9z,ZG?_\",\"inputs\":{\"unittype\":{\"block\":{\"type\":\"string\",\"id\":\"/e[Ne5ZB10uU9D^bqX=D\",\"fields\":{\"text\":\"Homie\"}}},\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"tU#UJBE+x@T_5W3aB]4G\"}},\"pos\":{\"block\":{\"type\":\"pos\",\"id\":\",1-R9PH[Tq8d0Eb=X8Bj\",\"inputs\":{\"x\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"W4piXAZk_!_k/6!joD)+\",\"fields\":{\"NUM\":64}}},\"y\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"O=t2^6)Zs-G+#Ji{6~hE\",\"fields\":{\"NUM\":64}}}}}},\"angle\":{\"block\":{\"type\":\"math_number\",\"id\":\"Z)qg%J@^O5M2VJ$ICcP9\",\"fields\":{\"NUM\":123}}}},\"next\":{\"block\":{\"type\":\"playercameratrackunit\",\"id\":\"Y0;pnV7cfstg#^n.2jqC\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"aW+(KcI9E3y8j:555vJl\"}},\"unit\":{\"block\":{\"type\":\"lastcreatedunit\",\"id\":\"ls~XiX4^Sm+DLr:szB}$\"}}}}}}}}}}]}}  `);
+  } else if (replacingWith == "playerLeavesGame") {
+    fileContent = JSON.parse(`{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"triggers\",\"id\":\"sLORV*}FPc=_GBvkxM5H\",\"x\":0,\"y\":0,\"next\":{\"block\":{\"type\":\"playerleavesgame\",\"id\":\"O=8-[GL:n:[8j8eE1IqO\"}}},{\"type\":\"script\",\"id\":\"42xFuxvg#uGKrcUxH0IM\",\"x\":0,\"y\":152,\"next\":{\"block\":{\"type\":\"sendchatmessage\",\"id\":\"zy~MRC2MtAF,q20UgS9\`\",\"inputs\":{\"message\":{\"shadow\":{\"type\":\"text\",\"id\":\"m)Bvl917,+vgB+M)(@N+\",\"fields\":{\"TEXT\":\"Hello world!\"}},\"block\":{\"type\":\"join\",\"id\":\"XFOIha[*)/F=o=m:MpXT\",\"inputs\":{\"text1\":{\"block\":{\"type\":\"getplayername\",\"id\":\"Yq-{2sAkXkxbM+9Xh/Xh\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"4f.V4f*UT/WGh}UB9Un)\"}}}}},\"text2\":{\"block\":{\"type\":\"string\",\"id\":\"N,#M$RlSnsB2?C54ltsS\",\"fields\":{\"text\":\" has left the game!\"}}}}}}},\"next\":{\"block\":{\"type\":\"destroyentity\",\"id\":\"#nXn8nDT|7e.Tr8TnK|c\",\"inputs\":{\"entity\":{\"block\":{\"type\":\"getplayerselectedunit\",\"id\":\"luoDlH!VDZ9|)^\`t|{f4\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"zasKE$B,Ie/_PWL{}}1#\"}}}}}}}}}}}]}}  `);
+  } else if (replacingWith == "slashCommand") {
+    fileContent = JSON.parse(`{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"triggers\",\"id\":\"sLORV*}FPc=_GBvkxM5H\",\"x\":0,\"y\":0,\"next\":{\"block\":{\"type\":\"playerSendsChatMessage\",\"id\":\"uZNZ#T4^aW34mU}-iGSH\"}}},{\"type\":\"script\",\"id\":\"42xFuxvg#uGKrcUxH0IM\",\"x\":0,\"y\":152,\"next\":{\"block\":{\"type\":\"ifelse\",\"id\":\"h89PVVMcOV7;3~mbt\`$B\",\"inputs\":{\"check\":{\"block\":{\"type\":\"comparison\",\"id\":\"z%#q1PkVt[ooF{$iw@X{\",\"fields\":{\"value\":\"==\"},\"inputs\":{\"val1\":{\"block\":{\"type\":\"lastchatmessagesent\",\"id\":\"pc257H{HOnY2_yy$*S6;\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"\`p:?8JT51O|_.-E86tjt\"}}}}},\"val2\":{\"block\":{\"type\":\"string\",\"id\":\"^}.!c#)g%n:a$Q]G:k%E\",\"fields\":{\"text\":\"/spawn\"}}}}}},\"do1\":{\"block\":{\"type\":\"moveentity\",\"id\":\"w{]ey%tWg|9_~;7ff56r\",\"inputs\":{\"entity\":{\"block\":{\"type\":\"getplayerselectedunit\",\"id\":\"luoDlH!VDZ9|)^\`t|{f4\",\"inputs\":{\"player\":{\"block\":{\"type\":\"triggeringplayer\",\"id\":\"zasKE$B,Ie/_PWL{}}1#\"}}}}},\"pos\":{\"block\":{\"type\":\"pos\",\"id\":\"%-~X(mc#QF+z+[liadI6\",\"inputs\":{\"x\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"tVZ[J?wO\`]#k{/LPL;w^\",\"fields\":{\"NUM\":64}}},\"y\":{\"shadow\":{\"type\":\"math_number\",\"id\":\"8;0$asP~l*2E*!X^GDqq\",\"fields\":{\"NUM\":64}}}}}}}}}}}}}]}}  `);
+  } else if (replacingWith == "gameTimer") {
+    fileContent = JSON.parse('{"blocks":{"languageVersion":0,"blocks":[{"type":"script","id":"wvj9vUS95,Rla$iSoJm-","x":55,"y":43,"next":{"block":{"type":"decreasevariablebynumber","id":"1jRfIB](%yiDKQu]1b(R","inputs":{"var":{"shadow":{"type":"string","id":"zHsI/8u5Kaq[LYPeZo`p","fields":{"text":"Timer"}}},"num":{"shadow":{"type":"math_number","id":"vf%bVUkw@k0m9XW:Z,Q.","fields":{"NUM":1}}}},"next":{"block":{"type":"ifelse","id":"RtD}iVINxo/Q+t{}ozGr","inputs":{"check":{"block":{"type":"number_comparison","id":"g$P+/8h:`AHFUwx#3pF7","fields":{"value":"=="},"inputs":{"val1":{"block":{"type":"string","id":"AS9J;O9+vUm9n,e7bHj*","fields":{"text":"Timer"}}},"val2":{"block":{"type":"math_number","id":"]L1J+A{)-7v*#~UOC@x^","fields":{"NUM":0}}}}}},"do1":{"block":{"type":"ifelse","id":"Q)dV%a=6s_L.fLJ(~Gj^","inputs":{"check":{"block":{"type":"comparison","id":"l3/46CRp1zd=kTWGMf$/","fields":{"value":"=="},"inputs":{"val1":{"block":{"type":"string","id":"kIqU.Vfl*7t[-e+NiBd)","fields":{"text":"State"}}},"val2":{"block":{"type":"string","id":"}PDarK_$^oZVUfWn#$.o","fields":{"text":"Playing"}}}}}},"do1":{"block":{"type":"setvariable","id":"jjG]:W^!=8?ziT^PDM[@","inputs":{"var":{"shadow":{"type":"string","id":"2O(eaU?jP*?Z//V?:)ni","fields":{"text":"State"}}},"value":{"block":{"type":"string","id":"_6WkWyIL]DF~~VEWgPNS","fields":{"text":"Starting"}}}},"next":{"block":{"type":"setvariable","id":";a@MdtA]+({Eq2|@sIm+","inputs":{"var":{"shadow":{"type":"string","id":"TkJh1*S}V;l);JSFZhy-","fields":{"text":"Timer"}}},"value":{"block":{"type":"math_number","id":"MoCeIe/#(xx:9+ds~/A*","fields":{"NUM":15}}}},"next":{"block":{"type":"sendchatmessage","id":"6zUvTbi$`)e41QQ!d}l}","inputs":{"message":{"shadow":{"type":"string","id":"jX1Gu{-wxYghF--LC)ev","fields":{"text":"Game is starting soon!"}}}}}}}}}},"else1":{"block":{"type":"setvariable","id":"uWNvQ)XYhT*u/;Y|F_ha","inputs":{"var":{"shadow":{"type":"string","id":"5Zuh_ce})_6=[*U2xG0U","fields":{"text":"State"}}},"value":{"block":{"type":"string","id":"zru==Z.,ZzG,Xh0Bo1jv","fields":{"text":"Playing"}}}},"next":{"block":{"type":"setvariable","id":"@|7%kb_C4Rvge9JGphVd","inputs":{"var":{"shadow":{"type":"string","id":"mz79F/b#npj)L`;Cug+B","fields":{"text":"Timer"}}},"value":{"block":{"type":"math_number","id":"{(^(4Wi,8CG9XEEk!=`X","fields":{"NUM":60}}}},"next":{"block":{"type":"sendchatmessage","id":"1XeERfU7+d5m]M5PBSff","inputs":{"message":{"shadow":{"type":"string","id":"k@W8|L;CB,2jw9UrOeEL","fields":{"text":"Game has started!"}}}}}}}}}}}}}}}}}}},{"type":"triggers","id":"X[0eLTMR4.CNO;U!4[ea","x":55,"y":-126,"next":{"block":{"type":"secondtick","id":",-MFx.Ut6FamRKc-XM2w"}}}]}}');
+  }
+
+  if (replacingWith != "new") {
+    Blockly.serialization.workspaces.load(fileContent, ws);
+  }
 });
 
 window.addEventListener("click", (event) => {
@@ -327,4 +327,56 @@ document.getElementById('saveStatus').addEventListener('mouseover', function() {
 
 document.getElementById('saveStatus').addEventListener('mouseout', function() {
   document.getElementById('statusTooltip').style.display = 'none';
+});
+
+playerJoinsGame.addEventListener("click", () => {
+  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
+  
+  replacingWith = "playerJoinsGame"
+
+  if (!length || saved == false) {
+    popup2.classList.add("show");
+  } else {
+    saved = false;
+    document.getElementById('saveStatus').innerText = "↺";
+  }
+});
+
+playerLeavesGame.addEventListener("click", () => {
+  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
+  
+  replacingWith = "playerLeavesGame"
+
+  if (!length || saved == false) {
+    popup2.classList.add("show");
+  } else {
+    saved = false;
+    document.getElementById('saveStatus').innerText = "↺";
+  }
+});
+
+slashCommand.addEventListener("click", () => {
+  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
+  
+  replacingWith = "slashCommand"
+
+  if (!length || saved == false) {
+    popup2.classList.add("show");
+  } else {
+    saved = false;
+    document.getElementById('saveStatus').innerText = "↺";
+  }
+});
+
+gameTimer.addEventListener("click", () => {
+  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
+  
+  replacingWith = "gameTimer"
+
+  if (!length || saved == false) {
+    popup2.classList.add("show");
+  } else {
+    saved = false;
+    document.getElementById('saveStatus').innerText = "↺";
+  }
 });
