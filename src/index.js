@@ -88,7 +88,7 @@ const runCode = () => {
 load(ws);
 runCode();
 
-let saved;
+let saved = true;
 let newCreated;
 let originalStatus = Blockly.serialization.workspaces.save(ws);
 
