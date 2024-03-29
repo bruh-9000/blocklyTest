@@ -81,11 +81,12 @@ forBlock['moveentity'] = function (block, generator) {
   return code;
 };
 
-forBlock['owner'] = function (block, generator) {
-  // Generate the function call for this block.
-  const code = `.owner`;
+forBlock['owner'] = function(block, generator) {
+  const unit = generator.valueToCode(block, 'unit', Order.NONE);
+
+  const code = `${unit}.owner\n`;
   return [code, generator.ORDER_NONE];
-};
+}
 
 forBlock['triggeringplayer'] = function (block, generator) {
   // Generate the function call for this block.
@@ -94,18 +95,14 @@ forBlock['triggeringplayer'] = function (block, generator) {
 };
 
 forBlock['triggeringunit'] = function (block, generator) {
-  const sub = generator.valueToCode(block, 'sub', Order.NONE) || "";
-
   // Generate the function call for this block.
-  const code = `triggeringUnit${sub}`;
+  const code = `triggeringUnit`;
   return [code, generator.ORDER_NONE];
 };
 
 forBlock['selectedunit'] = function (block, generator) {
-  const sub = generator.valueToCode(block, 'sub', Order.NONE) || "";
-
   // Generate the function call for this block.
-  const code = `selectedUnit${sub}`;
+  const code = `selectedUnit`;
   return [code, generator.ORDER_NONE];
 };
 
@@ -350,30 +347,12 @@ forBlock['triggeringregion'] = function (block, generator) {
 };
 
 forBlock['triggeringitem'] = function (block, generator) {
-  const sub = generator.valueToCode(block, 'sub', Order.NONE) || "";
-  
-  // Generate the function call for this block.
-  let code;
-
-  if (sub) {
-    code = `triggeringItem.type`;
-  } else {
-    code = `triggeringItem`;
-  }
+  const code = `triggeringItem`;
   return [code, generator.ORDER_NONE];
 };
 
 forBlock['triggeringprojectile'] = function (block, generator) {
-  const sub = generator.valueToCode(block, 'sub', Order.NONE) || "";
-
-  // Generate the function call for this block.
-  let code;
-
-  if (sub) {
-    code = `getProjectileTypeOfProjectile(triggeringProj)`;
-  } else {
-    code = `triggeringProj`;
-  }
+  const code = "triggeringProj";
   return [code, generator.ORDER_NONE];
 };
 
@@ -457,14 +436,18 @@ forBlock['getentiremapregion'] = function (block, generator) {
 };
 
 forBlock['projectiletypeofprojectile'] = function (block, generator) {
+  const projectile = generator.valueToCode(block, 'projectile', Order.NONE) || "";
+
   // Generate the function call for this block.
-  const code = `getProjectileTypeOfProjectile()`;
+  const code = `getProjectileTypeOfProjectile(${projectile})`;
   return [code, generator.ORDER_NONE];
 };
 
 forBlock['itemtypeofitem'] = function (block, generator) {
+  const item = generator.valueToCode(block, 'item', Order.NONE) || "";
+
   // Generate the function call for this block.
-  const code = `.type`;
+  const code = `${item}.type`;
   return [code, generator.ORDER_NONE];
 };
 

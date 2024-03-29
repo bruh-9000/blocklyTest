@@ -23,6 +23,15 @@ pre, code {
     top: 50px; /* Move the workspace content down below the top bar */
 }
 
+#outputPane {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    flex: 0 0 400px;
+    overflow: auto;
+    margin: 1rem;
+}
+
 #output {
     height: 0%;
 }

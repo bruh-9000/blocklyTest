@@ -143,23 +143,23 @@ const triggeringPlayer = {
 
 const owner = {
   "type": "owner",
-  "message0": "owner",
-  "output": "Player",
+  "message0": "player owner of unit %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "unit",
+      "check": "Unit"
+    }
+  ],
   "colour": 260,
+  "output": "Player",
   "tooltip": "",
   "helpUrl": ""
 };
 
 const triggeringUnit = {
   "type": "triggeringunit",
-  "message0": "triggering unit %1",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "sub",
-      "check": "Player"
-    }
-  ],
+  "message0": "triggering unit",
   "output": "Unit",
   "colour": 65,
   "tooltip": "",
@@ -168,14 +168,7 @@ const triggeringUnit = {
 
 const selectedUnit = {
   "type": "selectedunit",
-  "message0": "selected unit %1",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "sub",
-      "check": "Player"
-    }
-  ],
+  "message0": "selected unit",
   "output": "Unit",
   "colour": 65,
   "tooltip": "",
@@ -184,14 +177,7 @@ const selectedUnit = {
 
 const lastCreatedUnit = {
   "type": "lastcreatedunit",
-  "message0": "last created unit %1",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "sub",
-      "check": "Player"
-    }
-  ],
+  "message0": "last created unit",
   "output": "Unit",
   "colour": 65,
   "tooltip": "",
@@ -658,14 +644,7 @@ const setVariable = {
 
 const triggeringProjectile = {
   "type": "triggeringprojectile",
-  "message0": "triggering projectile %1",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "sub",
-      "check": "Projectile Type"
-    }
-  ],
+  "message0": "triggering projectile",
   "output": "Projectile",
   "colour": 290,
   "tooltip": "",
@@ -674,14 +653,7 @@ const triggeringProjectile = {
 
 const triggeringItem = {
   "type": "triggeringitem",
-  "message0": "triggering item %1",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "sub",
-      "check": "Item Type"
-    }
-  ],
+  "message0": "triggering item",
   "output": "Item",
   "colour": 290,
   "tooltip": "",
@@ -844,18 +816,31 @@ const getEntireMapRegion = {
 
 const itemTypeOfItem = {
   "type": "itemtypeofitem",
-  "message0": "type",
-  "output": "Item Type",
+  "message0": "item type of item %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "item"
+    }
+  ],
   "colour": 290,
+  "output": "Item Type",
   "tooltip": "",
   "helpUrl": ""
 };
 
 const projectileTypeOfProjectile = {
   "type": "projectiletypeofprojectile",
-  "message0": "type",
-  "output": "Projectile Type",
+  "message0": "projectile type of projectile %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "projectile",
+      "check": "Projectile",
+    }
+  ],
   "colour": 290,
+  "output": "Projectile Type",
   "tooltip": "",
   "helpUrl": ""
 }
