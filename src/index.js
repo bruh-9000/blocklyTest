@@ -401,6 +401,7 @@ document.getElementById('darkModeCheckbox').addEventListener('change', function(
     generatedCode.style.color = "white";
     pageContainer.style.backgroundColor = "#1d1d1f";
   } else {
+    ws.setTheme(Blockly.Themes.Classic);
     generatedCode.style.backgroundColor = "#c3c8db";
     generatedCode.style.color = "black";
     pageContainer.style.backgroundColor = "#edf0f2";
@@ -415,6 +416,7 @@ document.addEventListener("DOMContentLoaded", function() {
     generatedCode.style.color = "white";
     pageContainer.style.backgroundColor = "#1d1d1f";
   } else {
+    ws.setTheme(Blockly.Themes.Classic);
     generatedCode.style.backgroundColor = "#c3c8db";
     generatedCode.style.color = "black";
     pageContainer.style.backgroundColor = "#edf0f2";
