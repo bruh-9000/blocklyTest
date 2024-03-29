@@ -397,16 +397,36 @@ gameTimer.addEventListener("click", () => {
 document.getElementById('darkModeCheckbox').addEventListener('change', function(event) {
   if (event.target.checked) {
     ws.setTheme(DarkTheme);
+    generatedCode.style.backgroundColor = "#42474f";
+    pageContainer.style.backgroundColor = "#1d1d1f";
   } else {
-    
+    generatedCode.style.backgroundColor = "#c3c8db";
+    pageContainer.style.backgroundColor = "#edf0f2";
   }
 });
-
 
 document.addEventListener("DOMContentLoaded", function() {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ws.setTheme(DarkTheme);
+    generatedCode.style.backgroundColor = "#42474f";
+    pageContainer.style.backgroundColor = "#1d1d1f";
   } else {
-    
+    generatedCode.style.backgroundColor = "#c3c8db";
+    pageContainer.style.backgroundColor = "#edf0f2";
   }
+});
+
+document.getElementById('outputCheckbox').addEventListener('change', function(event) {
+  if (event.target.checked) {
+    outputPane.style.display = "flex";
+    pageContainer.style.width = "100%";
+  } else {
+    outputPane.style.display = "none";
+    pageContainer.style.width = "100%";
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  outputPane.style.display = "none";
+  pageContainer.style.width = "100%";
 });

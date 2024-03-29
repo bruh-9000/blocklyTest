@@ -9,10 +9,11 @@ pre, code {
 
 #pageContainer {
     display: flex;
-    width: 100%;
-    max-width: 100vw;
-    height: calc(100vh - 50px); /* Adjust height to accommodate the top bar */
+    width: calc(100% + 400px);
+    height: 100vh; /* Set height to 100% of viewport height */
     top: 50px; /* Add padding equal to the height of the top bar */
+    max-width: none;
+    overflow: hidden;
 }
 
 #blocklyDiv {
@@ -24,7 +25,7 @@ pre, code {
 }
 
 #outputPane {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 400px;
     flex: 0 0 400px;
