@@ -333,7 +333,7 @@ forBlock['decreasevariablebynumber'] = function (block, generator) {
 
 forBlock['setvariable'] = function (block, generator) {
   const varName = this.getField("VAR").variable.name;
-  const value = generator.valueToCode(block, 'value', Order.NONE) || "";
+  const value = generator.valueToCode(block, 'VALUE', Order.NONE) || "";
 
   // Generate the function call for this block.
   const code = `setVariable('${varName}', ${value})\n`;
