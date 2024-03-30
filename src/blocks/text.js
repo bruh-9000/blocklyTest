@@ -11,6 +11,18 @@ import * as Blockly from 'blockly/core';
 // This is just an example and you should replace this with your
 // own custom blocks.
 
+const triggeringItems = ["unitTouchesItem", "unitPickedAnItem", "unitStopsUsingAnItem", "unitAttacksUnit", "unitSelectsItem", "unitDroppedAnItem", "unitStartsUsingAnItem",
+  "unitUsesItem"];
+
+const triggeringPlayers = ["playerSendsChatMessage", "playerLeavesGame", "playerJoinsGame"];
+
+const triggeringUnits = ["unitTouchesItem", "unitPickedAnItem", "unitTouchesProjectile", "unitStopsUsingAnItem", "unitAttacksUnit", "unitSelectsItem", "unitLeavesRegion",
+  "unitDroppedAnItem", "unitEntersRegion", "unitAttributeBecomesFull", "unitStartsUsingAnItem", "unitUsesItem", "unitAttributeBecomesZero", "unitTouchesWall"];
+
+const triggeringRegions = ["unitLeavesRegion", "unitEntersRegion"];
+
+const triggeringProjectiles = ["unitTouchesProjectile"];
+
 const secondTick = {
   "type": "secondtick",
   "message0": "every second",
@@ -138,7 +150,10 @@ const triggeringPlayer = {
   "output": "Player",
   "colour": 260,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'triggering_player',
+  ],
 };
 
 const owner = {
@@ -163,7 +178,10 @@ const triggeringUnit = {
   "output": "Unit",
   "colour": 65,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'triggering_unit',
+  ],
 };
 
 const selectedUnit = {
@@ -651,7 +669,10 @@ const triggeringProjectile = {
   "output": "Projectile",
   "colour": 290,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'triggering_projectile',
+  ],
 };
 
 const triggeringItem = {
@@ -660,7 +681,10 @@ const triggeringItem = {
   "output": "Item",
   "colour": 290,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'triggering_item',
+  ],
 };
 
 const triggeringRegion = {
@@ -669,7 +693,10 @@ const triggeringRegion = {
   "output": "Region",
   "colour": 290,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'triggering_region',
+  ],
 };
 
 const repeat = {
@@ -1262,6 +1289,126 @@ Blockly.Extensions.register('unit_loop', function() {
     this.setWarningText(valid
       ? null
       : `Selected unit must be inside a unit loop.`);
+  });
+});
+
+Blockly.Extensions.register('triggering_item', function() {
+  this.setOnChange(function(event) {
+    let valid = false;
+
+    var jsonArray = Blockly.serialization.workspaces.save(window.ws);
+
+    if (jsonArray.blocks != undefined) {
+      jsonArray = jsonArray.blocks.blocks;
+      var jsonString = JSON.stringify(jsonArray);
+
+      for (var i = 0; i < triggeringItems.length; i++) {
+        if (jsonString.toLowerCase().includes(triggeringItems[i].toLowerCase())) {
+            valid = true;
+            break;
+        }
+      }
+
+      this.setWarningText(valid
+        ? null
+        : `No triggers present provide a triggering item`);
+    }
+  });
+});
+
+Blockly.Extensions.register('triggering_player', function() {
+  this.setOnChange(function(event) {
+    let valid = false;
+
+    var jsonArray = Blockly.serialization.workspaces.save(window.ws);
+
+    if (jsonArray.blocks != undefined) {
+      jsonArray = jsonArray.blocks.blocks;
+      var jsonString = JSON.stringify(jsonArray);
+
+      for (var i = 0; i < triggeringPlayers.length; i++) {
+        if (jsonString.toLowerCase().includes(triggeringPlayers[i].toLowerCase())) {
+            valid = true;
+            break;
+        }
+      }
+
+      this.setWarningText(valid
+        ? null
+        : `No triggers present provide a triggering player`);
+    }
+  });
+});
+
+Blockly.Extensions.register('triggering_unit', function() {
+  this.setOnChange(function(event) {
+    let valid = false;
+
+    var jsonArray = Blockly.serialization.workspaces.save(window.ws);
+
+    if (jsonArray.blocks != undefined) {
+      jsonArray = jsonArray.blocks.blocks;
+      var jsonString = JSON.stringify(jsonArray);
+
+      for (var i = 0; i < triggeringUnits.length; i++) {
+        if (jsonString.toLowerCase().includes(triggeringUnits[i].toLowerCase())) {
+            valid = true;
+            break;
+        }
+      }
+
+      this.setWarningText(valid
+        ? null
+        : `No triggers present provide a triggering unit`);
+    }
+  });
+});
+
+Blockly.Extensions.register('triggering_region', function() {
+  this.setOnChange(function(event) {
+    let valid = false;
+
+    var jsonArray = Blockly.serialization.workspaces.save(window.ws);
+
+    if (jsonArray.blocks != undefined) {
+      jsonArray = jsonArray.blocks.blocks;
+      var jsonString = JSON.stringify(jsonArray);
+
+      for (var i = 0; i < triggeringRegions.length; i++) {
+        if (jsonString.toLowerCase().includes(triggeringRegions[i].toLowerCase())) {
+            valid = true;
+            break;
+        }
+      }
+
+      this.setWarningText(valid
+        ? null
+        : `No triggers present provide a triggering region`);
+    }
+  });
+});
+
+Blockly.Extensions.register('triggering_projectile', function() {
+  this.setOnChange(function(event) {
+    let valid = false;
+
+    var jsonArray = Blockly.serialization.workspaces.save(window.ws);
+
+    if (jsonArray.blocks != undefined) {
+      jsonArray = jsonArray.blocks.blocks;
+      var jsonString = JSON.stringify(jsonArray);
+
+      for (var i = 0; i < triggeringProjectiles.length; i++) {
+        if (jsonString.toLowerCase().includes(triggeringProjectiles[i].toLowerCase())) {
+            valid = true;
+            break;
+        }
+      }
+
+      this.setWarningText(valid
+        ? null
+        : `No triggers present provide a triggering projectile`);
+    }
   });
 });
 
