@@ -168,7 +168,7 @@ forBlock['unitStartsUsingAnItem'] = function (block, generator) {
   return code;
 };
 
-forBlock['unitattributebecomesfull'] = function (block, generator) {
+forBlock['unitAttributeBecomesFull'] = function (block, generator) {
   // Generate the function call for this block.
   const code = `@unitAttributeBecomesFull\n`;
   return code;
