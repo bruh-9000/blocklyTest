@@ -281,7 +281,7 @@ forBlock['num2str'] = function (block, generator) {
 
   // Generate the function call for this block.
   const code = `num2str(${num})\n`;
-  return code;
+  return [code, generator.ORDER_NONE];
 };
 
 forBlock['str2num'] = function (block, generator) {
@@ -289,7 +289,7 @@ forBlock['str2num'] = function (block, generator) {
 
   // Generate the function call for this block.
   const code = `str2num(${str1})\n`;
-  return code;
+  return [code, generator.ORDER_NONE];
 };
 
 forBlock['sendchatmessagetoplayer'] = function (block, generator) {
