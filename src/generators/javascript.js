@@ -616,5 +616,5 @@ forBlock['getvariable'] = function (block, generator) {
 
   // Generate the function call for this block.
   const code = `getVariable('${varName}')\n`;
-  return code;
+  return [code, generator.ORDER_NONE];
 };
