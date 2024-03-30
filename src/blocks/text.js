@@ -1121,7 +1121,10 @@ const comparison = {
   "output": "Boolean",
   "colour": 230,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'comparison_type',
+  ],
 };
 
 const lastChatMessageSent = {
@@ -1409,6 +1412,22 @@ Blockly.Extensions.register('triggering_projectile', function() {
         ? null
         : `No triggers present provide a triggering projectile`);
     }
+  });
+});
+
+Blockly.Extensions.register('comparison_type', function() {
+  this.setOnChange(function(event) {
+    let valid = false;
+
+    if (this.getInputTargetBlock('val1') != undefined && this.getInputTargetBlock('val2') != undefined ) {
+      valid = this.getInputTargetBlock('val1').type == this.getInputTargetBlock('val2').type;
+    } else {
+      valid = true;
+    }
+
+    this.setWarningText(valid
+      ? null
+      : `Comparison types must be the same.`);
   });
 });
 
