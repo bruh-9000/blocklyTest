@@ -162,7 +162,7 @@ forBlock['unitAttributeBecomesZero'] = function (block, generator) {
   return code;
 };
 
-forBlock['unitStartUsingAnItem'] = function (block, generator) {
+forBlock['unitStartsUsingAnItem'] = function (block, generator) {
   // Generate the function call for this block.
   const code = `@unitStartsUsingAnItem\n`;
   return code;
