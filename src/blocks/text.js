@@ -983,7 +983,7 @@ const join = {
     }
   ],
   "inputsInline": true,
-  "output": null,
+  "output": "String",
   "colour": 160,
   "tooltip": "",
   "helpUrl": ""
@@ -1425,9 +1425,9 @@ Blockly.Extensions.register('comparison_type', function() {
       valid = true;
     }
 
-    this.setWarningText(valid
-      ? null
-      : `Comparison types must be the same.`);
+    // this.setWarningText(valid
+    //  ? null
+    //  : `Comparison types must be the same.`);
   });
 });
 
