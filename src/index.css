@@ -261,7 +261,7 @@ pre, code {
 
 #copyButton {
     position: absolute;
-    top: 470px; /* Adjust vertical position as needed */
+    top: 437px; /* Adjust vertical position as needed */
     left: 362px; /* Adjust horizontal position as needed */
     background-color: transparent; /* Transparent background */
     border: none; /* No border */
