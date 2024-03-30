@@ -172,7 +172,10 @@ const selectedUnit = {
   "output": "Unit",
   "colour": 65,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'unit_loop',
+  ],
 };
 
 const lastCreatedUnit = {
@@ -1220,8 +1223,47 @@ const selectedPlayer = {
   "output": "Player",
   "colour": 260,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'player_loop',
+  ],
 };
+
+Blockly.Extensions.register('player_loop', function() {
+  this.setOnChange(function(event) {
+    let block = this;
+    let valid = false;
+
+    do {
+      if (block.type == "forallplayers") {
+        valid = true;
+      }
+      block = block.getSurroundParent();
+    } while (block);
+
+    this.setWarningText(valid
+      ? null
+      : `Selected player must be inside a player loop.`);
+  });
+});
+
+Blockly.Extensions.register('unit_loop', function() {
+  this.setOnChange(function(event) {
+    let block = this;
+    let valid = false;
+
+    do {
+      if (block.type == "forallunits") {
+        valid = true;
+      }
+      block = block.getSurroundParent();
+    } while (block);
+
+    this.setWarningText(valid
+      ? null
+      : `Selected unit must be inside a unit loop.`);
+  });
+});
 
 // Colors per category
 // 65 for unit
