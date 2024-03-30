@@ -577,7 +577,10 @@ const break1 = {
   "nextStatement": null,
   "colour": 230,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'any_loop',
+  ],
 };
 
 const continue1 = {
@@ -587,7 +590,10 @@ const continue1 = {
   "nextStatement": null,
   "colour": 230,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  'extensions': [
+    'any_loop',
+  ],
 };
 
 const decreaseVariableByNumber = {
@@ -1295,6 +1301,24 @@ Blockly.Extensions.register('unit_loop', function() {
   });
 });
 
+Blockly.Extensions.register('any_loop', function() {
+  this.setOnChange(function(event) {
+    let block = this;
+    let valid = false;
+
+    do {
+      if (["repeat", "repeatwithdelay", "while", "forallunits", "forallplayers"].includes(block.type)) {
+        valid = true;
+      }
+      block = block.getSurroundParent();
+    } while (block);
+
+    this.setWarningText(valid
+      ? null
+      : `Block must be inside of a loop.`);
+  });
+});
+
 Blockly.Extensions.register('triggering_item', function() {
   this.setOnChange(function(event) {
     let valid = false;
@@ -1314,7 +1338,7 @@ Blockly.Extensions.register('triggering_item', function() {
 
       this.setWarningText(valid
         ? null
-        : `No triggers present provide a triggering item`);
+        : `No triggers present provide a triggering item.`);
     }
   });
 });
@@ -1338,7 +1362,7 @@ Blockly.Extensions.register('triggering_player', function() {
 
       this.setWarningText(valid
         ? null
-        : `No triggers present provide a triggering player`);
+        : `No triggers present provide a triggering player.`);
     }
   });
 });
@@ -1362,7 +1386,7 @@ Blockly.Extensions.register('triggering_unit', function() {
 
       this.setWarningText(valid
         ? null
-        : `No triggers present provide a triggering unit`);
+        : `No triggers present provide a triggering unit.`);
     }
   });
 });
@@ -1386,7 +1410,7 @@ Blockly.Extensions.register('triggering_region', function() {
 
       this.setWarningText(valid
         ? null
-        : `No triggers present provide a triggering region`);
+        : `No triggers present provide a triggering region.`);
     }
   });
 });
@@ -1410,7 +1434,7 @@ Blockly.Extensions.register('triggering_projectile', function() {
 
       this.setWarningText(valid
         ? null
-        : `No triggers present provide a triggering projectile`);
+        : `No triggers present provide a triggering projectile.`);
     }
   });
 });
