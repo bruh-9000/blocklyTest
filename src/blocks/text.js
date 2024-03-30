@@ -465,7 +465,8 @@ const createUnitAtPosition = {
   "args0": [
     {
       "type": "input_value",
-      "name": "unittype"
+      "name": "unittype",
+      "check": "Unit Type"
     },
     {
       "type": "input_dummy"
