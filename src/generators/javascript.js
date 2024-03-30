@@ -615,6 +615,6 @@ forBlock['getvariable'] = function (block, generator) {
   const varName = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
-  const code = `getVariable('${varName}')\n`;
+  const code = `getVariable('${varName}')`;
   return [code, generator.ORDER_NONE];
 };
