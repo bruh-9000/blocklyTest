@@ -602,9 +602,9 @@ const decreaseVariableByNumber = {
   "message0": "decrease variable %1 %2 by %3",
   "args0": [
     {
-      "type": "input_value",
-      "name": "var",
-      "check": "String"
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
     },
     {
       "type": "input_dummy"
@@ -617,6 +617,7 @@ const decreaseVariableByNumber = {
   ],
   "previousStatement": null,
   "nextStatement": null,
+  "inputsInline": true,
   "colour": 330,
   "tooltip": "",
   "helpUrl": ""
@@ -627,9 +628,9 @@ const increaseVariableByNumber = {
   "message0": "increase variable %1 %2 by %3",
   "args0": [
     {
-      "type": "input_value",
-      "name": "var",
-      "check": "String"
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
     },
     {
       "type": "input_dummy"
@@ -642,6 +643,7 @@ const increaseVariableByNumber = {
   ],
   "previousStatement": null,
   "nextStatement": null,
+  "inputsInline": true,
   "colour": 330,
   "tooltip": "",
   "helpUrl": ""
@@ -649,25 +651,21 @@ const increaseVariableByNumber = {
 
 const setVariable = {
   "type": "setvariable",
-  "message0": "set variable %1 %2 to value %3",
+  "message0": "%{BKY_VARIABLES_SET}",
   "args0": [
     {
-      "type": "input_value",
-      "name": "var"
-    },
-    {
-      "type": "input_dummy"
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
     },
     {
       "type": "input_value",
-      "name": "value"
+      "name": "VALUE"
     }
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 330,
-  "tooltip": "",
-  "helpUrl": ""
+  "colour": 330
 };
 
 const triggeringProjectile = {
@@ -1266,6 +1264,20 @@ const selectedPlayer = {
   ],
 };
 
+const getVariable = {
+  "type": "getvariable",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+    }
+  ],
+  "output": null,
+  "colour": 330
+};
+
 Blockly.Extensions.register('player_loop', function() {
   this.setOnChange(function(event) {
     let block = this;
@@ -1475,4 +1487,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   playerJoinsGame, playerLeavesGame, getPlayerName, str2num, num2str, sendChatMessageToPlayer, break1, continue1, decreaseVariableByNumber, increaseVariableByNumber, setVariable, triggeringItem,
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
-  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay]);
+  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable]);

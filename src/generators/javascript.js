@@ -314,29 +314,29 @@ forBlock['continue'] = function (block, generator) {
 };
 
 forBlock['increasevariablebynumber'] = function (block, generator) {
-  const var1 = generator.valueToCode(block, 'var', Order.NONE) || "";
+  const varName = this.getField("VAR").variable.name;
   const number = generator.valueToCode(block, 'num', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `increaseVariableByNumber(${var1}, ${number})\n`;
+  const code = `increaseVariableByNumber('${varName}', ${number})\n`;
   return code;
 };
 
 forBlock['decreasevariablebynumber'] = function (block, generator) {
-  const var1 = generator.valueToCode(block, 'var', Order.NONE) || "";
+  const varName = this.getField("VAR").variable.name;
   const number = generator.valueToCode(block, 'num', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `decreaseVariableByNumber(${var1}, ${number})\n`;
+  const code = `decreaseVariableByNumber('${varName}', ${number})\n`;
   return code;
 };
 
 forBlock['setvariable'] = function (block, generator) {
-  const var1 = generator.valueToCode(block, 'var', Order.NONE) || "";
-  const number = generator.valueToCode(block, 'value', Order.NONE) || "";
+  const varName = this.getField("VAR").variable.name;
+  const value = generator.valueToCode(block, 'value', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `setVariable(${var1}, ${number})\n`;
+  const code = `setVariable('${varName}', ${value})\n`;
   return code;
 };
 
@@ -609,4 +609,12 @@ forBlock['selectedplayer'] = function (block, generator) {
   // Generate the function call for this block.
   const code = `selectedPlayer()`;
   return [code, generator.ORDER_NONE];
+};
+
+forBlock['getvariable'] = function (block, generator) {
+  const varName = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `getVariable('${varName}')\n`;
+  return code;
 };

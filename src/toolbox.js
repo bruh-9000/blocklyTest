@@ -523,17 +523,22 @@ export const toolbox = {
       'categorystyle': 'others_category',
       'contents': [
         {
+          "kind": "button",
+          "text": "New Variable",
+          "callbackKey": "newVar"
+        },
+        {
+          'kind': 'block',
+          'type': 'setvariable'
+        },
+        {
+          'kind': 'block',
+          'type': 'getvariable'
+        },
+        {
           'kind': 'block',
           'type': 'increasevariablebynumber',
           'inputs': {
-            'var': {
-              'shadow': {
-                'type': 'string',
-                'fields': {
-                  'text': "",
-                },
-              },
-            },
             'num': {
               'shadow': {
                 'type': 'math_number',
@@ -548,33 +553,11 @@ export const toolbox = {
           'kind': 'block',
           'type': 'decreasevariablebynumber',
           'inputs': {
-            'var': {
-              'shadow': {
-                'type': 'string',
-                'fields': {
-                  'text': "",
-                },
-              },
-            },
             'num': {
               'shadow': {
                 'type': 'math_number',
                 'fields': {
                   'NUM': 0,
-                },
-              },
-            },
-          },
-        },
-        {
-          'kind': 'block',
-          'type': 'setvariable',
-          'inputs': {
-            'var': {
-              'shadow': {
-                'type': 'string',
-                'fields': {
-                  'text': "",
                 },
               },
             },

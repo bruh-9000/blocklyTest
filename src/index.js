@@ -88,8 +88,8 @@ window.ws = ws;
 // generated code from the workspace, and evals the code.
 // In a real application, you probably shouldn't use `eval`.
 const runCode = () => {
-  const code = javascriptGenerator.workspaceToCode(ws).replace(/;\s*$/gm, '\n');
- 
+  const code = (javascriptGenerator.workspaceToCode(ws).replace(/;\s*$/gm, '\n')).split('\n').filter(line => !line.trim().startsWith('var')).join('\n').trim();
+
   codeDiv.innerText = code;
 
   outputDiv.innerHTML = '';
@@ -460,3 +460,12 @@ copyButton.addEventListener("click", () => {
 
   navigator.clipboard.writeText(text)
 });
+
+ws.registerButtonCallback("newVar", newVar);
+
+function newVar() {
+  var variableName = prompt("Enter variable name:");
+  if (variableName) {
+    Blockly.Variables.createVariable(button.getTargetWorkspace(), null, variableName);
+  }
+}
