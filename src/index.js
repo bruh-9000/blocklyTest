@@ -480,8 +480,5 @@ copyButton.addEventListener("click", () => {
 ws.registerButtonCallback("newVar", newVar);
 
 function newVar() {
-  var variableName = prompt("Enter variable name:");
-  if (variableName) {
-    Blockly.Variables.createVariable(button.getTargetWorkspace(), null, variableName);
-  }
+  Blockly.Variables.createVariableButtonHandler(ws);
 }
