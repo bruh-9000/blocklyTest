@@ -163,10 +163,38 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'repeat',
+          'inputs': {
+            'times': {
+              'shadow': {
+                'type': 'math_number',
+                'fields': {
+                  'NUM': 10,
+                },
+              },
+            },
+          },
         },
         {
           'kind': 'block',
           'type': 'repeatwithdelay',
+          'inputs': {
+            'times': {
+              'shadow': {
+                'type': 'math_number',
+                'fields': {
+                  'NUM': 10,
+                },
+              },
+            },
+            'delay': {
+              'shadow': {
+                'type': 'math_number',
+                'fields': {
+                  'NUM': 1000,
+                },
+              },
+            },
+          },
         },
         {
           'kind': 'block',
@@ -255,6 +283,16 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'str2num',
+          'inputs': {
+            'str1': {
+              'shadow': {
+                'type': 'string',
+                'fields': {
+                  'text': "123",
+                },
+              },
+            },
+          },
         },  
       ]
     },
@@ -282,6 +320,16 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'num2str',
+          'inputs': {
+            'num': {
+              'shadow': {
+                'type': 'math_number',
+                'fields': {
+                  'NUM': 123,
+                },
+              },
+            },
+          },
         },  
       ]
     },
@@ -408,10 +456,30 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'kickplayer',
+          'inputs': {
+            'message': {
+              'shadow': {
+                'type': 'string',
+                'fields': {
+                  'text': "",
+                },
+              },
+            },
+          },
         },
         {
           'kind': 'block',
           'type': 'setplayername',
+          'inputs': {
+            'name': {
+              'shadow': {
+                'type': 'string',
+                'fields': {
+                  'text': "",
+                },
+              },
+            },
+          },
         },
         {
           'kind': 'block',
@@ -435,10 +503,38 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'createunitatposition',
+          'inputs': {
+            'unittype': {
+              'shadow': {
+                'type': 'string',
+                'fields': {
+                  'text': "",
+                },
+              },
+            },
+            'angle': {
+              'shadow': {
+                'type': 'angle',
+                'fields': {
+                  'angle': 90,
+                },
+              },
+            },
+          },
         },
         {
           'kind': 'block',
           'type': 'setunitnamelabel',
+          'inputs': {
+            'name': {
+              'shadow': {
+                'type': 'string',
+                'fields': {
+                  'text': "",
+                },
+              },
+            },
+          },
         },
         {
           'kind': 'block',
