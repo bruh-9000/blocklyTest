@@ -192,6 +192,10 @@ export const toolbox = {
         },  
         {
           'kind': 'block',
+          'type': 'angle'
+        },
+        {
+          'kind': 'block',
           'type': 'str2num',
         },  
       ]

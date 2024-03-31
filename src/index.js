@@ -84,6 +84,9 @@ let ws = Blockly.inject(
 
 window.ws = ws;
 
+Blockly.FieldAngle.OFFSET = 90;
+Blockly.FieldAngle.CLOCKWISE = true;
+
 // This function resets the code and output divs, shows the
 // generated code from the workspace, and evals the code.
 // In a real application, you probably shouldn't use `eval`.

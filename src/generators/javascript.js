@@ -618,3 +618,11 @@ forBlock['getvariable'] = function (block, generator) {
   const code = `getVariable('${varName}')`;
   return [code, generator.ORDER_NONE];
 };
+
+forBlock['angle'] = function (block, generator) {
+  const angle = block.getField("angle").value_ || "0";
+
+  // Generate the function call for this block.
+  const code = `${angle}`;
+  return [code, generator.ORDER_NONE];
+};
