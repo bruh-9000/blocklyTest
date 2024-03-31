@@ -1292,6 +1292,20 @@ const angle = {
   "colour": 230
 };
 
+const colorPicker = {
+  "type": "colour_hsv_sliders",
+  "message0": "hsv %1",
+  "args0": [
+    {
+      "type": "field_colour_hsv_sliders",
+      "name": "COLOUR",
+      "colour": "#4a8a4a",
+    },
+  ],
+  "output": "String",
+  "colour": "#60B560",
+};
+
 Blockly.Extensions.register('player_loop', function() {
   this.setOnChange(function(event) {
     let block = this;
@@ -1502,4 +1516,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   playerJoinsGame, playerLeavesGame, getPlayerName, str2num, num2str, sendChatMessageToPlayer, break1, continue1, decreaseVariableByNumber, increaseVariableByNumber, setVariable, triggeringItem,
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
-  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle]);
+  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker]);

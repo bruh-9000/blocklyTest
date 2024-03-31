@@ -13,6 +13,7 @@ import {toolbox} from './toolbox';
 import './index.css';
 import '@blockly/toolbox-search';
 import DarkTheme from '@blockly/theme-dark';
+import '@blockly/field-colour-hsv-sliders';
 
 // Register the blocks and generator with Blockly
 Blockly.common.defineBlocks(blocks);

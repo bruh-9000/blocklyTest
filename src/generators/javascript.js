@@ -626,3 +626,13 @@ forBlock['angle'] = function (block, generator) {
   const code = `${angle}`;
   return [code, generator.ORDER_NONE];
 };
+
+forBlock['colour_hsv_sliders'] = function (block, generator) {
+  const color = block.getFieldValue("COLOUR");
+
+  console.log(color);
+
+  // Generate the function call for this block.
+  const code = `'${color}'`;
+  return [code, generator.ORDER_NONE];
+};

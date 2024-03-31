@@ -148,10 +148,7 @@ export const toolbox = {
         },    
         {
           'kind': 'block',
-          'type': 'colour_picker',
-          'fields': {
-            'COLOUR': "#33cc00",
-          },
+          'type': 'colour_hsv_sliders',
         },
       ]
     },
