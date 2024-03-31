@@ -132,7 +132,7 @@ export const toolbox = {
     {
       'kind': 'category',
       'name': 'System',
-      'categorystyle': 'logic_category',
+      'categorystyle': 'system_category',
       'contents': [
         {
           'kind': 'block',
@@ -149,6 +149,64 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'colour_picker',
+          'fields': {
+            'COLOUR': "#33cc00",
+          },
+        },
+      ]
+    },
+    {
+      'kind': 'category',
+      'name': 'Loops',
+      'categorystyle': 'system_category',
+      'contents': [
+        {
+          'kind': 'block',
+          'type': 'repeat',
+        },
+        {
+          'kind': 'block',
+          'type': 'repeatwithdelay',
+        },
+        {
+          'kind': 'block',
+          'type': 'while',
+        },
+        {
+          'kind': 'block',
+          'type': 'break',
+        }, 
+        {
+          'kind': 'block',
+          'type': 'continue',
+        },   
+        {
+          'kind': 'block',
+          'type': 'forallunits',
+        },
+        {
+          'kind': 'block',
+          'type': 'allunits',
+        },
+        {
+          'kind': 'block',
+          'type': 'allunitsinregion',
+        },
+        {
+          'kind': 'block',
+          'type': 'allunitsownedbyplayer',
+        },
+        {
+          'kind': 'block',
+          'type': 'forallplayers',
+        },
+        {
+          'kind': 'block',
+          'type': 'humanplayers',
+        },
+        {
+          'kind': 'block',
+          'type': 'botplayers',
         },
       ]
     },
@@ -203,7 +261,7 @@ export const toolbox = {
     {
       'kind': 'category',
       'name': 'Text',
-      'categorystyle': 'text_category',
+      'categorystyle': 'logic_category',
       'contents': [
         {
           'kind': 'block',
@@ -276,61 +334,6 @@ export const toolbox = {
       ]
     },
     {
-      'kind': 'category',
-      'name': 'Loops',
-      'categorystyle': 'logic_category',
-      'contents': [
-        {
-          'kind': 'block',
-          'type': 'repeat',
-        },
-        {
-          'kind': 'block',
-          'type': 'repeatwithdelay',
-        },
-        {
-          'kind': 'block',
-          'type': 'while',
-        },
-        {
-          'kind': 'block',
-          'type': 'break',
-        }, 
-        {
-          'kind': 'block',
-          'type': 'continue',
-        },   
-        {
-          'kind': 'block',
-          'type': 'forallunits',
-        },
-        {
-          'kind': 'block',
-          'type': 'allunits',
-        },
-        {
-          'kind': 'block',
-          'type': 'allunitsinregion',
-        },
-        {
-          'kind': 'block',
-          'type': 'allunitsownedbyplayer',
-        },
-        {
-          'kind': 'block',
-          'type': 'forallplayers',
-        },
-        {
-          'kind': 'block',
-          'type': 'humanplayers',
-        },
-        {
-          'kind': 'block',
-          'type': 'botplayers',
-        },
-      ]
-    },
-    {
       'kind': 'sep',
     },
     {
@@ -345,41 +348,6 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'destroyentity',
-        },
-      ]
-    },
-    {
-      'kind': 'category',
-      'name': 'Unit',
-      'categorystyle': 'units_category',
-      'contents': [
-        {
-          'kind': 'block',
-          'type': 'createunitatposition',
-        },
-        {
-          'kind': 'block',
-          'type': 'setunitnamelabel',
-        },
-        {
-          'kind': 'block',
-          'type': 'dropallitems',
-        },
-        {
-          'kind': 'block',
-          'type': 'triggeringunit',
-        },
-        {
-          'kind': 'block',
-          'type': 'selectedunit',
-        },
-        {
-          'kind': 'block',
-          'type': 'lastcreatedunit',
-        },
-        {
-          'kind': 'block',
-          'type': 'getplayerselectedunit',
         },
       ]
     },
@@ -460,6 +428,41 @@ export const toolbox = {
       ]
     },
     {
+      'kind': 'category',
+      'name': 'Unit',
+      'categorystyle': 'units_category',
+      'contents': [
+        {
+          'kind': 'block',
+          'type': 'createunitatposition',
+        },
+        {
+          'kind': 'block',
+          'type': 'setunitnamelabel',
+        },
+        {
+          'kind': 'block',
+          'type': 'dropallitems',
+        },
+        {
+          'kind': 'block',
+          'type': 'triggeringunit',
+        },
+        {
+          'kind': 'block',
+          'type': 'selectedunit',
+        },
+        {
+          'kind': 'block',
+          'type': 'lastcreatedunit',
+        },
+        {
+          'kind': 'block',
+          'type': 'getplayerselectedunit',
+        },
+      ]
+    },
+    {
       'kind': 'sep',
     },
     {
@@ -524,7 +527,7 @@ export const toolbox = {
     {
       'kind': 'category',
       'name': 'Variables',
-      'categorystyle': 'others_category',
+      'categorystyle': 'variables_category',
       'contents': [
         {
           "kind": "button",

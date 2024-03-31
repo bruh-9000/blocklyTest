@@ -56,31 +56,44 @@ let ws = Blockly.inject(
           pinch: true},
     theme: {
       "categoryStyles" : {
-         "units_category": {
-          "colour": "#9fa55b"
+        "triggers_category": {
+          "colour": "#0DA57A"
          },
-         "triggers_category": {
-          "colour": "#5ba55b"
-         },
-         "text_category": {
-          "colour": "#5ba58c"
+         "system_category": {
+          "colour": "#60B560"
          },
          "logic_category": {
-          "colour": "#5b67a5"
-         },
-         "players_category": {
-          "colour": "#745ba5"
+          "colour": "#59C059"
          },
          "entities_category": {
-          "colour": "#995ba5"
+          "colour": "#47A8D1"
+         },
+         "players_category": {
+          "colour": "#855CD6"
+         },
+         "units_category": {
+          "colour": "#CF63CF"
          },
          "others_category": {
-          "colour": "#a55b80"
+          "colour": "#FF6680"
+         },
+         "variables_category": {
+          "colour": "#ED953E"
          },
       },
     }
   }
 );
+
+// Colors per category
+// Triggers - #0DA57A
+// System-Loops - #60B560
+// Math-Positions - #59C059
+// Entities-Region - #47A8D1
+// Player - #855CD6
+// Unit - #CF63CF
+// Other - #FF6680
+// Variables - #ED953E
 
 window.ws = ws;
 

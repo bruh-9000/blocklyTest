@@ -28,7 +28,7 @@ const secondTick = {
   "message0": "every second",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -55,7 +55,7 @@ const triggers = {
   "message0": "Triggers:",
   "inputsInline": true,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -65,7 +65,7 @@ const script = {
   "message0": "Script:",
   "inputsInline": true,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -88,7 +88,7 @@ const ifelse = {
       "name": "else1"
     }
   ],
-  "colour": 230,
+  "colour": "#60B560",
   "previousStatement": null,
   "nextStatement": null,
   "tooltip": "",
@@ -139,7 +139,7 @@ const moveEntity = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 290,
+  "colour": "#47A8D1",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -148,7 +148,7 @@ const triggeringPlayer = {
   "type": "triggeringplayer",
   "message0": "triggering player",
   "output": "Player",
-  "colour": 260,
+  "colour": "#855CD6",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -166,7 +166,7 @@ const owner = {
       "check": "Unit"
     }
   ],
-  "colour": 260,
+  "colour": "#855CD6",
   "output": "Player",
   "tooltip": "",
   "helpUrl": ""
@@ -176,7 +176,7 @@ const triggeringUnit = {
   "type": "triggeringunit",
   "message0": "triggering unit",
   "output": "Unit",
-  "colour": 65,
+  "colour": "#CF63CF",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -188,7 +188,7 @@ const selectedUnit = {
   "type": "selectedunit",
   "message0": "selected unit",
   "output": "Unit",
-  "colour": 65,
+  "colour": "#CF63CF",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -200,7 +200,7 @@ const lastCreatedUnit = {
   "type": "lastcreatedunit",
   "message0": "last created unit",
   "output": "Unit",
-  "colour": 65,
+  "colour": "#CF63CF",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -210,7 +210,7 @@ const frameTick = {
   "message0": "every frame",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -220,7 +220,7 @@ const serverShuttingDown = {
   "message0": "server shutting down",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -230,7 +230,7 @@ const gameStart = {
   "message0": "game start",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -240,7 +240,7 @@ const onPostResponse = {
   "message0": "on post response",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -250,7 +250,7 @@ const playerSendsChatMessage = {
   "message0": "player sends chat message",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -260,7 +260,7 @@ const unitTouchesWall = {
   "message0": "unit touches wall",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -270,7 +270,7 @@ const unitUsesItem = {
   "message0": "unit uses item",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -280,7 +280,7 @@ const unitAttributeBecomesZero = {
   "message0": "unit attribute becomes zero",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -290,7 +290,7 @@ const unitStartsUsingAnItem = {
   "message0": "unit starts using an item",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -300,7 +300,7 @@ const unitAttributeBecomesFull = {
   "message0": "unit attribute becomes full",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -310,7 +310,7 @@ const unitEntersRegion = {
   "message0": "unit enters region",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -320,7 +320,7 @@ const unitDroppedAnItem = {
   "message0": "unit drops an item",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -330,7 +330,7 @@ const unitSelectsItem = {
   "message0": "unit selects an item",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -340,7 +340,7 @@ const unitLeavesRegion = {
   "message0": "unit leaves region",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -350,7 +350,7 @@ const unitAttacksUnit = {
   "message0": "unit attacks unit",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -360,7 +360,7 @@ const unitStopsUsingAnItem = {
   "message0": "unit stops using an item",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -370,7 +370,7 @@ const unitTouchesProjectile = {
   "message0": "unit touches projectile",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -380,7 +380,7 @@ const unitPickedAnItem = {
   "message0": "unit picks up an item",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -390,7 +390,7 @@ const unitTouchesItem = {
   "message0": "unit touches item",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -400,7 +400,7 @@ const playerJoinsGame = {
   "message0": "player joins game",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -410,7 +410,7 @@ const playerLeavesGame = {
   "message0": "player leaves game",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 120,
+  "colour": "#0DA57A",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -427,7 +427,7 @@ const destroyEntity = {
       "check": ["Unit", "Projectile", "Item"]
     }
   ],
-  "colour": 290,
+  "colour": "#47A8D1",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -452,7 +452,7 @@ const playerCameraTrackUnit = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 260,
+  "colour": "#855CD6",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -493,7 +493,7 @@ const createUnitAtPosition = {
       "check": "Number"
     }
   ],
-  "colour": 65,
+  "colour": "#CF63CF",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -508,7 +508,7 @@ const getPlayerName = {
       "check": "Player"
     }
   ],
-  "colour": 160,
+  "colour": 230,
   "output": "String",
   "tooltip": "",
   "helpUrl": ""
@@ -524,7 +524,7 @@ const num2str = {
       "check": "Number"
     }
   ],
-  "colour": 160,
+  "colour": 230,
   "output": "String",
   "tooltip": "",
   "helpUrl": ""
@@ -576,7 +576,7 @@ const break1 = {
   "message0": "break",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -589,7 +589,7 @@ const continue1 = {
   "message0": "continue",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -618,7 +618,7 @@ const decreaseVariableByNumber = {
   "previousStatement": null,
   "nextStatement": null,
   "inputsInline": true,
-  "colour": 330,
+  "colour": "#ED953E",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -644,7 +644,7 @@ const increaseVariableByNumber = {
   "previousStatement": null,
   "nextStatement": null,
   "inputsInline": true,
-  "colour": 330,
+  "colour": "#ED953E",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -665,14 +665,14 @@ const setVariable = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 330
+  "colour": "#ED953E"
 };
 
 const triggeringProjectile = {
   "type": "triggeringprojectile",
   "message0": "triggering projectile",
   "output": "Projectile",
-  "colour": 290,
+  "colour": "#47A8D1",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -684,7 +684,7 @@ const triggeringItem = {
   "type": "triggeringitem",
   "message0": "triggering item",
   "output": "Item",
-  "colour": 290,
+  "colour": "#47A8D1",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -696,7 +696,7 @@ const triggeringRegion = {
   "type": "triggeringregion",
   "message0": "triggering region",
   "output": "Region",
-  "colour": 290,
+  "colour": "#47A8D1",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -723,7 +723,7 @@ const repeat = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -755,7 +755,7 @@ const repeatWithDelay = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -774,7 +774,7 @@ const while1 = {
       "name": "code"
     }
   ],
-  "colour": 230,
+  "colour": "#60B560",
   "previousStatement": null,
   "nextStatement": null,
   "tooltip": "",
@@ -799,7 +799,7 @@ const kickPlayer = {
       "check": "String"
     }
   ],
-  "colour": 260,
+  "colour": "#855CD6",
   "previousStatement": null,
   "nextStatement": null,
   "tooltip": "",
@@ -816,7 +816,7 @@ const comment = {
       "text": " "
     }
   ],
-  "colour": 230,
+  "colour": "#60B560",
   "previousStatement": null,
   "nextStatement": null,
   "tooltip": "",
@@ -835,7 +835,7 @@ const dropAllItems = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 65,
+  "colour": "#CF63CF",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -876,7 +876,7 @@ const getEntireMapRegion = {
   "type": "getentiremapregion",
   "message0": "entire map region",
   "output": "Region",
-  "colour": 290,
+  "colour": "#47A8D1",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -890,7 +890,7 @@ const itemTypeOfItem = {
       "name": "item"
     }
   ],
-  "colour": 290,
+  "colour": "#47A8D1",
   "output": "Item Type",
   "tooltip": "",
   "helpUrl": ""
@@ -906,7 +906,7 @@ const projectileTypeOfProjectile = {
       "check": "Projectile",
     }
   ],
-  "colour": 290,
+  "colour": "#47A8D1",
   "output": "Projectile Type",
   "tooltip": "",
   "helpUrl": ""
@@ -930,7 +930,7 @@ const setPlayerName = {
   "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 260,
+  "colour": "#855CD6",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -953,7 +953,7 @@ const setUnitNameLabel = {
   "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 65,
+  "colour": "#CF63CF",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -968,7 +968,7 @@ const getPlayerSelectedUnit = {
       "check": "Player"
     }
   ],
-  "colour": 65,
+  "colour": "#CF63CF",
   "output": "Unit",
   "tooltip": "",
   "helpUrl": ""
@@ -989,7 +989,7 @@ const join = {
   ],
   "inputsInline": true,
   "output": "String",
-  "colour": 160,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 };
@@ -1005,7 +1005,7 @@ const string = {
     }
   ],
   "inputsInline": true,
-  "colour": 160,
+  "colour": 230,
   "tooltip": "",
   "output": "String",
   "helpUrl": ""
@@ -1124,7 +1124,7 @@ const comparison = {
   ],
   "inputsInline": true,
   "output": "Boolean",
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -1144,7 +1144,7 @@ const lastChatMessageSent = {
   ],
   "inputsInline": true,
   "output": "String",
-  "colour": 160,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 };
@@ -1164,7 +1164,7 @@ const forAllUnits = {
     }
   ],
   "inputsInline": true,
-  "colour": 230,
+  "colour": "#60B560",
   "previousStatement": null,
   "nextStatement": null,
   "tooltip": "",
@@ -1175,7 +1175,7 @@ const allUnits = {
   "type": "allunits",
   "message0": "all units in game",
   "output": "Unit Group",
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -1191,7 +1191,7 @@ const allUnitsInRegion = {
     }
   ],
   "output": "Unit Group",
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -1207,7 +1207,7 @@ const allUnitsOwnedByPlayer = {
     }
   ],
   "output": "Unit Group",
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -1227,7 +1227,7 @@ const forAllPlayers = {
     }
   ],
   "inputsInline": true,
-  "colour": 230,
+  "colour": "#60B560",
   "previousStatement": null,
   "nextStatement": null,
   "tooltip": "",
@@ -1238,7 +1238,7 @@ const humanPlayers = {
   "type": "humanplayers",
   "message0": "all human players",
   "output": "Player Group",
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -1247,7 +1247,7 @@ const botPlayers = {
   "type": "botplayers",
   "message0": "all bot players",
   "output": "Player Group",
-  "colour": 230,
+  "colour": "#60B560",
   "tooltip": "",
   "helpUrl": ""
 };
@@ -1256,7 +1256,7 @@ const selectedPlayer = {
   "type": "selectedplayer",
   "message0": "selected player",
   "output": "Player",
-  "colour": 260,
+  "colour": "#855CD6",
   "tooltip": "",
   "helpUrl": "",
   'extensions': [
@@ -1275,7 +1275,7 @@ const getVariable = {
     }
   ],
   "output": null,
-  "colour": 330
+  "colour": "#ED953E"
 };
 
 const angle = {
@@ -1483,13 +1483,14 @@ Blockly.Extensions.register('comparison_type', function() {
 });
 
 // Colors per category
-// 65 for unit
-// 120 for trigger
-// 160 for text
-// 230 for logic
-// 260 for player
-// 290 for entity
-// 330 for other
+// Triggers - #0DA57A
+// System-Loops - #60B560
+// Math-Positions - #59C059
+// Entities-Region - #47A8D1
+// Player - #855CD6
+// Unit - #CF63CF
+// Other - #FF6680
+// Variables - #ED953E
 
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
