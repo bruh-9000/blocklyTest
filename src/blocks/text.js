@@ -466,7 +466,7 @@ const createUnitAtPosition = {
     {
       "type": "input_value",
       "name": "unittype",
-      "check": "Unit Type"
+      "check": "String"
     },
     {
       "type": "input_dummy"
