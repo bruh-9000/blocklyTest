@@ -280,7 +280,7 @@ forBlock['num2str'] = function (block, generator) {
   const num = generator.valueToCode(block, 'num', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `num2str(${num})\n`;
+  const code = `num2str(${num})`;
   return [code, generator.ORDER_NONE];
 };
 
@@ -288,7 +288,7 @@ forBlock['str2num'] = function (block, generator) {
   const str1 = generator.valueToCode(block, 'str1', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `str2num(${str1})\n`;
+  const code = `str2num(${str1})`;
   return [code, generator.ORDER_NONE];
 };
 
