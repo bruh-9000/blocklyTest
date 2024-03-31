@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@blockly/field-colour-hsv-sliders": "^4.2.2",
+    "@blockly/field-slider": "^6.1.6",
     "@blockly/theme-dark": "^6.0.5",
     "@blockly/toolbox-search": "^1.2.6",
     "blockly": "^10.0.0"

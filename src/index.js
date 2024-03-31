@@ -14,6 +14,7 @@ import './index.css';
 import '@blockly/toolbox-search';
 import DarkTheme from '@blockly/theme-dark';
 import '@blockly/field-colour-hsv-sliders';
+import {FieldSlider} from '@blockly/field-slider';
 
 // Register the blocks and generator with Blockly
 Blockly.common.defineBlocks(blocks);
