@@ -364,9 +364,9 @@ forBlock['repeat'] = function (block, generator) {
   let code;
 
   if (code1) {
-    code = `repeat (${times})\n${code1}{\n`;
+    code = `repeat (${times}) {\n${code1}{\n`;
   } else {
-    code = `repeat (${times})\n\n{\n`;
+    code = `repeat (${times}) {\n\n{\n`;
   }
 
   return code;
@@ -381,9 +381,9 @@ forBlock['repeatwithdelay'] = function (block, generator) {
   let code;
 
   if (code1) {
-    code = `repeatWithDelay (${times}, ${delay})\n${code1}{\n`;
+    code = `repeatWithDelay (${times}, ${delay}) {\n${code1}{\n`;
   } else {
-    code = `repeatWithDelay (${times}, ${delay})\n\n{\n`;
+    code = `repeatWithDelay (${times}, ${delay}) {\n\n{\n`;
   }
 
   return code;
@@ -397,9 +397,9 @@ forBlock['while'] = function (block, generator) {
   let code;
 
   if (code1) {
-    code = `while (${bool})\n${code1}{\n`;
+    code = `while (${bool}) {\n${code1}{\n`;
   } else {
-    code = `while (${bool})\n\n{\n`;
+    code = `while (${bool}) {\n\n{\n`;
   }
 
   return code;
