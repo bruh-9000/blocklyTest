@@ -1484,15 +1484,18 @@ Blockly.Extensions.register('comparison_type', function() {
   this.setOnChange(function(event) {
     let valid = false;
 
-    if (this.getInputTargetBlock('val1') != undefined && this.getInputTargetBlock('val2') != undefined ) {
-      valid = this.getInputTargetBlock('val1').type == this.getInputTargetBlock('val2').type;
+    const firstCheck = this.getInput('val1')?.connection.targetConnection?.getCheck() ?? [];
+    const secondCheck = this.getInput('val2')?.connection.targetConnection?.getCheck() ?? [];
+
+    if (firstCheck[0] != undefined && secondCheck[0] != undefined) {
+      valid = firstCheck[0] === secondCheck[0];
     } else {
       valid = true;
     }
 
-    // this.setWarningText(valid
-    //  ? null
-    //  : `Comparison types must be the same.`);
+    this.setWarningText(valid
+     ? null
+     : `Comparison types must be the same.`);
   });
 });
 
