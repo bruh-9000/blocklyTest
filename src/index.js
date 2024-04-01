@@ -484,3 +484,32 @@ ws.registerButtonCallback("newVar", newVar);
 function newVar() {
   Blockly.Variables.createVariableButtonHandler(ws);
 }
+
+loadVariables.addEventListener("click", () => {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.JSON'; // Specify the file types you want to accept
+  input.onchange = function(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const fileContent = JSON.parse((event.target.result));
+
+        for (let i = 0; i < ws.getAllVariables().length; i++) {
+          ws.deleteVariableById(ws.getAllVariables()[i].id_);
+        }
+
+        let variableList = [];
+
+        for (let variableName in fileContent.data.variables) {
+            if (fileContent.data.variables.hasOwnProperty(variableName)) {
+                let dataType = fileContent.data.variables[variableName].dataType;
+                variableList.push([variableName, dataType]);
+                ws.createVariable(variableName);
+            }
+        }
+      };
+      reader.readAsText(file);
+  };
+  input.click();
+});
