@@ -501,11 +501,33 @@ loadVariables.addEventListener("click", () => {
 
         let variableList = [];
 
+        const conversionList = {
+          "number": "Number",
+          "boolean": "Boolean",
+          "string": "String",
+          "position": "Pos",
+          "unit": "Unit",
+          "item": "Item",
+          "projectile": "Projectile",
+          "player": "Player",
+          "itemType": "Item Type",
+          "unitType": "Unit Type",
+          "projectileType": "Projectile Type",
+          "playerType": "Player Type",
+          "unitGroup": "Unit Group",
+          "itemGroup": "Item Group",
+          "playerGroup": "Player Group",
+          "itemTypeGroup": "Item Type Group",
+          "unitTypeGroup": "Unit Type Group",
+          "region": "Region",
+          "dialogue": "Dialogue"
+        };
+
         for (let variableName in fileContent.data.variables) {
             if (fileContent.data.variables.hasOwnProperty(variableName)) {
-                let dataType = fileContent.data.variables[variableName].dataType;
-                variableList.push([variableName, dataType]);
-                ws.createVariable(variableName);
+              let dataType = fileContent.data.variables[variableName].dataType;
+              variableList.push([variableName, dataType]);
+              ws.createVariable(variableName, conversionList[dataType]);
             }
         }
       };
