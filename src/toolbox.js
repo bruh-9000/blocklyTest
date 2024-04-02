@@ -403,6 +403,10 @@ export const toolbox = {
       'contents': [
         {
           'kind': 'block',
+          'type': 'givenewitemtounit',
+        },
+        {
+          'kind': 'block',
           'type': 'triggeringitem',
         },
       ]

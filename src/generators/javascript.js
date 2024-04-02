@@ -852,3 +852,12 @@ forBlock['playmusicforplayer'] = function (block, generator) {
   const code = `playMusicForPlayer('${music}', ${player})\n`;
   return code;
 };
+
+forBlock['givenewitemtounit'] = function (block, generator) {
+  const unit = generator.valueToCode(block, 'unit', Order.NONE) || "";
+  const music = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `giveNewItemToUnit('${music}', ${unit})\n`;
+  return code;
+};
