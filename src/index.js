@@ -164,12 +164,14 @@ ws.addChangeListener((e) => {
     if (e.type == "move") {
       document.getElementById('saveStatus').innerText = "↺";
       saved = false;
+      localStorage.setItem('saveStatus', saved);
     }
   }
 
   if (originalStatus.blocks == Blockly.serialization.workspaces.save(ws).blocks) {
     document.getElementById('saveStatus').innerText = "🖫";
     saved = true;
+    localStorage.setItem('saveStatus', saved);
   }
 });
 
@@ -189,6 +191,7 @@ saveButton.addEventListener("click", () => {
 
   document.getElementById('saveStatus').innerText = "🖫";
   saved = true;
+  localStorage.setItem('saveStatus', saved);
 });
 
 loadButton.addEventListener("click", () => {
@@ -278,6 +281,7 @@ clearWorkspace.addEventListener("click", () => {
     ws.clear();
     saved = false;
     document.getElementById('saveStatus').innerText = "↺";
+    localStorage.setItem('saveStatus', saved);
   }
 });
 
@@ -325,6 +329,7 @@ newButton.addEventListener("click", () => {
   } else {
     saved = true;
     document.getElementById('saveStatus').innerText = "🖫";
+    localStorage.setItem('saveStatus', saved);
     newCreated = true;
     ws.clear()
   }
@@ -342,6 +347,7 @@ confirmButton.addEventListener("click", () => {
   if (replacingWith == "new") {
     saved = true;
     document.getElementById('saveStatus').innerText = "🖫";
+    localStorage.setItem('saveStatus', saved);
     newCreated = true;
     fileContent = JSON.parse(`{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"triggers\",\"id\":\"J$H)K[jsL^dVHR|m39.u\",\"x\":0,\"y\":0},{\"type\":\"script\",\"id\":\"H{)R(5,O)hstiO4w|K=T\",\"x\":0,\"y\":104}]}}`);
   } else if (replacingWith == "playerJoinsGame") {
@@ -671,3 +677,13 @@ for (let i = 0; i < ws.getAllVariables().length; i++) {
     ws.deleteVariableById(ws.getAllVariables()[i].id_)
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('saveStatus') == true) {
+    document.getElementById('saveStatus').innerText = "🖫";
+    saved = true;
+  } else {
+    document.getElementById('saveStatus').innerText = "↺";
+    saved = false;
+  }
+});
