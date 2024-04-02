@@ -362,9 +362,9 @@ confirmButton.addEventListener("click", () => {
 });
 
 window.addEventListener("click", (event) => {
-    if (event.target === popup2) {
-        popup2.classList.remove("show");
-    }
+  if (event.target === popup2) {
+    popup2.classList.remove("show");
+  }
 });
 
 document.getElementById('saveStatus').addEventListener('mouseover', function() {
@@ -386,55 +386,27 @@ document.getElementById('saveStatus').addEventListener('mouseout', function() {
 });
 
 playerJoinsGame.addEventListener("click", () => {
-  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
-  
   replacingWith = "playerJoinsGame"
 
-  if (!length || saved == false) {
-    popup2.classList.add("show");
-  } else {
-    saved = false;
-    document.getElementById('saveStatus').innerText = "↺";
-  }
+  popup2.classList.add("show");
 });
 
 playerLeavesGame.addEventListener("click", () => {
-  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
-  
   replacingWith = "playerLeavesGame"
 
-  if (!length || saved == false) {
-    popup2.classList.add("show");
-  } else {
-    saved = false;
-    document.getElementById('saveStatus').innerText = "↺";
-  }
+  popup2.classList.add("show");
 });
 
 slashCommand.addEventListener("click", () => {
-  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
-  
   replacingWith = "slashCommand"
 
-  if (!length || saved == false) {
-    popup2.classList.add("show");
-  } else {
-    saved = false;
-    document.getElementById('saveStatus').innerText = "↺";
-  }
+  popup2.classList.add("show");
 });
 
 gameTimer.addEventListener("click", () => {
-  const length = Blockly.serialization.workspaces.save(ws).blocks == undefined;
-  
   replacingWith = "gameTimer"
 
-  if (!length || saved == false) {
-    popup2.classList.add("show");
-  } else {
-    saved = false;
-    document.getElementById('saveStatus').innerText = "↺";
-  }
+  popup2.classList.add("show");
 });
 
 document.getElementById('darkModeCheckbox').addEventListener('change', function(event) {
