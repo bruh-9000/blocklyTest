@@ -447,6 +447,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'triggeringregion',
         },
+        {
+          'kind': 'block',
+          'type': 'region',
+        },
       ]
     },
     {

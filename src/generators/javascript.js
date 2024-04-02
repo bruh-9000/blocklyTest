@@ -771,6 +771,14 @@ forBlock['player_variable'] = function (block, generator) {
   return [code, generator.ORDER_NONE];
 };
 
+forBlock['region'] = function (block, generator) {
+  const region = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${region}'`;
+  return [code, generator.ORDER_NONE];
+};
+
 forBlock['opendialogue'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
   let dialogueID;

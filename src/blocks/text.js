@@ -534,6 +534,24 @@ const unitType = {
   "helpUrl": ""
 };
 
+const region = {
+  "type": "region",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Region"],
+      "defaultType": "g Region"
+    },
+  ],
+  "colour": "#47A8D1",
+  "output": "g Region",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 const dialogue = {
   "type": "dialogue",
   "message0": "%1",
@@ -860,7 +878,7 @@ const setVariable = {
       "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["Number", "String", "Boolean", "Pos", "Unit", "Item", "Projectile", "Player", "Item Type", "Unit Type", "Projectile Type", "Player Type", "Unit Group",
-      "Item Group", "Player Group", "Item Type Group", "Unit Type Group", "Region", "Dialogue"],
+      "Item Group", "Player Group", "Item Type Group", "Unit Type Group", "Dialogue"],
       "defaultType": "Number"
     },
     {
@@ -1478,7 +1496,7 @@ const getVariable = {
       "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["Number", "String", "Boolean", "Pos", "Unit", "Item", "Projectile", "Player", "Item Type", "Unit Type", "Projectile Type", "Player Type", "Unit Group",
-      "Item Group", "Player Group", "Item Type Group", "Unit Type Group", "Region", "Dialogue"],
+      "Item Group", "Player Group", "Item Type Group", "Unit Type Group", "Dialogue"],
       "defaultType": "Number"
     }
   ],
@@ -1858,4 +1876,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
   forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
-  playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1]);
+  playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region]);

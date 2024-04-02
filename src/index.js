@@ -629,14 +629,18 @@ function loadVariablesFunc(input) {
     "playerGroup": "Player Group",
     "itemTypeGroup": "Item Type Group",
     "unitTypeGroup": "Unit Type Group",
-    "region": "Region",
     "dialogue": "Dialogue"
   };
 
   for (let variableName in fileContent.data.variables) {
     if (fileContent.data.variables.hasOwnProperty(variableName)) {
       let dataType = fileContent.data.variables[variableName].dataType;
-      ws.createVariable(variableName, conversionList[dataType]);
+      
+      if (dataType == "region") {
+        ws.createVariable(variableName, "g Region");
+      } else {
+        ws.createVariable(variableName, conversionList[dataType]);
+      }
     }
   }
 };
