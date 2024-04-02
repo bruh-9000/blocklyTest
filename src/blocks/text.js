@@ -1689,6 +1689,41 @@ const giveNewItemToUnit = {
   "helpUrl": ""
 };
 
+const createProjectileAtPosition = {
+  "type": "createprojectileatposition",
+  "message0": "create %1 at position %2 and apply %3 velocity at %4 radians",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Projectile Type"],
+      "defaultType": "g Projectile Type"
+    },
+    {
+      "type": "input_value",
+      "name": "position",
+      "check": "Pos"
+    },
+    {
+      "type": "input_value",
+      "name": "velocity",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "radians",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": "#47A8D1",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 Blockly.Extensions.register('player_loop', function() {
   this.setOnChange(function(event) {
     let block = this;
@@ -1933,4 +1968,5 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
   forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
-  playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region, unitTypeOfUnit, playerTypeOfPlayer, giveNewItemToUnit]);
+  playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region, unitTypeOfUnit, playerTypeOfPlayer, giveNewItemToUnit,
+  createProjectileAtPosition]);

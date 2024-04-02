@@ -418,6 +418,10 @@ export const toolbox = {
       'contents': [
         {
           'kind': 'block',
+          'type': 'createprojectileatposition',
+        },
+        {
+          'kind': 'block',
           'type': 'triggeringprojectile',
         },
       ]

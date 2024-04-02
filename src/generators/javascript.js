@@ -861,3 +861,14 @@ forBlock['givenewitemtounit'] = function (block, generator) {
   const code = `giveNewItemToUnit('${music}', ${unit})\n`;
   return code;
 };
+
+forBlock['createprojectileatposition'] = function (block, generator) {
+  const position = generator.valueToCode(block, 'position', Order.NONE) || "";
+  const velocity = generator.valueToCode(block, 'velocity', Order.NONE) || "";
+  const radians = generator.valueToCode(block, 'radians', Order.NONE) || "";
+  const projectile = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `createProjectileAtPosition('${projectile}', ${position}, ${velocity}, ${radians})\n`;
+  return code;
+};
