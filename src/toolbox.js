@@ -148,6 +148,17 @@ export const toolbox = {
         },    
         {
           'kind': 'block',
+          'type': 'runscript',
+          'inputs': {
+            'VAR': {
+              'shadow': {
+                'type': 'script1',
+              },
+            },
+          },
+        },
+        {
+          'kind': 'block',
           'type': 'colour_hsv_sliders',
         },
       ]

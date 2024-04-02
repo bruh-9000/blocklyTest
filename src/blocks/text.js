@@ -708,7 +708,7 @@ const script1 = {
       "defaultType": "g Script"
     },
   ],
-  "colour": 230,
+  "colour": "#60B560",
   "output": "g Script",
   "tooltip": "",
   "helpUrl": ""
@@ -1715,6 +1715,23 @@ const createProjectileAtPosition = {
   "helpUrl": ""
 };
 
+const runscript = {
+  "type": "runscript",
+  "message0": "run script %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "VAR"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": "#60B560",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 Blockly.Extensions.register('player_loop', function() {
   this.setOnChange(function(event) {
     let block = this;
@@ -1960,4 +1977,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
   forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
   playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region, unitTypeOfUnit, playerTypeOfPlayer, giveNewItemToUnit,
-  createProjectileAtPosition]);
+  createProjectileAtPosition, runscript]);

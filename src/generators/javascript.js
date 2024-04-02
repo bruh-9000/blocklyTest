@@ -707,6 +707,14 @@ forBlock['dialogue'] = function (block, generator) {
   return [code, generator.ORDER_NONE];
 };
 
+forBlock['script1'] = function (block, generator) {
+  const script = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${script}'`;
+  return [code, generator.ORDER_NONE];
+};
+
 forBlock['shop'] = function (block, generator) {
   const shop = this.getField("VAR").variable.name;
 
@@ -890,5 +898,13 @@ forBlock['createprojectileatposition'] = function (block, generator) {
 
   // Generate the function call for this block.
   const code = `createProjectileAtPosition(${projectile}, ${position}, ${velocity}, ${radians})\n`;
+  return code;
+};
+
+forBlock['runscript'] = function (block, generator) {
+  const script = generator.valueToCode(block, 'VAR', Order.NONE) || "";
+
+  // Generate the function call for this block.
+  const code = `runScript(${script})\n`;
   return code;
 };
