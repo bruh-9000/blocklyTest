@@ -1384,6 +1384,56 @@ const openShop = {
   "helpUrl": ""
 };
 
+const playSoundForPlayer = {
+  "type": "playsoundforplayer",
+  "message0": "play sound %1 for player %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Sound"],
+      "defaultType": "g Sound"
+    },
+    {
+      "type": "input_value",
+      "name": "player",
+      "check": "Player"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 330,
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const playMusicForPlayer = {
+  "type": "playmusicforplayer",
+  "message0": "play music %1 for player %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Music"],
+      "defaultType": "g Music"
+    },
+    {
+      "type": "input_value",
+      "name": "player",
+      "check": "Player"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 330,
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 Blockly.Extensions.register('player_loop', function() {
   this.setOnChange(function(event) {
     let block = this;
@@ -1615,4 +1665,5 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   playerJoinsGame, playerLeavesGame, getPlayerName, str2num, num2str, sendChatMessageToPlayer, break1, continue1, decreaseVariableByNumber, increaseVariableByNumber, setVariable, triggeringItem,
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
-  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop]);
+  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
+  ]);

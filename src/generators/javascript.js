@@ -740,3 +740,21 @@ forBlock['openshop'] = function (block, generator) {
   const code = `openShopForPlayer('${shop}', ${player})\n`;
   return code;
 };
+
+forBlock['playsoundforplayer'] = function (block, generator) {
+  const player = generator.valueToCode(block, 'player', Order.NONE) || "";
+  const sound = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `playSoundForPlayer('${sound}', ${player})\n`;
+  return code;
+};
+
+forBlock['playmusicforplayer'] = function (block, generator) {
+  const player = generator.valueToCode(block, 'player', Order.NONE) || "";
+  const music = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `playMusicForPlayer('${music}', ${player})\n`;
+  return code;
+};

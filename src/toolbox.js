@@ -618,7 +618,14 @@ export const toolbox = {
       'name': 'Sound & Music',
       'categorystyle': 'others_category',
       'contents': [
-
+        {
+          'kind': 'block',
+          'type': 'playsoundforplayer',
+        },
+        {
+          'kind': 'block',
+          'type': 'playmusicforplayer',
+        },
       ]
     },
     {
