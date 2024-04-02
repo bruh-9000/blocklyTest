@@ -464,11 +464,9 @@ const createUnitAtPosition = {
   "nextStatement": null,
   "args0": [
     {
-      "type": "field_variable",
+      "type": "input_value",
       "name": "unittype",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
-      "variableTypes": ["g Unit Type"],
-      "defaultType": "g Unit Type"
+      "check": "g Unit Type"
     },
     {
       "type": "input_dummy"
@@ -499,6 +497,24 @@ const createUnitAtPosition = {
   "tooltip": "",
   "helpUrl": ""
 };
+
+const unitType = {
+  "type": "unit_type",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "unittype",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Unit Type"],
+      "defaultType": "g Unit Type"
+    },
+  ],
+  "colour": 230,
+  "output": "g Unit Type",
+  "tooltip": "",
+  "helpUrl": ""
+}
 
 const getPlayerName = {
   "type": "getplayername",
@@ -1549,4 +1565,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   playerJoinsGame, playerLeavesGame, getPlayerName, str2num, num2str, sendChatMessageToPlayer, break1, continue1, decreaseVariableByNumber, increaseVariableByNumber, setVariable, triggeringItem,
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
-  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker]);
+  forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType]);
