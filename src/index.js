@@ -499,7 +499,17 @@ loadVariables.addEventListener("click", () => {
           ws.deleteVariableById(ws.getAllVariables()[i].id_);
         }
 
-        let variableList = [];
+        for (let variableName in fileContent.data.playerTypes) {
+          if (fileContent.data.playerTypes.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Player Type");
+          }
+        }
+
+        for (let variableName in fileContent.data.unitTypes) {
+          if (fileContent.data.unitTypes.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Unit Type");
+          }
+        }
 
         const conversionList = {
           "number": "Number",
@@ -524,11 +534,10 @@ loadVariables.addEventListener("click", () => {
         };
 
         for (let variableName in fileContent.data.variables) {
-            if (fileContent.data.variables.hasOwnProperty(variableName)) {
-              let dataType = fileContent.data.variables[variableName].dataType;
-              variableList.push([variableName, dataType]);
-              ws.createVariable(variableName, conversionList[dataType]);
-            }
+          if (fileContent.data.variables.hasOwnProperty(variableName)) {
+            let dataType = fileContent.data.variables[variableName].dataType;
+            ws.createVariable(variableName, conversionList[dataType]);
+          }
         }
       };
       reader.readAsText(file);
