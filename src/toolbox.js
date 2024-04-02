@@ -451,6 +451,16 @@ export const toolbox = {
                 'type': 'projectile_type',
               },
             },
+            'velocity': {
+              'shadow': {
+                'type': 'math_number',
+              },
+            },
+            'radians': {
+              'shadow': {
+                'type': 'math_number',
+              },
+            },
           },
         },
         {
