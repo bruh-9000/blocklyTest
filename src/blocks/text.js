@@ -158,7 +158,7 @@ const triggeringPlayer = {
 
 const owner = {
   "type": "owner",
-  "message0": "player owner of unit %1",
+  "message0": "owner of unit %1",
   "args0": [
     {
       "type": "input_value",
