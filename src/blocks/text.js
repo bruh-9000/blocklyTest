@@ -1119,6 +1119,36 @@ const itemTypeOfItem = {
   "helpUrl": ""
 };
 
+const unitTypeOfUnit = {
+  "type": "unittypeofunit",
+  "message0": "unit type of unit %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "unit"
+    }
+  ],
+  "colour": "#CF63CF",
+  "output": "Unit Type",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const playerTypeOfPlayer = {
+  "type": "playertypeofplayer",
+  "message0": "player type of player %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "player"
+    }
+  ],
+  "colour": "#855CD6",
+  "output": "Player Type",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 const projectileTypeOfProjectile = {
   "type": "projectiletypeofprojectile",
   "message0": "projectile type of projectile %1",
@@ -1876,4 +1906,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
   forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
-  playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region]);
+  playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region, unitTypeOfUnit, playerTypeOfPlayer]);

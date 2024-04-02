@@ -590,12 +590,20 @@ export const toolbox = {
           'type': 'player_type',
         },
         {
+          'kind': 'block',
+          'type': 'playertypeofplayer',
+        },
+        {
           "kind": "label",
           "text": "Unit Type",
         },
         {
           'kind': 'block',
           'type': 'unit_type',
+        },
+        {
+          'kind': 'block',
+          'type': 'unittypeofunit',
         },
       ]
     },

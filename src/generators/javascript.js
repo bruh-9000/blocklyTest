@@ -476,6 +476,22 @@ forBlock['itemtypeofitem'] = function (block, generator) {
   return [code, generator.ORDER_NONE];
 };
 
+forBlock['unittypeofunit'] = function (block, generator) {
+  const unit = generator.valueToCode(block, 'unit', Order.NONE) || "";
+
+  // Generate the function call for this block.
+  const code = `${unit}.type`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['playertypeofplayer'] = function (block, generator) {
+  const player = generator.valueToCode(block, 'player', Order.NONE) || "";
+
+  // Generate the function call for this block.
+  const code = `${player}.type`;
+  return [code, generator.ORDER_NONE];
+};
+
 forBlock['setplayername'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
   const name = generator.valueToCode(block, 'name', Order.NONE) || "";
