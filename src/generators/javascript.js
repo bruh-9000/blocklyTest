@@ -725,19 +725,43 @@ forBlock['player_variable'] = function (block, generator) {
 
 forBlock['opendialogue'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
-  const dialogue = this.getField("VAR").variable.name;
+  let dialogueID;
+
+  console.log(window.dialogueNames)
+
+  if (typeof window.dialogueNames !== 'undefined') {
+    const searchValue = this.getField("VAR").variable.name;
+
+    for (let i = 0; i < window.dialogueNames.length; i++) {
+      if (window.dialogueNames[i][0] === searchValue) {
+        dialogueID = (window.dialogueNames[i][1]);
+        break;
+      }
+    }
+  }
 
   // Generate the function call for this block.
-  const code = `openDialogueForPlayer('${dialogue}', ${player})\n`;
+  const code = `openDialogueForPlayer('${dialogueID}', ${player})\n`;
   return code;
 };
 
 forBlock['openshop'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
-  const shop = this.getField("VAR").variable.name;
+  let shopID;
+
+  if (typeof window.shopNames !== 'undefined') {
+    const searchValue = this.getField("VAR").variable.name;
+
+    for (let i = 0; i < window.shopNames.length; i++) {
+      if (window.shopNames[i][0] === searchValue) {
+        shopID = (window.shopNames[i][1]);
+        break;
+      }
+    }
+  }
 
   // Generate the function call for this block.
-  const code = `openShopForPlayer('${shop}', ${player})\n`;
+  const code = `openShopForPlayer('${shopID}', ${player})\n`;
   return code;
 };
 

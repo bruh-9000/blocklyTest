@@ -121,6 +121,11 @@ let saved = true;
 let newCreated;
 let originalStatus = Blockly.serialization.workspaces.save(ws);
 let replacingWith;
+let dialogueNames = [];
+let shopNames = [];
+
+window.shopNames = shopNames;
+window.dialogueNames = dialogueNames;
 
 // Every time the workspace changes state, save the changes to storage.
 ws.addChangeListener((e) => {
@@ -511,12 +516,16 @@ loadVariables.addEventListener("click", () => {
         }
         for (let variableName in fileContent.data.dialogues) {
           if (fileContent.data.dialogues.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Dialogue");
+            ws.createVariable(fileContent.data.dialogues[variableName].name, "g Dialogue");
+            let innerList = [fileContent.data.dialogues[variableName].name, variableName];
+            dialogueNames.push(innerList);
           }
         }
         for (let variableName in fileContent.data.shops) {
           if (fileContent.data.shops.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Shop");
+            ws.createVariable(fileContent.data.shops[variableName].name, "g Shop");
+            let innerList = [fileContent.data.shops[variableName].name, variableName];
+            shopNames.push(innerList);
           }
         }
         for (let variableName in fileContent.data.projectileTypes) {
