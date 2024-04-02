@@ -128,6 +128,10 @@ let itemTypeNames = [];
 let playerTypeNames = [];
 let projectileTypeNames = [];
 let scripts = [];
+let playerVariableNames = [];
+let musicNames = [];
+let soundNames = [];
+let particleNames = [];
 
 window.shopNames = shopNames;
 window.dialogueNames = dialogueNames;
@@ -136,6 +140,10 @@ window.itemTypeNames = itemTypeNames;
 window.playerTypeNames = playerTypeNames;
 window.projectileTypeNames = projectileTypeNames;
 window.scripts = scripts;
+window.playerVariableNames = playerVariableNames;
+window.musicNames = musicNames;
+window.soundNames = soundNames;
+window.particleNames = particleNames;
 
 // Every time the workspace changes state, save the changes to storage.
 ws.addChangeListener((e) => {
@@ -560,7 +568,9 @@ function loadVariablesFunc(input) {
   }
   for (let variableName in fileContent.data.particles) {
     if (fileContent.data.particles.hasOwnProperty(variableName)) {
-      ws.createVariable(variableName, "g Particle");
+      ws.createVariable(fileContent.data.particles[variableName].name, "g Particle");
+      let innerList = [fileContent.data.particles[variableName].name, variableName];
+      particleNames.push(innerList);
     }
   }
   for (let variableName in fileContent.data.itemTypes) {
@@ -572,17 +582,23 @@ function loadVariablesFunc(input) {
   }
   for (let variableName in fileContent.data.sound) {
     if (fileContent.data.sound.hasOwnProperty(variableName)) {
-      ws.createVariable(variableName, "g Sound");
+      ws.createVariable(fileContent.data.sound[variableName].name, "g Sound");
+      let innerList = [fileContent.data.sound[variableName].name, variableName];
+      soundNames.push(innerList);
     }
   }
   for (let variableName in fileContent.data.music) {
     if (fileContent.data.music.hasOwnProperty(variableName)) {
-      ws.createVariable(variableName, "g Music");
+      ws.createVariable(fileContent.data.music[variableName].name, "g Music");
+      let innerList = [fileContent.data.music[variableName].name, variableName];
+      musicNames.push(innerList);
     }
   }
   for (let variableName in fileContent.data.playerTypeVariables) {
     if (fileContent.data.playerTypeVariables.hasOwnProperty(variableName)) {
-      ws.createVariable(variableName, "g Player Variable");
+      ws.createVariable(fileContent.data.playerTypeVariables[variableName].name, "g Player Variable");
+      let innerList = [fileContent.data.playerTypeVariables[variableName].name, variableName];
+      playerVariableNames.push(innerList);
     }
   }
   for (let variableName in fileContent.data.scripts) {
@@ -672,7 +688,6 @@ var varDynamic = function(workspace) {
   return blockList;
 };
 
-// Associates the function with the string 'COLOUR_PALETTE'
 ws.registerToolboxCategoryCallback(
     'Var Dynamic', varDynamic);
 
