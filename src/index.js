@@ -123,9 +123,17 @@ let originalStatus = Blockly.serialization.workspaces.save(ws);
 let replacingWith;
 let dialogueNames = [];
 let shopNames = [];
+let unitTypeNames = [];
+let itemTypeNames = [];
+let playerTypeNames = [];
+let projectileTypeNames = [];
 
 window.shopNames = shopNames;
 window.dialogueNames = dialogueNames;
+window.unitTypeNames = unitTypeNames;
+window.itemTypeNames = itemTypeNames;
+window.playerTypeNames = playerTypeNames;
+window.projectileTypeNames = projectileTypeNames;
 
 // Every time the workspace changes state, save the changes to storage.
 ws.addChangeListener((e) => {
@@ -506,12 +514,16 @@ loadVariables.addEventListener("click", () => {
 
         for (let variableName in fileContent.data.playerTypes) {
           if (fileContent.data.playerTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Player Type");
+            ws.createVariable(fileContent.data.playerTypes[variableName].name, "g Player Type");
+            let innerList = [fileContent.data.playerTypes[variableName].name, variableName];
+            playerTypeNames.push(innerList);
           }
         }
         for (let variableName in fileContent.data.unitTypes) {
           if (fileContent.data.unitTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Unit Type");
+            ws.createVariable(fileContent.data.unitTypes[variableName].name, "g Unit Type");
+            let innerList = [fileContent.data.unitTypes[variableName].name, variableName];
+            unitTypeNames.push(innerList);
           }
         }
         for (let variableName in fileContent.data.dialogues) {
@@ -530,7 +542,9 @@ loadVariables.addEventListener("click", () => {
         }
         for (let variableName in fileContent.data.projectileTypes) {
           if (fileContent.data.projectileTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Projectile Type");
+            ws.createVariable(fileContent.data.projectileTypes[variableName].name, "g Projectile Type");
+            let innerList = [fileContent.data.projectileTypes[variableName].name, variableName];
+            projectileTypeNames.push(innerList);
           }
         }
         for (let variableName in fileContent.data.particles) {
@@ -540,7 +554,9 @@ loadVariables.addEventListener("click", () => {
         }
         for (let variableName in fileContent.data.itemTypes) {
           if (fileContent.data.itemTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Item Type");
+            ws.createVariable(fileContent.data.itemTypes[variableName].name, "g Item Type");
+            let innerList = [fileContent.data.itemTypes[variableName].name, variableName];
+            itemTypeNames.push(innerList);
           }
         }
         for (let variableName in fileContent.data.sound) {

@@ -645,17 +645,41 @@ forBlock['colour_hsv_sliders'] = function (block, generator) {
 
 forBlock['player_type'] = function (block, generator) {
   const playerType = this.getField("VAR").variable.name;
+  let playerTypeID;
+
+  if (typeof window.playerTypeNames !== 'undefined') {
+    const searchValue = this.getField("VAR").variable.name;
+
+    for (let i = 0; i < window.playerTypeNames.length; i++) {
+      if (window.playerTypeNames[i][0] === searchValue) {
+        playerTypeID = (window.playerTypeNames[i][1]);
+        break;
+      }
+    }
+  }
 
   // Generate the function call for this block.
-  const code = `'${playerType}'`;
+  const code = `'${playerTypeID}'`;
   return [code, generator.ORDER_NONE];
 };
 
 forBlock['unit_type'] = function (block, generator) {
   const unitType = this.getField("VAR").variable.name;
+  let unitTypeID;
+
+  if (typeof window.unitTypeNames !== 'undefined') {
+    const searchValue = this.getField("VAR").variable.name;
+
+    for (let i = 0; i < window.unitTypeNames.length; i++) {
+      if (window.unitTypeNames[i][0] === searchValue) {
+        unitTypeID = (window.unitTypeNames[i][1]);
+        break;
+      }
+    }
+  }
 
   // Generate the function call for this block.
-  const code = `'${unitType}'`;
+  const code = `'${unitTypeID}'`;
   return [code, generator.ORDER_NONE];
 };
 
@@ -677,9 +701,21 @@ forBlock['shop'] = function (block, generator) {
 
 forBlock['projectile_type'] = function (block, generator) {
   const projectileType = this.getField("VAR").variable.name;
+  let projectileTypeID;
+
+  if (typeof window.projectileTypeNames !== 'undefined') {
+    const searchValue = this.getField("VAR").variable.name;
+
+    for (let i = 0; i < window.projectileTypeNames.length; i++) {
+      if (window.projectileTypeNames[i][0] === searchValue) {
+        projectileTypeID = (window.projectileTypeNames[i][1]);
+        break;
+      }
+    }
+  }
 
   // Generate the function call for this block.
-  const code = `'${projectileType}'`;
+  const code = `'${projectileTypeID}'`;
   return [code, generator.ORDER_NONE];
 };
 
@@ -693,9 +729,21 @@ forBlock['particle'] = function (block, generator) {
 
 forBlock['item_type'] = function (block, generator) {
   const itemType = this.getField("VAR").variable.name;
+  let itemTypeID;
+
+  if (typeof window.itemTypeNames !== 'undefined') {
+    const searchValue = this.getField("VAR").variable.name;
+
+    for (let i = 0; i < window.itemTypeNames.length; i++) {
+      if (window.itemTypeNames[i][0] === searchValue) {
+        itemTypeID = (window.itemTypeNames[i][1]);
+        break;
+      }
+    }
+  }
 
   // Generate the function call for this block.
-  const code = `'${itemType}'`;
+  const code = `'${itemTypeID}'`;
   return [code, generator.ORDER_NONE];
 };
 
@@ -726,8 +774,6 @@ forBlock['player_variable'] = function (block, generator) {
 forBlock['opendialogue'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
   let dialogueID;
-
-  console.log(window.dialogueNames)
 
   if (typeof window.dialogueNames !== 'undefined') {
     const searchValue = this.getField("VAR").variable.name;
