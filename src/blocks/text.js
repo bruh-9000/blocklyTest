@@ -1484,8 +1484,26 @@ Blockly.Extensions.register('comparison_type', function() {
   this.setOnChange(function(event) {
     let valid = false;
 
-    const firstCheck = this.getInput('val1')?.connection.targetConnection?.getCheck() ?? [];
-    const secondCheck = this.getInput('val2')?.connection.targetConnection?.getCheck() ?? [];
+    let firstCheck = this.getInput('val1')?.connection.targetConnection?.getCheck() ?? [];
+    let secondCheck = this.getInput('val2')?.connection.targetConnection?.getCheck() ?? [];
+
+    let var1Name = this.getInput('val1')?.connection.targetBlock()?.getField("VAR")?.variable?.name || undefined;
+    let var2Name = this.getInput('val2')?.connection.targetBlock()?.getField("VAR")?.variable?.name || undefined;
+
+    if (var1Name != undefined) {
+      for (let var1 in ws.getAllVariables()) {
+        if (ws.getAllVariables()[var1].name == var1Name) {
+          firstCheck = ws.getAllVariables()[var1].type
+        }
+      }
+    }
+    if (var2Name != undefined) {
+      for (let var2 in ws.getAllVariables()) {
+        if (ws.getAllVariables()[var2].name == var1Name) {
+          secondCheck = ws.getAllVariables()[var2].type
+        }
+      }
+    }
 
     if (firstCheck[0] != undefined && secondCheck[0] != undefined) {
       valid = firstCheck[0] === secondCheck[0];
