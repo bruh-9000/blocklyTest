@@ -535,3 +535,52 @@ loadVariables.addEventListener("click", () => {
   };
   input.click();
 });
+
+// Returns an array of objects.
+var varDynamic = function(workspace) {
+  // Returns an array of hex colours, e.g. ['#4286f4', '#ef0447']
+  var blockList = [];
+
+  blockList.push({
+    'kind': 'block',
+    'type': 'setvariable',
+  });
+  blockList.push({
+    'kind': 'block',
+    'type': 'getvariable',
+  });
+  blockList.push({
+    'kind': 'block',
+    'type': 'increasevariablebynumber',
+    'inputs': {
+      'num': {
+        'shadow': {
+          'type': 'math_number',
+          'fields': {
+            'NUM': 0,
+          },
+        },
+      },
+    },
+  });
+  blockList.push({
+    'kind': 'block',
+    'type': 'decreasevariablebynumber',
+    'inputs': {
+      'num': {
+        'shadow': {
+          'type': 'math_number',
+          'fields': {
+            'NUM': 0,
+          },
+        },
+      },
+    },
+  });
+
+  return blockList;
+};
+
+// Associates the function with the string 'COLOUR_PALETTE'
+ws.registerToolboxCategoryCallback(
+    'Var Dynamic', varDynamic);
