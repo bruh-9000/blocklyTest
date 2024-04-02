@@ -560,7 +560,14 @@ export const toolbox = {
       'name': 'UI',
       'categorystyle': 'others_category',
       'contents': [
-
+        {
+          'kind': 'block',
+          'type': 'opendialogue',
+        },
+        {
+          'kind': 'block',
+          'type': 'openshop',
+        },
       ]
     },
     {

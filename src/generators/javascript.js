@@ -722,3 +722,21 @@ forBlock['player_variable'] = function (block, generator) {
   const code = `'${playerVar}'`;
   return [code, generator.ORDER_NONE];
 };
+
+forBlock['opendialogue'] = function (block, generator) {
+  const player = generator.valueToCode(block, 'player', Order.NONE) || "";
+  const dialogue = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `openDialogueForPlayer('${dialogue}', ${player})\n`;
+  return code;
+};
+
+forBlock['openshop'] = function (block, generator) {
+  const player = generator.valueToCode(block, 'player', Order.NONE) || "";
+  const shop = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `openShopForPlayer('${shop}', ${player})\n`;
+  return code;
+};
