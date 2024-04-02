@@ -800,10 +800,11 @@ forBlock['opendialogue'] = function (block, generator) {
   let dialogueID;
 
   if (typeof window.dialogueNames !== 'undefined') {
-    const searchValue = this.getField("VAR").variable.name;
+    const searchValue = generator.valueToCode(block, 'VAR', Order.NONE);
 
     for (let i = 0; i < window.dialogueNames.length; i++) {
-      if (window.dialogueNames[i][0] === searchValue) {
+      if (`'${window.dialogueNames[i][0]}'` == String(searchValue)) {
+        console.log('test')
         dialogueID = (window.dialogueNames[i][1]);
         break;
       }
@@ -866,9 +867,9 @@ forBlock['createprojectileatposition'] = function (block, generator) {
   const position = generator.valueToCode(block, 'position', Order.NONE) || "";
   const velocity = generator.valueToCode(block, 'velocity', Order.NONE) || "";
   const radians = generator.valueToCode(block, 'radians', Order.NONE) || "";
-  const projectile = this.getField("VAR").variable.name;
+  const projectile = generator.valueToCode(block, 'VAR', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `createProjectileAtPosition('${projectile}', ${position}, ${velocity}, ${radians})\n`;
+  const code = `createProjectileAtPosition(${projectile}, ${position}, ${velocity}, ${radians})\n`;
   return code;
 };

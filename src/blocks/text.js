@@ -564,7 +564,7 @@ const dialogue = {
       "defaultType": "g Dialogue"
     },
   ],
-  "colour": 230,
+  "colour": 330,
   "output": "g Dialogue",
   "tooltip": "",
   "helpUrl": ""
@@ -1570,11 +1570,8 @@ const openDialogue = {
   "message0": "open dialogue %1 for player %2",
   "args0": [
     {
-      "type": "field_variable",
-      "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
-      "variableTypes": ["g Dialogue"],
-      "defaultType": "g Dialogue"
+      "type": "input_value",
+      "name": "VAR"
     },
     {
       "type": "input_value",
@@ -1694,11 +1691,8 @@ const createProjectileAtPosition = {
   "message0": "create %1 at position %2 and apply %3 velocity at %4 radians",
   "args0": [
     {
-      "type": "field_variable",
-      "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
-      "variableTypes": ["g Projectile Type"],
-      "defaultType": "g Projectile Type"
+      "type": "input_value",
+      "name": "VAR"
     },
     {
       "type": "input_value",

@@ -419,6 +419,13 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'createprojectileatposition',
+          'inputs': {
+            'VAR': {
+              'shadow': {
+                'type': 'projectile_type',
+              },
+            },
+          },
         },
         {
           'kind': 'block',
@@ -626,6 +633,13 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'opendialogue',
+          'inputs': {
+            'VAR': {
+              'shadow': {
+                'type': 'dialogue',
+              },
+            },
+          },
         },
         {
           'kind': 'block',
