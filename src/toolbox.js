@@ -409,6 +409,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'triggeringitem',
         },
+        {
+          'kind': 'block',
+          'type': 'item_type',
+        },
       ]
     },
     {
@@ -423,6 +427,10 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'triggeringprojectile',
+        },
+        {
+          'kind': 'block',
+          'type': 'projectile_type',
         },
       ]
     },
@@ -490,6 +498,10 @@ export const toolbox = {
           'kind': 'block',
           'type': 'selectedplayer',
         },
+        {
+          'kind': 'block',
+          'type': 'player_type',
+        },
       ]
     },
     {
@@ -549,6 +561,10 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'getplayerselectedunit',
+        },
+        {
+          'kind': 'block',
+          'type': 'unit_type',
         },
       ]
     },

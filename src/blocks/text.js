@@ -498,6 +498,24 @@ const createUnitAtPosition = {
   "helpUrl": ""
 };
 
+const playerType = {
+  "type": "player_type",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "playertype",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Player Type"],
+      "defaultType": "g Player Type"
+    },
+  ],
+  "colour": "#855CD6",
+  "output": "g Player Type",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
 const unitType = {
   "type": "unit_type",
   "message0": "%1",
@@ -510,11 +528,173 @@ const unitType = {
       "defaultType": "g Unit Type"
     },
   ],
-  "colour": 230,
+  "colour": "#CF63CF",
   "output": "g Unit Type",
   "tooltip": "",
   "helpUrl": ""
-}
+};
+
+const dialogue = {
+  "type": "dialogue",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "dialogue",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Dialogue"],
+      "defaultType": "g Dialogue"
+    },
+  ],
+  "colour": 230,
+  "output": "g Dialogue",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const shop = {
+  "type": "shop",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "shop",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Shop"],
+      "defaultType": "g Shop"
+    },
+  ],
+  "colour": 230,
+  "output": "g Shop",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const projectileType = {
+  "type": "projectile_type",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "unittype",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Projectile Type"],
+      "defaultType": "g Projectile Type"
+    },
+  ],
+  "colour": "#47A8D1",
+  "output": "g Projectile Type",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const particle = {
+  "type": "particle",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "particle",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Particle"],
+      "defaultType": "g Particle"
+    },
+  ],
+  "colour": 230,
+  "output": "g Particle",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const itemType = {
+  "type": "item_type",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "itemtype",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Item Type"],
+      "defaultType": "g Item Type"
+    },
+  ],
+  "colour": "#47A8D1",
+  "output": "g Item Type",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const sound = {
+  "type": "sound",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "sound",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Sound"],
+      "defaultType": "g Sound"
+    },
+  ],
+  "colour": 230,
+  "output": "g Sound",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const music = {
+  "type": "music",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "music",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Music"],
+      "defaultType": "g Music"
+    },
+  ],
+  "colour": 230,
+  "output": "g Music",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const playerVariable = {
+  "type": "player_variable",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "playervariable",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Player Variable"],
+      "defaultType": "g Player Variable"
+    },
+  ],
+  "colour": 230,
+  "output": "g Player Variable",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const script1 = {
+  "type": "script1",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "script",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Script"],
+      "defaultType": "g Script"
+    },
+  ],
+  "colour": 230,
+  "output": "g Script",
+  "tooltip": "",
+  "helpUrl": ""
+};
 
 const getPlayerName = {
   "type": "getplayername",
@@ -1666,4 +1846,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
   forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
-  ]);
+  playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1]);
