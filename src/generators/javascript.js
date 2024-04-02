@@ -268,14 +268,6 @@ forBlock['createunitatposition'] = function (block, generator) {
   return code;
 };
 
-forBlock['unit_type'] = function (block, generator) {
-  const unitType = this.getField("unittype").variable.name;
-
-  // Generate the function call for this block.
-  const code = `'${unitType}'`;
-  return [code, generator.ORDER_NONE];
-};
-
 forBlock['getvariable'] = function (block, generator) {
   const varName = this.getField("VAR").variable.name;
 
@@ -648,5 +640,85 @@ forBlock['colour_hsv_sliders'] = function (block, generator) {
 
   // Generate the function call for this block.
   const code = `'${color}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['player_type'] = function (block, generator) {
+  const playerType = this.getField("playertype").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${playerType}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['unit_type'] = function (block, generator) {
+  const unitType = this.getField("unittype").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${unitType}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['dialogue'] = function (block, generator) {
+  const dialogue = this.getField("dialogue").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${dialogue}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['shop'] = function (block, generator) {
+  const shop = this.getField("shop").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${shop}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['projectile_type'] = function (block, generator) {
+  const projectileType = this.getField("projectiletype").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${projectileType}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['particle'] = function (block, generator) {
+  const particle = this.getField("particle").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${particle}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['item_type'] = function (block, generator) {
+  const itemType = this.getField("itemtype").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${itemType}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['sound'] = function (block, generator) {
+  const sound = this.getField("sound").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${sound}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['music'] = function (block, generator) {
+  const music = this.getField("music").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${music}'`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['player_variable'] = function (block, generator) {
+  const playerVar = this.getField("playervar").variable.name;
+
+  // Generate the function call for this block.
+  const code = `'${playerVar}'`;
   return [code, generator.ORDER_NONE];
 };
