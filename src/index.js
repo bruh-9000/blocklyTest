@@ -593,3 +593,9 @@ var varDynamic = function(workspace) {
 // Associates the function with the string 'COLOUR_PALETTE'
 ws.registerToolboxCategoryCallback(
     'Var Dynamic', varDynamic);
+
+for (let i = 0; i < ws.getAllVariables().length; i++) {
+  if (ws.getAllVariables()[i].name == "item") {
+    ws.deleteVariableById(ws.getAllVariables()[i].id_)
+  }
+}
