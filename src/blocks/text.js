@@ -1505,9 +1505,6 @@ Blockly.Extensions.register('comparison_type', function() {
       }
     }
 
-    console.log(firstCheck)
-    console.log(secondCheck)
-
     if (firstCheck[0] != undefined && secondCheck[0] != undefined) {
       valid = firstCheck[0] === secondCheck[0];
     } else {
