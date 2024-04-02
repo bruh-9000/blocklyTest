@@ -145,6 +145,14 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'comparison',
+        }, 
+        {
+          'kind': 'block',
+          'type': 'and',
+        }, 
+        {
+          'kind': 'block',
+          'type': 'or',
         },    
         {
           'kind': 'block',

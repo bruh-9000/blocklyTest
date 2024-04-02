@@ -1732,6 +1732,46 @@ const runscript = {
   "helpUrl": ""
 };
 
+const and1 = {
+  "type": "and",
+  "message0": "%1 and %2",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "val1"
+    },
+    {
+      "type": "input_value",
+      "name": "val2"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Boolean",
+  "colour": "#60B560",
+  "tooltip": "",
+  "helpUrl": ""
+};
+
+const or1 = {
+  "type": "or",
+  "message0": "%1 or %2",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "val1"
+    },
+    {
+      "type": "input_value",
+      "name": "val2"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Boolean",
+  "colour": "#60B560",
+  "tooltip": "",
+  "helpUrl": ""
+}
+
 Blockly.Extensions.register('player_loop', function() {
   this.setOnChange(function(event) {
     let block = this;
@@ -1977,4 +2017,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
   forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
   playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region, unitTypeOfUnit, playerTypeOfPlayer, giveNewItemToUnit,
-  createProjectileAtPosition, runscript]);
+  createProjectileAtPosition, runscript, and1, or1]);

@@ -920,3 +920,21 @@ forBlock['runscript'] = function (block, generator) {
   const code = `runScript(${script})\n`;
   return code;
 };
+
+forBlock['and'] = function (block, generator) {
+  const val1 = generator.valueToCode(block, 'val1', Order.NONE) || "";
+  const val2 = generator.valueToCode(block, 'val2', Order.NONE) || "";
+
+  // Generate the function call for this block.
+  const code = `${val1} && ${val2}`;
+  return [code, generator.ORDER_NONE];
+};
+
+forBlock['or'] = function (block, generator) {
+  const val1 = generator.valueToCode(block, 'val1', Order.NONE) || "";
+  const val2 = generator.valueToCode(block, 'val2', Order.NONE) || "";
+
+  // Generate the function call for this block.
+  const code = `${val1} || ${val2}`;
+  return [code, generator.ORDER_NONE];
+};
