@@ -466,6 +466,11 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  outputPane.style.display = "none";
+  Blockly.svgResize(ws);
+});
+
 document.getElementById('outputCheckbox').addEventListener('change', function(event) {
   if (event.target.checked) {
     outputPane.style.display = "flex";
@@ -474,11 +479,23 @@ document.getElementById('outputCheckbox').addEventListener('change', function(ev
     outputPane.style.display = "none";
     Blockly.svgResize(ws);
   }
+
+  localStorage.setItem('outputCheckboxChecked', event.target.checked);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  outputPane.style.display = "none";
-  Blockly.svgResize(ws);
+document.addEventListener('DOMContentLoaded', function() {
+  var outputCheckbox = document.getElementById('outputCheckbox');
+  var outputPane = document.getElementById('outputPane');
+  
+  var isChecked = localStorage.getItem('outputCheckboxChecked') === 'true';
+  outputCheckbox.checked = isChecked;
+  if (isChecked) {
+    outputPane.style.display = "flex";
+    Blockly.svgResize(ws);
+  } else {
+    outputPane.style.display = "none";
+    Blockly.svgResize(ws);
+  }
 });
 
 copyButton.addEventListener("click", () => {

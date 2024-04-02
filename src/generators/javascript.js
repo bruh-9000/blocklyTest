@@ -264,7 +264,7 @@ forBlock['createunitatposition'] = function (block, generator) {
   const angle = generator.valueToCode(block, 'angle', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `createUnitAtPosition('${unitType}', ${player}, ${pos}, ${angle})\n`;
+  const code = `createUnitAtPosition(${unitType}, ${player}, ${pos}, ${angle})\n`;
   return code;
 };
 
