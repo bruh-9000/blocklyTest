@@ -1667,11 +1667,8 @@ const giveNewItemToUnit = {
   "message0": "give a new %1 to unit %2",
   "args0": [
     {
-      "type": "field_variable",
-      "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
-      "variableTypes": ["g Item Type"],
-      "defaultType": "g Item Type"
+      "type": "input_value",
+      "name": "VAR"
     },
     {
       "type": "input_value",

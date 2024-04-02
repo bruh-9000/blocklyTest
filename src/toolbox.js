@@ -404,6 +404,13 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'givenewitemtounit',
+          'inputs': {
+            'VAR': {
+              'shadow': {
+                'type': 'item_type',
+              },
+            },
+          },
         },
         {
           'kind': 'block',

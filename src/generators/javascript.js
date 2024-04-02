@@ -804,7 +804,6 @@ forBlock['opendialogue'] = function (block, generator) {
 
     for (let i = 0; i < window.dialogueNames.length; i++) {
       if (`'${window.dialogueNames[i][0]}'` == String(searchValue)) {
-        console.log('test')
         dialogueID = (window.dialogueNames[i][1]);
         break;
       }
@@ -860,6 +859,26 @@ forBlock['givenewitemtounit'] = function (block, generator) {
 
   // Generate the function call for this block.
   const code = `giveNewItemToUnit('${music}', ${unit})\n`;
+  return code;
+};
+
+forBlock['givenewitemtounit'] = function (block, generator) {
+  const unit = generator.valueToCode(block, 'unit', Order.NONE) || "";
+  let itemID;
+
+  if (typeof window.itemTypeNames !== 'undefined') {
+    const searchValue = generator.valueToCode(block, 'VAR', Order.NONE);
+
+    for (let i = 0; i < window.itemTypeNames.length; i++) {
+      if (`'${window.itemTypeNames[i][1]}'` == String(searchValue)) {
+        itemID = (window.itemTypeNames[i][1]);
+        break;
+      }
+    }
+  }
+
+  // Generate the function call for this block.
+  const code = `giveNewItemToUnit('${itemID}', ${unit})\n`;
   return code;
 };
 
