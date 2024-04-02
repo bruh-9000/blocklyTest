@@ -504,10 +504,54 @@ loadVariables.addEventListener("click", () => {
             ws.createVariable(variableName, "g Player Type");
           }
         }
-
         for (let variableName in fileContent.data.unitTypes) {
           if (fileContent.data.unitTypes.hasOwnProperty(variableName)) {
             ws.createVariable(variableName, "g Unit Type");
+          }
+        }
+        for (let variableName in fileContent.data.dialogues) {
+          if (fileContent.data.dialogues.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Dialogue");
+          }
+        }
+        for (let variableName in fileContent.data.shops) {
+          if (fileContent.data.shops.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Shop");
+          }
+        }
+        for (let variableName in fileContent.data.projectileTypes) {
+          if (fileContent.data.projectileTypes.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Projectile Type");
+          }
+        }
+        for (let variableName in fileContent.data.particles) {
+          if (fileContent.data.particles.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Particle");
+          }
+        }
+        for (let variableName in fileContent.data.itemTypes) {
+          if (fileContent.data.itemTypes.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Item Type");
+          }
+        }
+        for (let variableName in fileContent.data.sound) {
+          if (fileContent.data.sound.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Sound");
+          }
+        }
+        for (let variableName in fileContent.data.music) {
+          if (fileContent.data.music.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Music");
+          }
+        }
+        for (let variableName in fileContent.data.playerTypeVariables) {
+          if (fileContent.data.playerTypeVariables.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Player Variable");
+          }
+        }
+        for (let variableName in fileContent.data.scripts) {
+          if (fileContent.data.scripts.hasOwnProperty(variableName)) {
+            ws.createVariable(variableName, "g Script");
           }
         }
 
