@@ -604,7 +604,9 @@ const decreaseVariableByNumber = {
     {
       "type": "field_variable",
       "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["Number"],
+      "defaultType": "Number"
     },
     {
       "type": "input_dummy"
@@ -630,7 +632,9 @@ const increaseVariableByNumber = {
     {
       "type": "field_variable",
       "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["Number"],
+      "defaultType": "Number"
     },
     {
       "type": "input_dummy"
@@ -656,7 +660,10 @@ const setVariable = {
     {
       "type": "field_variable",
       "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["Number", "String", "Boolean", "Pos", "Unit", "Item", "Projectile", "Player", "Item Type", "Unit Type", "Projectile Type", "Player Type", "Unit Group",
+      "Item Group", "Player Group", "Item Type Group", "Unit Type Group", "Region", "Dialogue"],
+      "defaultType": "Number"
     },
     {
       "type": "input_value",
@@ -1271,7 +1278,10 @@ const getVariable = {
     {
       "type": "field_variable",
       "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["Number", "String", "Boolean", "Pos", "Unit", "Item", "Projectile", "Player", "Item Type", "Unit Type", "Projectile Type", "Player Type", "Unit Group",
+      "Item Group", "Player Group", "Item Type Group", "Unit Type Group", "Region", "Dialogue"],
+      "defaultType": "Number"
     }
   ],
   "output": null,
