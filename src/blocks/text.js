@@ -1798,15 +1798,17 @@ Blockly.Extensions.register('comparison_type', function() {
     let var1Name = this.getInput('val1')?.connection.targetBlock()?.getField("VAR")?.variable?.name || undefined;
     let var2Name = this.getInput('val2')?.connection.targetBlock()?.getField("VAR")?.variable?.name || undefined;
 
-    if (firstCheck[0].substring(0, 2) == "g ") {
-      firstCheck = [firstCheck[0].substring(2, firstCheck[0].length)];
+    if (firstCheck[0] != undefined && secondCheck[0] != undefined) {
+      if (firstCheck[0].substring(0, 2) == "g ") {
+        firstCheck = [firstCheck[0].substring(2, firstCheck[0].length)];
+      }
+
+      if (secondCheck[0].substring(0, 2) == "g ") {
+        secondCheck = secondCheck[0].substring(2, secondCheck[0].length);
+      }
     }
 
-    if (secondCheck[0].substring(0, 2) == "g ") {
-      secondCheck = secondCheck[0].substring(2, secondCheck[0].length);
-    }
-
-    if (this.getInput('val1')?.connection.targetBlock().type == getVariable) {
+    if (this.getInput('val1')?.connection.targetBlock()?.type == getVariable) {
       if (var1Name != undefined) {
         for (let var1 in ws.getAllVariables()) {
           if (ws.getAllVariables()[var1].name == var1Name) {
