@@ -523,113 +523,123 @@ loadVariables.addEventListener("click", () => {
       const file = event.target.files[0];
       const reader = new FileReader();
       reader.onload = function(event) {
-        const fileContent = JSON.parse((event.target.result));
-
-        for (let i = 0; i < ws.getAllVariables().length; i++) {
-          ws.deleteVariableById(ws.getAllVariables()[i].id_);
-        }
-
-        for (let variableName in fileContent.data.playerTypes) {
-          if (fileContent.data.playerTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(fileContent.data.playerTypes[variableName].name, "g Player Type");
-            let innerList = [fileContent.data.playerTypes[variableName].name, variableName];
-            playerTypeNames.push(innerList);
-          }
-        }
-        for (let variableName in fileContent.data.unitTypes) {
-          if (fileContent.data.unitTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(fileContent.data.unitTypes[variableName].name, "g Unit Type");
-            let innerList = [fileContent.data.unitTypes[variableName].name, variableName];
-            unitTypeNames.push(innerList);
-          }
-        }
-        for (let variableName in fileContent.data.dialogues) {
-          if (fileContent.data.dialogues.hasOwnProperty(variableName)) {
-            ws.createVariable(fileContent.data.dialogues[variableName].name, "g Dialogue");
-            let innerList = [fileContent.data.dialogues[variableName].name, variableName];
-            dialogueNames.push(innerList);
-          }
-        }
-        for (let variableName in fileContent.data.shops) {
-          if (fileContent.data.shops.hasOwnProperty(variableName)) {
-            ws.createVariable(fileContent.data.shops[variableName].name, "g Shop");
-            let innerList = [fileContent.data.shops[variableName].name, variableName];
-            shopNames.push(innerList);
-          }
-        }
-        for (let variableName in fileContent.data.projectileTypes) {
-          if (fileContent.data.projectileTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(fileContent.data.projectileTypes[variableName].name, "g Projectile Type");
-            let innerList = [fileContent.data.projectileTypes[variableName].name, variableName];
-            projectileTypeNames.push(innerList);
-          }
-        }
-        for (let variableName in fileContent.data.particles) {
-          if (fileContent.data.particles.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Particle");
-          }
-        }
-        for (let variableName in fileContent.data.itemTypes) {
-          if (fileContent.data.itemTypes.hasOwnProperty(variableName)) {
-            ws.createVariable(fileContent.data.itemTypes[variableName].name, "g Item Type");
-            let innerList = [fileContent.data.itemTypes[variableName].name, variableName];
-            itemTypeNames.push(innerList);
-          }
-        }
-        for (let variableName in fileContent.data.sound) {
-          if (fileContent.data.sound.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Sound");
-          }
-        }
-        for (let variableName in fileContent.data.music) {
-          if (fileContent.data.music.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Music");
-          }
-        }
-        for (let variableName in fileContent.data.playerTypeVariables) {
-          if (fileContent.data.playerTypeVariables.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Player Variable");
-          }
-        }
-        for (let variableName in fileContent.data.scripts) {
-          if (fileContent.data.scripts.hasOwnProperty(variableName)) {
-            ws.createVariable(variableName, "g Script");
-          }
-        }
-
-        const conversionList = {
-          "number": "Number",
-          "boolean": "Boolean",
-          "string": "String",
-          "position": "Pos",
-          "unit": "Unit",
-          "item": "Item",
-          "projectile": "Projectile",
-          "player": "Player",
-          "itemType": "Item Type",
-          "unitType": "Unit Type",
-          "projectileType": "Projectile Type",
-          "playerType": "Player Type",
-          "unitGroup": "Unit Group",
-          "itemGroup": "Item Group",
-          "playerGroup": "Player Group",
-          "itemTypeGroup": "Item Type Group",
-          "unitTypeGroup": "Unit Type Group",
-          "region": "Region",
-          "dialogue": "Dialogue"
-        };
-
-        for (let variableName in fileContent.data.variables) {
-          if (fileContent.data.variables.hasOwnProperty(variableName)) {
-            let dataType = fileContent.data.variables[variableName].dataType;
-            ws.createVariable(variableName, conversionList[dataType]);
-          }
-        }
-      };
+        loadVariablesFunc(event.target.result);
+      }
       reader.readAsText(file);
   };
   input.click();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadVariablesFunc(localStorage.getItem('varJSON'))
+});
+
+function loadVariablesFunc(input) {
+  localStorage.setItem('varJSON', input);
+
+  const fileContent = JSON.parse(input);
+
+  for (let i = 0; i < ws.getAllVariables().length; i++) {
+    ws.deleteVariableById(ws.getAllVariables()[i].id_);
+  }
+
+  for (let variableName in fileContent.data.playerTypes) {
+    if (fileContent.data.playerTypes.hasOwnProperty(variableName)) {
+      ws.createVariable(fileContent.data.playerTypes[variableName].name, "g Player Type");
+      let innerList = [fileContent.data.playerTypes[variableName].name, variableName];
+      playerTypeNames.push(innerList);
+    }
+  }
+  for (let variableName in fileContent.data.unitTypes) {
+    if (fileContent.data.unitTypes.hasOwnProperty(variableName)) {
+      ws.createVariable(fileContent.data.unitTypes[variableName].name, "g Unit Type");
+      let innerList = [fileContent.data.unitTypes[variableName].name, variableName];
+      unitTypeNames.push(innerList);
+    }
+  }
+  for (let variableName in fileContent.data.dialogues) {
+    if (fileContent.data.dialogues.hasOwnProperty(variableName)) {
+      ws.createVariable(fileContent.data.dialogues[variableName].name, "g Dialogue");
+      let innerList = [fileContent.data.dialogues[variableName].name, variableName];
+      dialogueNames.push(innerList);
+    }
+  }
+  for (let variableName in fileContent.data.shops) {
+    if (fileContent.data.shops.hasOwnProperty(variableName)) {
+      ws.createVariable(fileContent.data.shops[variableName].name, "g Shop");
+      let innerList = [fileContent.data.shops[variableName].name, variableName];
+      shopNames.push(innerList);
+    }
+  }
+  for (let variableName in fileContent.data.projectileTypes) {
+    if (fileContent.data.projectileTypes.hasOwnProperty(variableName)) {
+      ws.createVariable(fileContent.data.projectileTypes[variableName].name, "g Projectile Type");
+      let innerList = [fileContent.data.projectileTypes[variableName].name, variableName];
+      projectileTypeNames.push(innerList);
+    }
+  }
+  for (let variableName in fileContent.data.particles) {
+    if (fileContent.data.particles.hasOwnProperty(variableName)) {
+      ws.createVariable(variableName, "g Particle");
+    }
+  }
+  for (let variableName in fileContent.data.itemTypes) {
+    if (fileContent.data.itemTypes.hasOwnProperty(variableName)) {
+      ws.createVariable(fileContent.data.itemTypes[variableName].name, "g Item Type");
+      let innerList = [fileContent.data.itemTypes[variableName].name, variableName];
+      itemTypeNames.push(innerList);
+    }
+  }
+  for (let variableName in fileContent.data.sound) {
+    if (fileContent.data.sound.hasOwnProperty(variableName)) {
+      ws.createVariable(variableName, "g Sound");
+    }
+  }
+  for (let variableName in fileContent.data.music) {
+    if (fileContent.data.music.hasOwnProperty(variableName)) {
+      ws.createVariable(variableName, "g Music");
+    }
+  }
+  for (let variableName in fileContent.data.playerTypeVariables) {
+    if (fileContent.data.playerTypeVariables.hasOwnProperty(variableName)) {
+      ws.createVariable(variableName, "g Player Variable");
+    }
+  }
+  for (let variableName in fileContent.data.scripts) {
+    if (fileContent.data.scripts.hasOwnProperty(variableName)) {
+      ws.createVariable(variableName, "g Script");
+    }
+  }
+
+  const conversionList = {
+    "number": "Number",
+    "boolean": "Boolean",
+    "string": "String",
+    "position": "Pos",
+    "unit": "Unit",
+    "item": "Item",
+    "projectile": "Projectile",
+    "player": "Player",
+    "itemType": "Item Type",
+    "unitType": "Unit Type",
+    "projectileType": "Projectile Type",
+    "playerType": "Player Type",
+    "unitGroup": "Unit Group",
+    "itemGroup": "Item Group",
+    "playerGroup": "Player Group",
+    "itemTypeGroup": "Item Type Group",
+    "unitTypeGroup": "Unit Type Group",
+    "region": "Region",
+    "dialogue": "Dialogue"
+  };
+
+  for (let variableName in fileContent.data.variables) {
+    if (fileContent.data.variables.hasOwnProperty(variableName)) {
+      let dataType = fileContent.data.variables[variableName].dataType;
+      ws.createVariable(variableName, conversionList[dataType]);
+    }
+  }
+};
 
 // Returns an array of objects.
 var varDynamic = function(workspace) {
