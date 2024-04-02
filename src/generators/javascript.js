@@ -708,10 +708,22 @@ forBlock['dialogue'] = function (block, generator) {
 };
 
 forBlock['script1'] = function (block, generator) {
-  const script = this.getField("VAR").variable.name;
+  const scripts = this.getField("VAR").variable.name;
+  let scriptsID;
+
+  if (typeof window.scripts !== 'undefined') {
+    const searchValue = this.getField("VAR").variable.name;
+
+    for (let i = 0; i < window.scripts.length; i++) {
+      if (window.scripts[i][0] === searchValue) {
+        scriptsID = (window.scripts[i][1]);
+        break;
+      }
+    }
+  }
 
   // Generate the function call for this block.
-  const code = `'${script}'`;
+  const code = `'${scriptsID}'`;
   return [code, generator.ORDER_NONE];
 };
 

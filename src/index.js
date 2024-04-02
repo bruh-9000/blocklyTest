@@ -127,6 +127,7 @@ let unitTypeNames = [];
 let itemTypeNames = [];
 let playerTypeNames = [];
 let projectileTypeNames = [];
+let scripts = [];
 
 window.shopNames = shopNames;
 window.dialogueNames = dialogueNames;
@@ -134,6 +135,7 @@ window.unitTypeNames = unitTypeNames;
 window.itemTypeNames = itemTypeNames;
 window.playerTypeNames = playerTypeNames;
 window.projectileTypeNames = projectileTypeNames;
+window.scripts = scripts;
 
 // Every time the workspace changes state, save the changes to storage.
 ws.addChangeListener((e) => {
@@ -585,7 +587,9 @@ function loadVariablesFunc(input) {
   }
   for (let variableName in fileContent.data.scripts) {
     if (fileContent.data.scripts.hasOwnProperty(variableName)) {
-      ws.createVariable(variableName, "g Script");
+      ws.createVariable(fileContent.data.scripts[variableName].name, "g Script");
+      let innerList = [fileContent.data.scripts[variableName].name, variableName];
+      scripts.push(innerList);
     }
   }
 
