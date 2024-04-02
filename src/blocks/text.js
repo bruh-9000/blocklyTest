@@ -1110,7 +1110,8 @@ const itemTypeOfItem = {
   "args0": [
     {
       "type": "input_value",
-      "name": "item"
+      "name": "item",
+      "check": "Item"
     }
   ],
   "colour": "#47A8D1",
@@ -1125,7 +1126,8 @@ const unitTypeOfUnit = {
   "args0": [
     {
       "type": "input_value",
-      "name": "unit"
+      "name": "unit",
+      "check": "Unit"
     }
   ],
   "colour": "#CF63CF",
@@ -1140,7 +1142,8 @@ const playerTypeOfPlayer = {
   "args0": [
     {
       "type": "input_value",
-      "name": "player"
+      "name": "player",
+      "check": "Player"
     }
   ],
   "colour": "#855CD6",
