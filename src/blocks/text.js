@@ -1499,11 +1499,14 @@ Blockly.Extensions.register('comparison_type', function() {
     }
     if (var2Name != undefined) {
       for (let var2 in ws.getAllVariables()) {
-        if (ws.getAllVariables()[var2].name == var1Name) {
+        if (ws.getAllVariables()[var2].name == var2Name) {
           secondCheck = ws.getAllVariables()[var2].type
         }
       }
     }
+
+    console.log(firstCheck)
+    console.log(secondCheck)
 
     if (firstCheck[0] != undefined && secondCheck[0] != undefined) {
       valid = firstCheck[0] === secondCheck[0];
