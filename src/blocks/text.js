@@ -1410,7 +1410,7 @@ const allUnitsInRegion = {
     {
       "type": "input_value",
       "name": "region",
-      "check": "Region"
+      "check": "g Region"
     }
   ],
   "output": "Unit Group",
