@@ -644,7 +644,7 @@ forBlock['colour_hsv_sliders'] = function (block, generator) {
 };
 
 forBlock['player_type'] = function (block, generator) {
-  const playerType = this.getField("playertype").variable.name;
+  const playerType = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${playerType}'`;
@@ -652,7 +652,7 @@ forBlock['player_type'] = function (block, generator) {
 };
 
 forBlock['unit_type'] = function (block, generator) {
-  const unitType = this.getField("unittype").variable.name;
+  const unitType = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${unitType}'`;
@@ -660,7 +660,7 @@ forBlock['unit_type'] = function (block, generator) {
 };
 
 forBlock['dialogue'] = function (block, generator) {
-  const dialogue = this.getField("dialogue").variable.name;
+  const dialogue = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${dialogue}'`;
@@ -668,7 +668,7 @@ forBlock['dialogue'] = function (block, generator) {
 };
 
 forBlock['shop'] = function (block, generator) {
-  const shop = this.getField("shop").variable.name;
+  const shop = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${shop}'`;
@@ -676,7 +676,7 @@ forBlock['shop'] = function (block, generator) {
 };
 
 forBlock['projectile_type'] = function (block, generator) {
-  const projectileType = this.getField("projectiletype").variable.name;
+  const projectileType = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${projectileType}'`;
@@ -684,7 +684,7 @@ forBlock['projectile_type'] = function (block, generator) {
 };
 
 forBlock['particle'] = function (block, generator) {
-  const particle = this.getField("particle").variable.name;
+  const particle = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${particle}'`;
@@ -692,7 +692,7 @@ forBlock['particle'] = function (block, generator) {
 };
 
 forBlock['item_type'] = function (block, generator) {
-  const itemType = this.getField("itemtype").variable.name;
+  const itemType = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${itemType}'`;
@@ -700,7 +700,7 @@ forBlock['item_type'] = function (block, generator) {
 };
 
 forBlock['sound'] = function (block, generator) {
-  const sound = this.getField("sound").variable.name;
+  const sound = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${sound}'`;
@@ -708,7 +708,7 @@ forBlock['sound'] = function (block, generator) {
 };
 
 forBlock['music'] = function (block, generator) {
-  const music = this.getField("music").variable.name;
+  const music = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${music}'`;
@@ -716,7 +716,7 @@ forBlock['music'] = function (block, generator) {
 };
 
 forBlock['player_variable'] = function (block, generator) {
-  const playerVar = this.getField("playervar").variable.name;
+  const playerVar = this.getField("VAR").variable.name;
 
   // Generate the function call for this block.
   const code = `'${playerVar}'`;

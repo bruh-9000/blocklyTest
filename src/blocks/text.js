@@ -504,7 +504,7 @@ const playerType = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "playertype",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Player Type"],
       "defaultType": "g Player Type"
@@ -522,7 +522,7 @@ const unitType = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "unittype",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Unit Type"],
       "defaultType": "g Unit Type"
@@ -540,7 +540,7 @@ const dialogue = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "dialogue",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Dialogue"],
       "defaultType": "g Dialogue"
@@ -558,7 +558,7 @@ const shop = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "shop",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Shop"],
       "defaultType": "g Shop"
@@ -576,7 +576,7 @@ const projectileType = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "unittype",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Projectile Type"],
       "defaultType": "g Projectile Type"
@@ -594,7 +594,7 @@ const particle = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "particle",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Particle"],
       "defaultType": "g Particle"
@@ -612,7 +612,7 @@ const itemType = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "itemtype",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Item Type"],
       "defaultType": "g Item Type"
@@ -630,7 +630,7 @@ const sound = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "sound",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Sound"],
       "defaultType": "g Sound"
@@ -648,7 +648,7 @@ const music = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "music",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Music"],
       "defaultType": "g Music"
@@ -666,7 +666,7 @@ const playerVariable = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "playervariable",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Player Variable"],
       "defaultType": "g Player Variable"
@@ -684,7 +684,7 @@ const script1 = {
   "args0": [
     {
       "type": "field_variable",
-      "name": "script",
+      "name": "VAR",
       "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
       "variableTypes": ["g Script"],
       "defaultType": "g Script"
@@ -1798,23 +1798,33 @@ Blockly.Extensions.register('comparison_type', function() {
     let var1Name = this.getInput('val1')?.connection.targetBlock()?.getField("VAR")?.variable?.name || undefined;
     let var2Name = this.getInput('val2')?.connection.targetBlock()?.getField("VAR")?.variable?.name || undefined;
 
-    if (var1Name != undefined) {
-      for (let var1 in ws.getAllVariables()) {
-        if (ws.getAllVariables()[var1].name == var1Name) {
-          firstCheck = ws.getAllVariables()[var1].type
+    if (firstCheck[0].substring(0, 2) == "g ") {
+      firstCheck = [firstCheck[0].substring(2, firstCheck[0].length)];
+    }
+
+    if (secondCheck[0].substring(0, 2) == "g ") {
+      secondCheck = secondCheck[0].substring(2, secondCheck[0].length);
+    }
+
+    if (this.getInput('val1')?.connection.targetBlock().type == getVariable) {
+      if (var1Name != undefined) {
+        for (let var1 in ws.getAllVariables()) {
+          if (ws.getAllVariables()[var1].name == var1Name) {
+            firstCheck = ws.getAllVariables()[var1].type
+          }
         }
       }
-    }
-    if (var2Name != undefined) {
-      for (let var2 in ws.getAllVariables()) {
-        if (ws.getAllVariables()[var2].name == var2Name) {
-          secondCheck = ws.getAllVariables()[var2].type
+      if (var2Name != undefined) {
+        for (let var2 in ws.getAllVariables()) {
+          if (ws.getAllVariables()[var2].name == var2Name) {
+            secondCheck = ws.getAllVariables()[var2].type
+          }
         }
       }
     }
 
     if (firstCheck[0] != undefined && secondCheck[0] != undefined) {
-      valid = firstCheck[0] === secondCheck[0];
+      valid = firstCheck[0] == secondCheck[0];
     } else {
       valid = true;
     }
