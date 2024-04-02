@@ -464,9 +464,11 @@ const createUnitAtPosition = {
   "nextStatement": null,
   "args0": [
     {
-      "type": "input_value",
+      "type": "field_variable",
       "name": "unittype",
-      "check": "String"
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}",
+      "variableTypes": ["g Unit Type"],
+      "defaultType": "g Unit Type"
     },
     {
       "type": "input_dummy"

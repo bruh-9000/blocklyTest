@@ -259,13 +259,21 @@ forBlock['playercameratrackunit'] = function (block, generator) {
 
 forBlock['createunitatposition'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
-  const unittype = generator.valueToCode(block, 'unittype', Order.NONE) || "''";
+  const unitType = this.getField("unittype").variable.name;
   const pos = generator.valueToCode(block, 'pos', Order.NONE) || "";
   const angle = generator.valueToCode(block, 'angle', Order.NONE) || "";
 
   // Generate the function call for this block.
-  const code = `createUnitAtPosition(${unittype}, ${player}, ${pos}, ${angle})\n`;
+  const code = `createUnitAtPosition('${unitType}', ${player}, ${pos}, ${angle})\n`;
   return code;
+};
+
+forBlock['getvariable'] = function (block, generator) {
+  const varName = this.getField("VAR").variable.name;
+
+  // Generate the function call for this block.
+  const code = `getVariable('${varName}')`;
+  return [code, generator.ORDER_NONE];
 };
 
 forBlock['getplayername'] = function (block, generator) {
