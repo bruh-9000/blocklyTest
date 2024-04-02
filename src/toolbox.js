@@ -622,11 +622,13 @@ export const toolbox = {
       'name': 'Variables',
       'categorystyle': 'variables_category',
       'contents': [
+        /*
         {
           "kind": "button",
           "text": "New Variable",
           "callbackKey": "newVar"
         },
+        */
         {
           'kind': 'block',
           'type': 'setvariable'
