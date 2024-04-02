@@ -403,15 +403,7 @@ export const toolbox = {
       'contents': [
         {
           'kind': 'block',
-          'type': 'itemtypeofitem',
-        }, 
-        {
-          'kind': 'block',
           'type': 'triggeringitem',
-        },
-        {
-          'kind': 'block',
-          'type': 'item_type',
         },
       ]
     },
@@ -422,15 +414,7 @@ export const toolbox = {
       'contents': [
         {
           'kind': 'block',
-          'type': 'projectiletypeofprojectile',
-        }, 
-        {
-          'kind': 'block',
           'type': 'triggeringprojectile',
-        },
-        {
-          'kind': 'block',
-          'type': 'projectile_type',
         },
       ]
     },
@@ -446,10 +430,6 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'triggeringregion',
-        },
-        {
-          'kind': 'block',
-          'type': 'region',
         },
       ]
     },
@@ -501,10 +481,6 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'selectedplayer',
-        },
-        {
-          'kind': 'block',
-          'type': 'player_type',
         },
       ]
     },
@@ -565,6 +541,57 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'getplayerselectedunit',
+        },
+      ]
+    },
+    {
+      'kind': 'category',
+      'name': 'Types',
+      'categorystyle': 'others_category',
+      'contents': [
+        {
+          "kind": "label",
+          "text": "Item Type",
+        },
+        {
+          'kind': 'block',
+          'type': 'item_type',
+        },
+        {
+          'kind': 'block',
+          'type': 'itemtypeofitem',
+        }, 
+        {
+          "kind": "label",
+          "text": "Projectile Type",
+        },
+        {
+          'kind': 'block',
+          'type': 'projectile_type',
+        },
+        {
+          'kind': 'block',
+          'type': 'projectiletypeofprojectile',
+        }, 
+        {
+          "kind": "label",
+          "text": "Region",
+        },
+        {
+          'kind': 'block',
+          'type': 'region',
+        },
+        {
+          "kind": "label",
+          "text": "Player Type",
+        },
+        {
+          'kind': 'block',
+          'type': 'player_type',
+        },
+        {
+          "kind": "label",
+          "text": "Unit Type",
         },
         {
           'kind': 'block',
