@@ -501,14 +501,6 @@ export const toolbox = {
           'kind': 'block',
           'type': 'createunitatposition',
           'inputs': {
-            'unittype': {
-              'shadow': {
-                'type': 'string',
-                'fields': {
-                  'text': "",
-                },
-              },
-            },
             'angle': {
               'shadow': {
                 'type': 'angle',
