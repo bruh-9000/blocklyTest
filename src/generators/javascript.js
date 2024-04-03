@@ -259,8 +259,8 @@ forBlock['playercameratrackunit'] = function (block, generator) {
 
 forBlock['createunitatposition'] = function (block, generator) {
   const player = generator.valueToCode(block, 'player', Order.NONE) || "";
-  const unitType = generator.valueToCode(block, 'unittype', Order.NONE) || "";
-  const pos = generator.valueToCode(block, 'pos', Order.NONE) || "";
+  const unitType = generator.valueToCode(block, 'unitType', Order.NONE) || "";
+  const pos = generator.valueToCode(block, 'position', Order.NONE) || "";
   const angle = generator.valueToCode(block, 'angle', Order.NONE) || "";
 
   // Generate the function call for this block.
@@ -323,7 +323,7 @@ forBlock['continue'] = function (block, generator) {
 
 forBlock['increasevariablebynumber'] = function (block, generator) {
   const varName = this.getField("VAR").variable.name;
-  const number = generator.valueToCode(block, 'num', Order.NONE) || "";
+  const number = generator.valueToCode(block, 'number', Order.NONE) || "";
 
   // Generate the function call for this block.
   const code = `increaseVariableByNumber('${varName}', ${number})\n`;
@@ -332,7 +332,7 @@ forBlock['increasevariablebynumber'] = function (block, generator) {
 
 forBlock['decreasevariablebynumber'] = function (block, generator) {
   const varName = this.getField("VAR").variable.name;
-  const number = generator.valueToCode(block, 'num', Order.NONE) || "";
+  const number = generator.valueToCode(block, 'number', Order.NONE) || "";
 
   // Generate the function call for this block.
   const code = `decreaseVariableByNumber('${varName}', ${number})\n`;

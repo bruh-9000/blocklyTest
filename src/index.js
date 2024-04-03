@@ -220,6 +220,8 @@ loadButton.addEventListener("click", () => {
         } else {
           Blockly.serialization.workspaces.load(JSON.parse(convert(event.target.result)), ws);
         }
+
+        // convert(event.target.result)
       };
       reader.readAsText(file);
   };
@@ -782,6 +784,31 @@ function convert(moddJSON) {
   let triggersLength = triggers.length;
   let nestedTriggers = null;
 
+  const conversionList = {
+    "xyCoordinate": "pos",
+    /*
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": ""
+    */
+  };
+
   // Iterate through triggers array to nest blocks
   for (let i = triggers.length - 1; i >= 0; i--) {
       const trigger = triggers[i];
@@ -808,16 +835,62 @@ function convert(moddJSON) {
 
   // Iterate through triggers array to nest blocks
   for (let i = actions.length - 1; i >= 0; i--) {
-      const action = actions[i];
-      const block = {
-          "type": action.type.toLowerCase(),
-      };
+    const action = actions[i];
 
-      if (nestedActions) {
-          block.next = nestedActions;
+    let inputs;
+    let inputType;
+
+    for (let key in action) {
+      let actionKey = action[key];
+      let keyName;
+
+      // Now let's find the key corresponding to the value
+      for (let innerKey in action) {
+        if (action[innerKey] === actionKey) {
+          keyName = innerKey;
+          break;
+        }
       }
 
-      nestedActions = { "block": block };
+      console.log(blocks.particle)
+
+      if (key !== "type") {
+        if (typeof action[key] === "number") {
+          inputs = JSON.parse(`{
+            "${keyName}": {
+              "shadow": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": ${actionKey}
+                }
+              }
+            }
+          }`);  
+        } else if (typeof action[key] === "string") {
+          inputs = JSON.parse(`{
+            "${keyName}": {
+              "shadow": {
+                "type": "string",
+                "fields": {
+                  "text": "${actionKey}"
+                }
+              }
+            }
+          }`);  
+        }
+      }
+    }
+
+    const block = {
+      "type": action.type.toLowerCase(),
+      inputs,
+    };
+
+    if (nestedActions) {
+      block.next = nestedActions;
+    }
+
+    nestedActions = { "block": block };
   }
 
   actions = JSON.stringify(nestedActions, null, 4)
@@ -848,4 +921,6 @@ ${actions}
   }`
 
   return blocklyJSON;
+
+  console.log(blocklyJSON)
 };

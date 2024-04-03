@@ -465,7 +465,7 @@ const createUnitAtPosition = {
   "args0": [
     {
       "type": "input_value",
-      "name": "unittype",
+      "name": "unitType",
       "check": "g Unit Type"
     },
     {
@@ -481,7 +481,7 @@ const createUnitAtPosition = {
     },
     {
       "type": "input_value",
-      "name": "pos",
+      "name": "position",
       "check": "Pos"
     },
     {
@@ -829,7 +829,7 @@ const decreaseVariableByNumber = {
     },
     {
       "type": "input_value",
-      "name": "num",
+      "name": "number",
       "check": "Number"
     }
   ],
@@ -857,7 +857,7 @@ const increaseVariableByNumber = {
     },
     {
       "type": "input_value",
-      "name": "num",
+      "name": "number",
       "check": "Number"
     }
   ],
