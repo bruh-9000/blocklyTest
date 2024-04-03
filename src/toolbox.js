@@ -29,12 +29,20 @@ export const toolbox = {
       'categorystyle': 'triggers_category',
       'contents': [
         {
+          "kind": "label",
+          "text": "Core Blocks",
+        },
+        {
           'kind': 'block',
           'type': 'triggers',
         },
         {
           'kind': 'block',
           'type': 'script',
+        },
+        {
+          "kind": "label",
+          "text": "Triggers",
         },
         {
           'kind': 'block',
@@ -225,6 +233,10 @@ export const toolbox = {
           'type': 'continue',
         },   
         {
+          "kind": "label",
+          "text": "Unit Groups",
+        },
+        {
           'kind': 'block',
           'type': 'forallunits',
         },
@@ -239,6 +251,10 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'allunitsownedbyplayer',
+        },
+        {
+          "kind": "label",
+          "text": "Player Groups",
         },
         {
           'kind': 'block',
@@ -667,6 +683,10 @@ export const toolbox = {
       'categorystyle': 'others_category',
       'contents': [
         {
+          "kind": "label",
+          "text": "Dialogues",
+        },
+        {
           'kind': 'block',
           'type': 'opendialogue',
           'inputs': {
@@ -676,6 +696,10 @@ export const toolbox = {
               },
             },
           },
+        },
+        {
+          "kind": "label",
+          "text": "Shops",
         },
         {
           'kind': 'block',
@@ -732,8 +756,16 @@ export const toolbox = {
       'categorystyle': 'others_category',
       'contents': [
         {
+          "kind": "label",
+          "text": "Sound",
+        },
+        {
           'kind': 'block',
           'type': 'playsoundforplayer',
+        },
+        {
+          "kind": "label",
+          "text": "Music",
         },
         {
           'kind': 'block',
