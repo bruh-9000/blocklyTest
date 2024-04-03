@@ -143,8 +143,8 @@ export const toolbox = {
       'categorystyle': 'system_category',
       'contents': [
         {
-          'kind': 'block',
-          'type': 'comment',
+          "kind": "label",
+          "text": "Comparison",
         },
         {
           'kind': 'block',
@@ -161,7 +161,11 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'or',
-        },    
+        },  
+        {
+          "kind": "label",
+          "text": "Other",
+        },  
         {
           'kind': 'block',
           'type': 'runscript',
@@ -175,6 +179,10 @@ export const toolbox = {
         },
         {
           'kind': 'block',
+          'type': 'comment',
+        },
+        {
+          'kind': 'block',
           'type': 'colour_hsv_sliders',
         },
       ]
@@ -184,6 +192,10 @@ export const toolbox = {
       'name': 'Loops',
       'categorystyle': 'system_category',
       'contents': [
+        {
+          "kind": "label",
+          "text": "General",
+        },
         {
           'kind': 'block',
           'type': 'repeat',
@@ -276,16 +288,16 @@ export const toolbox = {
       'categorystyle': 'logic_category',
       'contents': [
         {
+          "kind": "label",
+          "text": "Basic",
+        },
+        {
           'kind': 'block',
           'type': 'math_number',
           'fields': {
             'NUM': 123,
           },
         },
-        {
-          'kind': 'block',
-          'type': 'number_comparison',
-        },    
         {
           'kind': 'block',
           'type': 'math_arithmetic',
@@ -307,10 +319,26 @@ export const toolbox = {
               },
             },
           },
-        },  
+        },
+        {
+          "kind": "label",
+          "text": "Comparison",
+        },
+        {
+          'kind': 'block',
+          'type': 'number_comparison',
+        },   
+        {
+          "kind": "label",
+          "text": "Angles",
+        },   
         {
           'kind': 'block',
           'type': 'angle'
+        },
+        {
+          "kind": "label",
+          "text": "Other",
         },
         {
           'kind': 'block',
@@ -333,6 +361,10 @@ export const toolbox = {
       'name': 'Text',
       'categorystyle': 'logic_category',
       'contents': [
+        {
+          "kind": "label",
+          "text": "Basic",
+        },
         {
           'kind': 'block',
           'type': 'string',
@@ -371,6 +403,10 @@ export const toolbox = {
       'categorystyle': 'logic_category',
       'contents': [
         {
+          "kind": "label",
+          "text": "Basic",
+        },
+        {
           'kind': 'block',
           'type': 'bool',
         },    
@@ -381,6 +417,10 @@ export const toolbox = {
       'name': 'Positions',
       'categorystyle': 'logic_category',
       'contents': [
+        {
+          "kind": "label",
+          "text": "Positions",
+        },
         {
           'kind': 'block',
           'type': 'pos',
@@ -422,6 +462,10 @@ export const toolbox = {
       'categorystyle': 'entities_category',
       'contents': [
         {
+          "kind": "label",
+          "text": "Actions",
+        },
+        {
           'kind': 'block',
           'type': 'moveentity',
         },
@@ -437,6 +481,10 @@ export const toolbox = {
       'categorystyle': 'entities_category',
       'contents': [
         {
+          "kind": "label",
+          "text": "Actions",
+        },
+        {
           'kind': 'block',
           'type': 'givenewitemtounit',
           'inputs': {
@@ -446,6 +494,10 @@ export const toolbox = {
               },
             },
           },
+        },
+        {
+          "kind": "label",
+          "text": "Items",
         },
         {
           'kind': 'block',
@@ -458,6 +510,10 @@ export const toolbox = {
       'name': 'Projectile',
       'categorystyle': 'entities_category',
       'contents': [
+        {
+          "kind": "label",
+          "text": "Actions",
+        },
         {
           'kind': 'block',
           'type': 'createprojectileatposition',
@@ -480,6 +536,10 @@ export const toolbox = {
           },
         },
         {
+          "kind": "label",
+          "text": "Projectiles",
+        },
+        {
           'kind': 'block',
           'type': 'triggeringprojectile',
         },
@@ -490,6 +550,10 @@ export const toolbox = {
       'name': 'Region',
       'categorystyle': 'entities_category',
       'contents': [
+        {
+          "kind": "label",
+          "text": "Regions",
+        },
         {
           'kind': 'block',
           'type': 'getentiremapregion',
@@ -505,6 +569,10 @@ export const toolbox = {
       'name': 'Player',
       'categorystyle': 'players_category',
       'contents': [
+        {
+          "kind": "label",
+          "text": "Actions",
+        },
         {
           'kind': 'block',
           'type': 'playercameratrackunit',
@@ -538,6 +606,10 @@ export const toolbox = {
           },
         },
         {
+          "kind": "label",
+          "text": "Players",
+        },
+        {
           'kind': 'block',
           'type': 'owner',
         },
@@ -556,6 +628,10 @@ export const toolbox = {
       'name': 'Unit',
       'categorystyle': 'units_category',
       'contents': [
+        {
+          "kind": "label",
+          "text": "Actions",
+        },
         {
           'kind': 'block',
           'type': 'createunitatposition',
@@ -592,6 +668,10 @@ export const toolbox = {
         {
           'kind': 'block',
           'type': 'dropallitems',
+        },
+        {
+          "kind": "label",
+          "text": "Units",
         },
         {
           'kind': 'block',
