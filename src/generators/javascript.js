@@ -519,8 +519,8 @@ forBlock['getplayerselectedunit'] = function (block, generator) {
 };
 
 forBlock['join'] = function (block, generator) {
-  const text1 = generator.valueToCode(block, 'text1', Order.NONE) || "''";
-  const text2 = generator.valueToCode(block, 'text2', Order.NONE) || "''";
+  const text1 = generator.valueToCode(block, 'textA', Order.NONE) || "''";
+  const text2 = generator.valueToCode(block, 'textB', Order.NONE) || "''";
 
   // Generate the function call for this block.
   const code = `${text1} + ${text2}`;

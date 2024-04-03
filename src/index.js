@@ -5,7 +5,7 @@
  */
 
 import * as Blockly from 'blockly';
-import {blocks} from './blocks/text';
+import {blocks, blocksDef} from './blocks/text';
 import {forBlock} from './generators/javascript';
 import {javascriptGenerator} from 'blockly/javascript';
 import {save, load} from './serialization';
@@ -218,10 +218,10 @@ loadButton.addEventListener("click", () => {
         if (fileContent?.isProtected == undefined) {
           Blockly.serialization.workspaces.load(fileContent, ws);
         } else {
-          Blockly.serialization.workspaces.load(JSON.parse(convert(event.target.result)), ws);
+          // Blockly.serialization.workspaces.load(JSON.parse(convert(event.target.result)), ws);
         }
 
-        // convert(event.target.result)
+        convert(event.target.result)
       };
       reader.readAsText(file);
   };
@@ -784,10 +784,10 @@ function convert(moddJSON) {
   let triggersLength = triggers.length;
   let nestedTriggers = null;
 
+  // All block definitions from moddJSON to moddBlockly
   const conversionList = {
     "xyCoordinate": "pos",
-    /*
-    "": "",
+    "concat": "join",
     "": "",
     "": "",
     "": "",
@@ -806,10 +806,30 @@ function convert(moddJSON) {
     "": "",
     "": "",
     "": ""
-    */
   };
 
-  // Iterate through triggers array to nest blocks
+  // All inputs converted to their respective blocks
+  const inputConversionList = {
+    "textA": "string",
+    "textB": "string",
+    "message": "string",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": ""
+  };
+
   for (let i = triggers.length - 1; i >= 0; i--) {
       const trigger = triggers[i];
       const block = {
@@ -833,18 +853,19 @@ function convert(moddJSON) {
   let actions = data.actions;
   let nestedActions = null;
 
-  // Iterate through triggers array to nest blocks
   for (let i = actions.length - 1; i >= 0; i--) {
     const action = actions[i];
 
-    let inputs;
-    let inputType;
-
+    let inputs = '';
+    
     for (let key in action) {
       let actionKey = action[key];
       let keyName;
+      let args = [];
+      let argsNames = [];
+      let inputs2 = [];
 
-      // Now let's find the key corresponding to the value
+      // Get inner contents of action
       for (let innerKey in action) {
         if (action[innerKey] === actionKey) {
           keyName = innerKey;
@@ -852,38 +873,51 @@ function convert(moddJSON) {
         }
       }
 
-      console.log(blocks.particle)
+      // Get block types and inner types
+      if (typeof actionKey === "object") {
+        actionKey = actionKey.function;
+      }
+      if (conversionList.hasOwnProperty(actionKey)) {
+        actionKey = conversionList[actionKey]
+      }
+      actionKey = actionKey.toLowerCase();
 
-      if (key !== "type") {
-        if (typeof action[key] === "number") {
-          inputs = JSON.parse(`{
-            "${keyName}": {
-              "shadow": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": ${actionKey}
+      // Args - All inputs and their input types
+      // ArgsNames - Names of all inputs
+      for (let i = 0; i < blocksDef.length; i++) {
+        if (blocksDef[i].type === actionKey) {
+          for (let i2 = 0; i2 < blocksDef[i].args0.length; i2++) {
+            if (blocksDef[i].args0[i2].type == "input_value") {
+              args.push(blocksDef[i].args0[i2]);
+              argsNames.push(blocksDef[i].args0[i2].name);
+
+              let name = blocksDef[i].args0[i2].name;
+
+              // Dynamically add more JSON objects to the array
+              inputs2.push(`{
+                "${name}": {
+                  "shadow": {
+                    "type": "math_number"
+                  }
                 }
-              }
+              }`);
             }
-          }`);  
-        } else if (typeof action[key] === "string") {
-          inputs = JSON.parse(`{
-            "${keyName}": {
-              "shadow": {
-                "type": "string",
-                "fields": {
-                  "text": "${actionKey}"
-                }
-              }
-            }
-          }`);  
+          }
+          break;
         }
       }
+      
+      // Join the JSON objects with commas to form a JSON array
+      inputs2 = "[" + inputs2.join(',\n') + "]";
+
+      // Add the inputs/inner blocks to the block
+      inputs2 = JSON.parse(inputs2); 
+      inputs = inputs2;
     }
 
     const block = {
       "type": action.type.toLowerCase(),
-      inputs,
+      inputs
     };
 
     if (nestedActions) {
@@ -893,6 +927,7 @@ function convert(moddJSON) {
     nestedActions = { "block": block };
   }
 
+  // Combine all elements into Blockly format
   actions = JSON.stringify(nestedActions, null, 4)
                 .split('\n')
                 .map(line => ' '.repeat(12) + line) // Indent each line by 12 spaces
@@ -920,7 +955,7 @@ ${actions}
     }
   }`
 
-  return blocklyJSON;
-
   console.log(blocklyJSON)
+
+  // return blocklyJSON;
 };

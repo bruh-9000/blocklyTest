@@ -1236,11 +1236,11 @@ const join = {
   "args0": [
     {
       "type": "input_value",
-      "name": "text1"
+      "name": "textA"
     },
     {
       "type": "input_value",
-      "name": "text2"
+      "name": "textB"
     }
   ],
   "inputsInline": true,
@@ -2018,3 +2018,13 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
   forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
   playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region, unitTypeOfUnit, playerTypeOfPlayer, giveNewItemToUnit,
   createProjectileAtPosition, runscript, and1, or1]);
+
+  export const blocksDef = [script, frameTick, secondTick, sendChatMessage, triggers, ifelse, pos, moveEntity, triggeringPlayer, owner, triggeringUnit, selectedUnit, onPostResponse, gameStart, serverShuttingDown,
+    unitTouchesItem, unitPickedAnItem, unitTouchesProjectile, unitStopsUsingAnItem, unitAttacksUnit, unitSelectsItem, unitLeavesRegion, unitDroppedAnItem, unitEntersRegion, unitAttributeBecomesFull,
+    unitStartsUsingAnItem, unitAttributeBecomesZero, unitUsesItem, unitTouchesWall, playerSendsChatMessage, destroyEntity, lastCreatedUnit, playerCameraTrackUnit, createUnitAtPosition,
+    playerJoinsGame, playerLeavesGame, getPlayerName, str2num, num2str, sendChatMessageToPlayer, break1, continue1, decreaseVariableByNumber, increaseVariableByNumber, setVariable, triggeringItem,
+    triggeringRegion, triggeringProjectile, repeat, while1, kickPlayer, comment, dropAllItems, centerOfRegion, getEntireMapRegion, getEntityPosition, itemTypeOfItem, projectileTypeOfProjectile,
+    setPlayerName, setUnitNameLabel, getPlayerSelectedUnit, join, string, bool, number_comparison, comparison, lastChatMessageSent, forAllUnits, allUnits, allUnitsInRegion, allUnitsOwnedByPlayer,
+    forAllPlayers, humanPlayers, botPlayers, selectedPlayer, repeatWithDelay, getVariable, angle, colorPicker, unitType, openDialogue, openShop, playSoundForPlayer, playMusicForPlayer,
+    playerType, unitType, dialogue, shop, projectileType, particle, itemType, sound, music, playerVariable, script1, region, unitTypeOfUnit, playerTypeOfPlayer, giveNewItemToUnit,
+    createProjectileAtPosition, runscript, and1, or1];
