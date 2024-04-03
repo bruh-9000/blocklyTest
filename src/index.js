@@ -214,7 +214,12 @@ loadButton.addEventListener("click", () => {
       const reader = new FileReader();
       reader.onload = function(event) {
         fileContent = JSON.parse(event.target.result); // Parse directly without decoding
-        Blockly.serialization.workspaces.load(fileContent, ws);
+
+        if (fileContent?.isProtected == undefined) {
+          Blockly.serialization.workspaces.load(fileContent, ws);
+        } else {
+          Blockly.serialization.workspaces.load(JSON.parse(convert(event.target.result)), ws);
+        }
       };
       reader.readAsText(file);
   };
@@ -770,3 +775,77 @@ document.addEventListener('DOMContentLoaded', function() {
     saved = false;
   }
 });
+
+function convert(moddJSON) {
+  const data = JSON.parse(moddJSON);
+  let triggers = data.triggers;
+  let triggersLength = triggers.length;
+  let nestedTriggers = null;
+
+  // Iterate through triggers array to nest blocks
+  for (let i = triggers.length - 1; i >= 0; i--) {
+      const trigger = triggers[i];
+      const block = {
+          "type": trigger.type.toLowerCase(),
+      };
+
+      if (nestedTriggers) {
+          block.next = nestedTriggers;
+      }
+
+      nestedTriggers = { "block": block };
+  }
+
+  triggers = JSON.stringify(nestedTriggers, null, 4)
+                .split('\n')
+                .map(line => ' '.repeat(12) + line) // Indent each line by 12 spaces
+                .join('\n');
+
+  let downAmount = 104 + triggersLength * 50;
+
+  let actions = data.actions;
+  let nestedActions = null;
+
+  // Iterate through triggers array to nest blocks
+  for (let i = actions.length - 1; i >= 0; i--) {
+      const action = actions[i];
+      const block = {
+          "type": action.type.toLowerCase(),
+      };
+
+      if (nestedActions) {
+          block.next = nestedActions;
+      }
+
+      nestedActions = { "block": block };
+  }
+
+  actions = JSON.stringify(nestedActions, null, 4)
+                .split('\n')
+                .map(line => ' '.repeat(12) + line) // Indent each line by 12 spaces
+                .join('\n');
+
+  const blocklyJSON = `{
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "triggers",
+          "x": 0,
+          "y": 0,
+          "next":
+${triggers}
+        },
+        {
+          "type": "script",
+          "x": 0,
+          "y": ${downAmount},
+          "next":
+${actions}
+        }
+      ]
+    }
+  }`
+
+  return blocklyJSON;
+};
