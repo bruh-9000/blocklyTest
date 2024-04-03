@@ -518,94 +518,156 @@ loadVariables.addEventListener("click", () => {
   input.click();
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  loadVariablesFunc(localStorage.getItem('varJSON'))
-});
-
 function loadVariablesFunc(input) {
   localStorage.setItem('varJSON', input);
 
   const fileContent = JSON.parse(input);
 
-  for (let i = 0; i < ws.getAllVariables().length; i++) {
-    ws.deleteVariableById(ws.getAllVariables()[i].id_);
+  let varListNames = [];
+
+  for (let variableName in fileContent.data.playerTypes) {
+    varListNames.push(fileContent.data.playerTypes[variableName].name);
+  }
+  for (let variableName in fileContent.data.unitTypes) {
+    varListNames.push(fileContent.data.unitTypes[variableName].name);
+  }
+  for (let variableName in fileContent.data.dialogues) {
+    varListNames.push(fileContent.data.dialogues[variableName].name);
+  }
+  for (let variableName in fileContent.data.shops) {
+    varListNames.push(fileContent.data.shops[variableName].name);
+  }
+  for (let variableName in fileContent.data.projectileTypes) {
+    varListNames.push(fileContent.data.projectileTypes[variableName].name);
+  }
+  for (let variableName in fileContent.data.particles) {
+    varListNames.push(fileContent.data.particles[variableName].name);
+  }
+  for (let variableName in fileContent.data.itemTypes) {
+    varListNames.push(fileContent.data.itemTypes[variableName].name);
+  }
+  for (let variableName in fileContent.data.sound) {
+    varListNames.push(fileContent.data.sound[variableName].name);
+  }
+  for (let variableName in fileContent.data.music) {
+    varListNames.push(fileContent.data.music[variableName].name);
+  }
+  for (let variableName in fileContent.data.scripts) {
+    varListNames.push(fileContent.data.scripts[variableName].name);
+  }
+  for (let variableName in fileContent.data.variables) {
+    varListNames.push(variableName);
+  }
+
+  const allVars = ws.getAllVariables();
+
+  for (let i = 0; i < allVars.length; i++) {
+    if (varListNames.includes(allVars[i].name) == false) {
+      ws.deleteVariableById(allVars[i].id_);
+    }
   }
 
   for (let variableName in fileContent.data.playerTypes) {
     if (fileContent.data.playerTypes.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.playerTypes[variableName].name, "g Player Type");
-      let innerList = [fileContent.data.playerTypes[variableName].name, variableName];
-      playerTypeNames.push(innerList);
+      if (varListNames.includes(fileContent.data.playerTypes[variableName].name)) {
+        ws.createVariable(fileContent.data.playerTypes[variableName].name, "g Player Type");
+        let innerList = [fileContent.data.playerTypes[variableName].name, variableName];
+        playerTypeNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.unitTypes) {
     if (fileContent.data.unitTypes.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.unitTypes[variableName].name, "g Unit Type");
-      let innerList = [fileContent.data.unitTypes[variableName].name, variableName];
-      unitTypeNames.push(innerList);
+      console.log(ws.getAllVariables())
+      if (varListNames.includes(fileContent.data.unitTypes[variableName].name)) {
+        ws.createVariable(fileContent.data.unitTypes[variableName].name, "g Unit Type");
+        let innerList = [fileContent.data.unitTypes[variableName].name, variableName];
+        unitTypeNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.dialogues) {
     if (fileContent.data.dialogues.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.dialogues[variableName].name, "g Dialogue");
-      let innerList = [fileContent.data.dialogues[variableName].name, variableName];
-      dialogueNames.push(innerList);
+      console.log()
+      if (varListNames.includes(fileContent.data.dialogues[variableName].name)) {
+        ws.createVariable(fileContent.data.dialogues[variableName].name, "g Dialogue");
+        let innerList = [fileContent.data.dialogues[variableName].name, variableName];
+        dialogueNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.shops) {
     if (fileContent.data.shops.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.shops[variableName].name, "g Shop");
-      let innerList = [fileContent.data.shops[variableName].name, variableName];
-      shopNames.push(innerList);
+      if (varListNames.includes(fileContent.data.shops[variableName].name)) {
+        ws.createVariable(fileContent.data.shops[variableName].name, "g Shop");
+        let innerList = [fileContent.data.shops[variableName].name, variableName];
+        shopNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.projectileTypes) {
     if (fileContent.data.projectileTypes.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.projectileTypes[variableName].name, "g Projectile Type");
-      let innerList = [fileContent.data.projectileTypes[variableName].name, variableName];
-      projectileTypeNames.push(innerList);
+      if (varListNames.includes(fileContent.data.projectileTypes[variableName].name)) {
+        ws.createVariable(fileContent.data.projectileTypes[variableName].name, "g Projectile Type");
+        let innerList = [fileContent.data.projectileTypes[variableName].name, variableName];
+        projectileTypeNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.particles) {
     if (fileContent.data.particles.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.particles[variableName].name, "g Particle");
-      let innerList = [fileContent.data.particles[variableName].name, variableName];
-      particleNames.push(innerList);
+      if (varListNames.includes(fileContent.data.particles[variableName].name)) {
+        ws.createVariable(fileContent.data.particles[variableName].name, "g Particle");
+        let innerList = [fileContent.data.particles[variableName].name, variableName];
+        particleNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.itemTypes) {
     if (fileContent.data.itemTypes.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.itemTypes[variableName].name, "g Item Type");
-      let innerList = [fileContent.data.itemTypes[variableName].name, variableName];
-      itemTypeNames.push(innerList);
+      if (varListNames.includes(fileContent.data.itemTypes[variableName].name)) {
+        ws.createVariable(fileContent.data.itemTypes[variableName].name, "g Item Type");
+        let innerList = [fileContent.data.itemTypes[variableName].name, variableName];
+        itemTypeNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.sound) {
     if (fileContent.data.sound.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.sound[variableName].name, "g Sound");
-      let innerList = [fileContent.data.sound[variableName].name, variableName];
-      soundNames.push(innerList);
+      if (varListNames.includes(fileContent.data.sound[variableName].name)) {
+        ws.createVariable(fileContent.data.sound[variableName].name, "g Sound");
+        let innerList = [fileContent.data.sound[variableName].name, variableName];
+        soundNames.push(innerList);
+      }
     }
   }
   for (let variableName in fileContent.data.music) {
     if (fileContent.data.music.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.music[variableName].name, "g Music");
-      let innerList = [fileContent.data.music[variableName].name, variableName];
-      musicNames.push(innerList);
+      if (varListNames.includes(fileContent.data.music[variableName].name)) {
+        ws.createVariable(fileContent.data.music[variableName].name, "g Music");
+        let innerList = [fileContent.data.music[variableName].name, variableName];
+        musicNames.push(innerList);
+      }
     }
   }
+  /*
   for (let variableName in fileContent.data.playerTypeVariables) {
     if (fileContent.data.playerTypeVariables.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.playerTypeVariables[variableName].name, "g Player Variable");
-      let innerList = [fileContent.data.playerTypeVariables[variableName].name, variableName];
-      playerVariableNames.push(innerList);
+      if (varListNames.includes(fileContent.data.playerTypeVariables[variableName].name)) {
+        ws.createVariable(fileContent.data.playerTypeVariables[variableName].name, "g Player Variable");
+        let innerList = [fileContent.data.playerTypeVariables[variableName].name, variableName];
+        playerVariableNames.push(innerList);
+      }
     }
   }
+  */
   for (let variableName in fileContent.data.scripts) {
     if (fileContent.data.scripts.hasOwnProperty(variableName)) {
-      ws.createVariable(fileContent.data.scripts[variableName].name, "g Script");
-      let innerList = [fileContent.data.scripts[variableName].name, variableName];
-      scripts.push(innerList);
+      if (varListNames.includes(variableName) == false) {
+        ws.createVariable(fileContent.data.scripts[variableName].name, "g Script");
+        let innerList = [fileContent.data.scripts[variableName].name, variableName];
+        scripts.push(innerList);
+      }
     }
   }
 
@@ -632,12 +694,14 @@ function loadVariablesFunc(input) {
 
   for (let variableName in fileContent.data.variables) {
     if (fileContent.data.variables.hasOwnProperty(variableName)) {
-      let dataType = fileContent.data.variables[variableName].dataType;
-      
-      if (dataType == "region") {
-        ws.createVariable(variableName, "g Region");
-      } else {
-        ws.createVariable(variableName, conversionList[dataType]);
+      if (varListNames.includes(variableName) == false) {
+        let dataType = fileContent.data.variables[variableName].dataType;
+        
+        if (dataType == "region") {
+          ws.createVariable(variableName, "g Region");
+        } else {
+          ws.createVariable(variableName, conversionList[dataType]);
+        }
       }
     }
   }
